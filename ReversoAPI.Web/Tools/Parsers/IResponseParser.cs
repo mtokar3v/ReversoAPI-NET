@@ -2,6 +2,6 @@
 {
     public interface IResponseParser<TResult>
     {
-        public TResult Invoke();
+        TResult Invoke(string html);
     }
 }

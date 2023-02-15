@@ -5,6 +5,6 @@ namespace ReversoAPI.Web.Http.Interfaces
 {
     public interface IAPIConnector
     {
-        Task<T> GetAsync<T>(Uri uri);
+        Task<string> GetAsync(Uri uri);
     }
 }

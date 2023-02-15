@@ -15,10 +15,10 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(ContextResponse expectedResult, string html)
         {
             // Arrange
-            var parser = new ContextResponseParser(html);
+            var parser = new ContextResponseParser();
 
             // Act
-            var result = parser.Invoke();
+            var result = parser.Invoke(html);
 
             // Assert
             expectedResult.Text.Should().Be(result.Text);

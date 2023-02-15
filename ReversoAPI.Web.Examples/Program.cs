@@ -1,16 +1,16 @@
 ﻿using ReversoAPI.Web.Clients;
 using ReversoAPI.Web.Models.Values;
 
-namespace ConsoleApp1
+namespace ReversoAPI.Web.Examples
 {
     internal class Program
     {
         static async Task Main(string[] args)
         {
             var reverso = new ReversoClient();
-            var response = reverso.Symonims.GetAsync("folk", Language.English);
 
-            await DisplayContext(reverso);
+            for (var i = 0; i < 100; i++)
+                Console.WriteLine((await reverso.Symonims.GetAsync("folk", Language.English)).Text);
         }
 
         private static async Task DisplayContext(IReversoClient reverso)

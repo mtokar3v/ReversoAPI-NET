@@ -1,5 +1,4 @@
-﻿using ReversoAPI.Web.Factories;
-using ReversoAPI.Web.Http.Interfaces;
+﻿using ReversoAPI.Web.Http.Interfaces;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,21 +7,23 @@ namespace ReversoAPI.Web.Http
 {
     public class APIConnector : IAPIConnector
     {
-        private const string RandomUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36";
-        // Bad solution, cause sockes are shuted down after long time
-        public async Task<T> GetAsync<T>(Uri uri)
-        {
-            using var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("user-agent", RandomUserAgent);
-            httpClient.DefaultRequestHeaders.Add("accept", "*/*");
+        private readonly HttpClient _httpClient;
 
-            //do retry
-            var httpResponseMessage = await httpClient.GetAsync(uri);
+        public APIConnector()
+        {
+            _httpClient = HttpClientCacheWrapper
+                .GetInstance()
+                .GetHttpClient();
+        }
+
+        public async Task<string> GetAsync(Uri uri)
+        {
+            //TO DO: Add do retry logic
+            using var httpResponseMessage = await _httpClient.GetAsync(uri);
             if (!httpResponseMessage.IsSuccessStatusCode) throw new HttpRequestException($"'GET {uri}' is failed");
 
-            var content = await httpResponseMessage.Content.ReadAsStringAsync();
-
-            return ParserFactory.Create<T>(content).Invoke();
+            // Why does APIConnector GET return string, not something like a HttpResponse?
+            return await httpResponseMessage.Content.ReadAsStringAsync();
         }
     }
 }

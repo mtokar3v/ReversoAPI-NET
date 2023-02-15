@@ -4,18 +4,28 @@ using ReversoAPI.Web.Models.Values;
 using System.Threading.Tasks;
 using System;
 using ReversoAPI.Web.Extensions;
+using ReversoAPI.Web.Tools.Parsers;
 
 namespace ReversoAPI.Web.Clients
 {
-    public class SynonimsClient : APIClient, ISynonimsClient
+    public class SynonymsClient : APIClient, ISynonimsClient
     {
         private const string SynonimsURL = "https://synonyms.reverso.net/synonym/";
-        public Task<SynonymsResponse> GetAsync(string text, Language language)
+
+        private readonly IResponseParser<SynonymsResponse> _parser;
+
+        public SynonymsClient(IResponseParser<SynonymsResponse> parser)
+        {
+            _parser = parser;
+        }
+
+        public async Task<SynonymsResponse> GetAsync(string text, Language language)
         {
             if (string.IsNullOrEmpty(text)) return null;
 
             var url = CombineUrl(text, language);
-            return API.GetAsync<SynonymsResponse>(url);
+            var response = await API.GetAsync(url);
+            return _parser.Invoke(response);
         }
 
         private Uri CombineUrl(string text, Language language) 

@@ -1,17 +1,21 @@
 ﻿using HtmlAgilityPack;
+using System;
+using System.IO;
 
 namespace ReversoAPI.Web.Tools.Parsers
 {
     public abstract class BaseResponseParser<TResult> : IResponseParser<TResult>
     {
-        protected readonly HtmlDocument _html;
-
-        public BaseResponseParser(string html)
+        public TResult Invoke(string html)
         {
-            _html = new HtmlDocument();
-            _html.LoadHtml(html);
+            if (string.IsNullOrEmpty(html)) throw new ArgumentNullException(nameof(html));
+
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+
+            return Parse(htmlDoc);
         }
 
-        public abstract TResult Invoke();
+        protected abstract TResult Parse(HtmlDocument html);
     }
 }
