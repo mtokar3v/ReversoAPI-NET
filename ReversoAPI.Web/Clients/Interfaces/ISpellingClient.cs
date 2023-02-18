@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace ReversoAPI.Web.Clients.Interfaces
 {
-    public interface IContextClient
+    public interface ISpellingClient
     {
-        Task<ContextData> GetAsync(string text, Language source, Language target);
+        Task<SpellingData> GetAsync(string text, Language language, Locale locale = Locale.None);
     }
 }

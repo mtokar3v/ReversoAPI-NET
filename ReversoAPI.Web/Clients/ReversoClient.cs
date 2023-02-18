@@ -12,9 +12,12 @@ namespace ReversoAPI.Web.Clients
 
             Context = new ContextClient(apiConnector, new ContextResponseParser());
             Synonyms = new SynonymsClient(apiConnector, new SynonymsResponseParser());
+
+            Spelling = new SpellingClient(apiConnector);
         }
 
         public IContextClient Context { get; }
         public ISynonymsClient Synonyms { get; }
+        public ISpellingClient Spelling { get; }
     }
 }

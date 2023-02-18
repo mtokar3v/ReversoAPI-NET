@@ -1,7 +1,8 @@
 ﻿using ReversoAPI.Web.Attributes;
-using ReversoAPI.Web.Models.Values;
+using ReversoAPI.Web.Values;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
 namespace ReversoAPI.Web.Extensions
@@ -20,6 +21,20 @@ namespace ReversoAPI.Web.Extensions
                 var v when v.Contains(PartOfSpeech.Adjective.ToString(), StringComparison.InvariantCultureIgnoreCase) => PartOfSpeech.Adjective,
                 _ => PartOfSpeech.Unknown
             };
+        }
+
+
+        public static Language ToLanguageFromMediumName(this string value)
+        {
+            if (string.IsNullOrEmpty(value)) return Language.Unknown;
+
+            foreach (Language l in Enum.GetValues(typeof(Language)))
+            {
+                if (l.ToMediumName() == value)
+                    return l;
+            }
+
+            return Language.Unknown;
         }
 
         public static Language ToLanguageFromShortName(this string value)
@@ -44,11 +59,13 @@ namespace ReversoAPI.Web.Extensions
 
         public static string ToShortName<T>(this T value)
         {
-            ShortNameAttribute attribute = value.GetType()
-               .GetField(value.ToString())
-               .GetCustomAttributes(typeof(ShortNameAttribute), false)
-               .SingleOrDefault() as ShortNameAttribute;
+            var attribute = value.GetAttribute<ShortNameAttribute, T>();
+            return attribute == null ? null : attribute.Name;
+        }
 
+        public static string ToMediumName<T>(this T value) 
+        {
+            var attribute = value.GetAttribute<MediumNameAttribute, T>();
             return attribute == null ? null : attribute.Name;
         }
 

@@ -1,12 +1,12 @@
 ﻿using HtmlAgilityPack;
 using ReversoAPI.Web.Builders;
-using ReversoAPI.Web.Models.Responses;
+using ReversoAPI.Web.Entities;
 
 namespace ReversoAPI.Web.Tools.Parsers
 {
-    public class SynonymsResponseParser : BaseResponseParser<SynonymsResponse>
+    public class SynonymsResponseParser : BaseResponseParser<SynonymsData>
     {
-        protected override SynonymsResponse Parse(HtmlDocument html)
+        protected override SynonymsData Parse(HtmlDocument html)
         {
             return new SynonymsParseBuilder(html)
                 .WithInputText()

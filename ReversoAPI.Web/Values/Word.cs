@@ -1,6 +1,4 @@
-﻿using ReversoAPI.Web.Models.Values;
-
-namespace ReversoAPI.Web.Models.Entities
+﻿namespace ReversoAPI.Web.Values
 {
     public class Word
     {

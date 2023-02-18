@@ -1,8 +1,7 @@
 ﻿using HtmlAgilityPack;
+using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Extensions;
-using ReversoAPI.Web.Models.Entities;
-using ReversoAPI.Web.Models.Responses;
-using ReversoAPI.Web.Models.Values;
+using ReversoAPI.Web.Values;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +11,15 @@ namespace ReversoAPI.Web.Builders
     public class SynonymsParseBuilder
     {
         private readonly HtmlDocument _html;
-        private readonly SynonymsResponse _response;
+        private readonly SynonymsData _response;
 
         public SynonymsParseBuilder(HtmlDocument html)
         {
             _html = html;
-            _response = new SynonymsResponse();
+            _response = new SynonymsData();
         }
 
-        public SynonymsResponse Build() => _response;
+        public SynonymsData Build() => _response;
 
         public SynonymsParseBuilder WithInputText()
         {

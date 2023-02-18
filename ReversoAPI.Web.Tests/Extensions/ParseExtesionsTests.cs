@@ -1,6 +1,6 @@
 ﻿using Xunit;
 using ReversoAPI.Web.Extensions;
-using ReversoAPI.Web.Models.Values;
+using ReversoAPI.Web.Values;
 
 namespace ReversoAPI.Web.Tests.Extensions
 {

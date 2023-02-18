@@ -1,5 +1,5 @@
 ﻿using ReversoAPI.Web.Clients;
-using ReversoAPI.Web.Models.Values;
+using ReversoAPI.Web.Values;
 
 namespace ReversoAPI.Web.Examples
 {
@@ -8,6 +8,8 @@ namespace ReversoAPI.Web.Examples
         static async Task Main(string[] args)
         {
             var reverso = new ReversoClient();
+
+            var x = await reverso.Spelling.GetAsync("Helo", Language.English);
 
             for (var i = 0; i < 100; i++)
                 Console.WriteLine((await reverso.Synonyms.GetAsync("folk", Language.English)).Text);

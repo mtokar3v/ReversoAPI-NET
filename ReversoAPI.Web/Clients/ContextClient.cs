@@ -1,8 +1,8 @@
 ﻿using ReversoAPI.Web.Clients.Interfaces;
+using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Http.Interfaces;
-using ReversoAPI.Web.Models.Responses;
-using ReversoAPI.Web.Models.Values;
 using ReversoAPI.Web.Tools.Parsers;
+using ReversoAPI.Web.Values;
 using System;
 using System.Threading.Tasks;
 
@@ -12,16 +12,16 @@ namespace ReversoAPI.Web.Clients
     {
         private const string ContextURL = "https://context.reverso.net/translation/";
 
-        private readonly IResponseParser<ContextResponse> _parser;
+        private readonly IResponseParser<ContextData> _parser;
 
         public ContextClient(
             IAPIConnector apiConnector,
-            IResponseParser<ContextResponse> parser) : base(apiConnector)
+            IResponseParser<ContextData> parser) : base(apiConnector)
         {
             _parser = parser;
         }
 
-        public async Task<ContextResponse> GetAsync(string text, Language source, Language target)
+        public async Task<ContextData> GetAsync(string text, Language source, Language target)
         {
             if (string.IsNullOrEmpty(text)) return null;
             if (source == target) throw new ArgumentException("Source and Target languages are similar"); // maybe should rid of this

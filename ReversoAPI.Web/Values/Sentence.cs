@@ -1,4 +1,4 @@
-﻿namespace ReversoAPI.Web.Models.Values
+﻿namespace ReversoAPI.Web.Values
 {
     public class Sentence
     {

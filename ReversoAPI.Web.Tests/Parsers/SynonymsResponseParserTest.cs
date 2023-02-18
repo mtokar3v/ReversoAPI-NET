@@ -1,8 +1,7 @@
 ﻿using FluentAssertions;
-using ReversoAPI.Web.Models.Entities;
-using ReversoAPI.Web.Models.Responses;
-using ReversoAPI.Web.Models.Values;
+using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Tools.Parsers;
+using ReversoAPI.Web.Values;
 using System.Collections.Generic;
 using Xunit;
 
@@ -12,7 +11,7 @@ namespace ReversoAPI.Web.Tests.Parsers
     {
         [Theory]
         [MemberData(nameof(HtmlResponsesForTest))]
-        public void Invoke_Test(SynonymsResponse expectedResult, string html)
+        public void Invoke_Test(SynonymsData expectedResult, string html)
         {
             // Arrange
             var parser = new SynonymsResponseParser();
@@ -30,7 +29,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         {
             yield return new object[]
             {
-                new SynonymsResponse
+                new SynonymsData
                 {
                     Text = "folk",
                     Source = Language.English,

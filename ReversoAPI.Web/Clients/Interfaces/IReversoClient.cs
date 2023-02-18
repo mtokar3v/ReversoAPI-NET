@@ -6,5 +6,6 @@ namespace ReversoAPI.Web.Clients
     {
         IContextClient Context { get; }
         ISynonymsClient Synonyms { get; }
+        ISpellingClient Spelling { get; }
     }
 }

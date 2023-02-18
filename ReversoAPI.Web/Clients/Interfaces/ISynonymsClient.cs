@@ -1,11 +1,11 @@
-﻿using ReversoAPI.Web.Models.Responses;
-using ReversoAPI.Web.Models.Values;
+﻿using ReversoAPI.Web.Entities;
+using ReversoAPI.Web.Values;
 using System.Threading.Tasks;
 
 namespace ReversoAPI.Web.Clients.Interfaces
 {
     public interface ISynonymsClient
     {
-        Task<SynonymsResponse> GetAsync(string text, Language language);
+        Task<SynonymsData> GetAsync(string text, Language language);
     }
 }

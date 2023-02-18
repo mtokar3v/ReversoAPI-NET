@@ -1,10 +1,9 @@
-﻿using ReversoAPI.Web.Models.Responses;
-using ReversoAPI.Web.Models.Values;
-using ReversoAPI.Web.Tools.Parsers;
+﻿using ReversoAPI.Web.Tools.Parsers;
 using System.Collections.Generic;
 using Xunit;
 using FluentAssertions;
-using ReversoAPI.Web.Models.Entities;
+using ReversoAPI.Web.Entities;
+using ReversoAPI.Web.Values;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
@@ -12,7 +11,7 @@ namespace ReversoAPI.Web.Tests.Parsers
     {
         [Theory]
         [MemberData(nameof(HtmlResponsesForTest))]
-        public void Invoke_Test(ContextResponse expectedResult, string html)
+        public void Invoke_Test(ContextData expectedResult, string html)
         {
             // Arrange
             var parser = new ContextResponseParser();
@@ -32,7 +31,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         {
             yield return new object[]
             {
-                new ContextResponse
+                new ContextData
                 {
                     Text = "hello",
                     Source = Language.English,

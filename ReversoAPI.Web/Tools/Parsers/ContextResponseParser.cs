@@ -1,12 +1,12 @@
 ﻿using HtmlAgilityPack;
 using ReversoAPI.Web.Builders;
-using ReversoAPI.Web.Models.Responses;
+using ReversoAPI.Web.Entities;
 
 namespace ReversoAPI.Web.Tools.Parsers
 {
-    public class ContextResponseParser : BaseResponseParser<ContextResponse>
+    public class ContextResponseParser : BaseResponseParser<ContextData>
     {
-        protected override ContextResponse Parse(HtmlDocument html)
+        protected override ContextData Parse(HtmlDocument html)
         {
             return new ContextParseBuilder(html)
                 .WithInputText()

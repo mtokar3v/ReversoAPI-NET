@@ -1,9 +1,8 @@
 ﻿using HtmlAgilityPack;
+using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Exceptions;
 using ReversoAPI.Web.Extensions;
-using ReversoAPI.Web.Models.Entities;
-using ReversoAPI.Web.Models.Responses;
-using ReversoAPI.Web.Models.Values;
+using ReversoAPI.Web.Values;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +12,15 @@ namespace ReversoAPI.Web.Builders
     internal class ContextParseBuilder
     {
         private readonly HtmlDocument _html;
-        private readonly ContextResponse _response;
+        private readonly ContextData _response;
 
         public ContextParseBuilder(HtmlDocument html)
         {
             _html = html;
-            _response = new ContextResponse();
+            _response = new ContextData();
         }
 
-        public ContextResponse Build() => _response;
+        public ContextData Build() => _response;
 
         public ContextParseBuilder WithInputText()
         {
