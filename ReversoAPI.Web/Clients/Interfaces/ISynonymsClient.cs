@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ReversoAPI.Web.Clients.Interfaces
 {
-    public interface ISynonimsClient
+    public interface ISynonymsClient
     {
         Task<SynonymsResponse> GetAsync(string text, Language language);
     }

@@ -10,7 +10,7 @@ namespace ReversoAPI.Web.Examples
             var reverso = new ReversoClient();
 
             for (var i = 0; i < 100; i++)
-                Console.WriteLine((await reverso.Symonims.GetAsync("folk", Language.English)).Text);
+                Console.WriteLine((await reverso.Synonyms.GetAsync("folk", Language.English)).Text);
         }
 
         private static async Task DisplayContext(IReversoClient reverso)

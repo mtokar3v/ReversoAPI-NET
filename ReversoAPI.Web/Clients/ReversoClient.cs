@@ -11,10 +11,10 @@ namespace ReversoAPI.Web.Clients
             var apiConnector = APIConnector.Create(HttpClientCacheWrapper.GetInstance());
 
             Context = new ContextClient(apiConnector, new ContextResponseParser());
-            Symonims = new SynonymsClient(apiConnector, new SynonymsResponseParser());
+            Synonyms = new SynonymsClient(apiConnector, new SynonymsResponseParser());
         }
 
         public IContextClient Context { get; }
-        public ISynonimsClient Symonims { get; }
+        public ISynonymsClient Synonyms { get; }
     }
 }

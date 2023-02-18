@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace ReversoAPI.Web.Extensions
 {
-    public static class ParseExtesions
+    public static class ParseExtensions
     {
         public static PartOfSpeech ToPartOfSpeech(this string value)
         {

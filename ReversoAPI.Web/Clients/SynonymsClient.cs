@@ -9,7 +9,7 @@ using ReversoAPI.Web.Http.Interfaces;
 
 namespace ReversoAPI.Web.Clients
 {
-    public class SynonymsClient : APIClient, ISynonimsClient
+    public class SynonymsClient : APIClient, ISynonymsClient
     {
         private const string SynonimsURL = "https://synonyms.reverso.net/synonym/";
 
