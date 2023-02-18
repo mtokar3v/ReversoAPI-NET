@@ -1,5 +1,8 @@
-﻿using ReversoAPI.Web.Http.Interfaces;
+﻿using Polly;
+using ReversoAPI.Web.Http.Interfaces;
 using System;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -9,21 +12,36 @@ namespace ReversoAPI.Web.Http
     {
         private readonly HttpClient _httpClient;
 
-        public APIConnector()
+        private const int RetryAttemptCount = 4;
+        private static readonly HttpStatusCode[] _httpStatusCodesWorthRetrying = 
         {
-            _httpClient = HttpClientCacheWrapper
-                .GetInstance()
-                .GetHttpClient();
+           HttpStatusCode.RequestTimeout, 
+           HttpStatusCode.InternalServerError,
+           HttpStatusCode.BadGateway, 
+           HttpStatusCode.ServiceUnavailable, 
+           HttpStatusCode.GatewayTimeout
+        };
+
+        private APIConnector(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
         }
 
-        public async Task<string> GetAsync(Uri uri)
+        public static APIConnector Create(IHttpClientCacheWrapper httpClientCache)
         {
-            //TO DO: Add do retry logic
-            using var httpResponseMessage = await _httpClient.GetAsync(uri);
-            if (!httpResponseMessage.IsSuccessStatusCode) throw new HttpRequestException($"'GET {uri}' is failed");
+            return new APIConnector(httpClientCache.GetHttpClient());
+        }
 
-            // Why does APIConnector GET return string, not something like a HttpResponse?
-            return await httpResponseMessage.Content.ReadAsStringAsync();
+        public async Task<HttpResponse> GetAsync(Uri uri)
+        {
+            using var response = await Policy
+                .Handle<HttpRequestException>()
+                .OrResult<HttpResponseMessage>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
+                .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
+                .ExecuteAsync(() => _httpClient.GetAsync(uri));
+
+            var content = await response.Content.ReadAsStringAsync();
+            return new HttpResponse { Content = content };
         }
     }
 }

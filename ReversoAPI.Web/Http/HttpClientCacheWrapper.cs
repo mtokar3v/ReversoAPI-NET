@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net.Http;
+using ReversoAPI.Web.Http.Interfaces;
 
 namespace ReversoAPI.Web.Http
 {
-    public class HttpClientCacheWrapper
+    public class HttpClientCacheWrapper : IHttpClientCacheWrapper
     {
         private const string RandomUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36";
         private const bool DefaultCacheKey = true;

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System;
 using ReversoAPI.Web.Extensions;
 using ReversoAPI.Web.Tools.Parsers;
+using ReversoAPI.Web.Http.Interfaces;
 
 namespace ReversoAPI.Web.Clients
 {
@@ -14,7 +15,9 @@ namespace ReversoAPI.Web.Clients
 
         private readonly IResponseParser<SynonymsResponse> _parser;
 
-        public SynonymsClient(IResponseParser<SynonymsResponse> parser)
+        public SynonymsClient(
+            IAPIConnector apiConnector,
+            IResponseParser<SynonymsResponse> parser) : base(apiConnector)
         {
             _parser = parser;
         }
@@ -24,8 +27,11 @@ namespace ReversoAPI.Web.Clients
             if (string.IsNullOrEmpty(text)) return null;
 
             var url = CombineUrl(text, language);
-            var response = await API.GetAsync(url);
-            return _parser.Invoke(response);
+
+            var response = await _apiConnector.GetAsync(url);
+            if (!response.IsHtml()) throw new FormatException("Response does not match html format");
+
+            return _parser.Invoke(response.Content);
         }
 
         private Uri CombineUrl(string text, Language language) 

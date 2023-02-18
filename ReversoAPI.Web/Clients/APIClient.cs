@@ -1,11 +1,13 @@
-﻿using ReversoAPI.Web.Http;
-using ReversoAPI.Web.Http.Interfaces;
+﻿using ReversoAPI.Web.Http.Interfaces;
 
 namespace ReversoAPI.Web.Clients
 {
     public abstract class APIClient
     {
-        protected readonly IAPIConnector API;
-        public APIClient() => API = new APIConnector();
+        protected readonly IAPIConnector _apiConnector;
+        public APIClient(IAPIConnector apiConnector)
+        {
+            _apiConnector = apiConnector;
+        }
     }
 }

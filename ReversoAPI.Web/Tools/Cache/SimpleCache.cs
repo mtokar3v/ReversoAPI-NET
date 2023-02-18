@@ -27,7 +27,12 @@ public class SimpleCache<TKey, TValue> : IDisposable, ICache<TKey, TValue>
         if (_disposed) RestartTimer(_defaultCacheExpireTime);
 
         var item = new CacheItem<TValue>(value, DateTime.Now.Add(expireTime.Value));
-        _cache.AddOrUpdate(key, item, (k, v) => item);
+        _cache.AddOrUpdate(key, item, (k, v) => 
+        {
+            if(v is IDisposable disposable)
+                disposable.Dispose();
+            return item;
+        });
     }
 
     public bool TryGetValue(TKey key, out TValue value)

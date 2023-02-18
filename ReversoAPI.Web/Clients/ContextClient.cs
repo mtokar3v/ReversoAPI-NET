@@ -1,4 +1,5 @@
 ﻿using ReversoAPI.Web.Clients.Interfaces;
+using ReversoAPI.Web.Http.Interfaces;
 using ReversoAPI.Web.Models.Responses;
 using ReversoAPI.Web.Models.Values;
 using ReversoAPI.Web.Tools.Parsers;
@@ -13,7 +14,9 @@ namespace ReversoAPI.Web.Clients
 
         private readonly IResponseParser<ContextResponse> _parser;
 
-        public ContextClient(IResponseParser<ContextResponse> parser)
+        public ContextClient(
+            IAPIConnector apiConnector,
+            IResponseParser<ContextResponse> parser) : base(apiConnector)
         {
             _parser = parser;
         }
@@ -24,8 +27,11 @@ namespace ReversoAPI.Web.Clients
             if (source == target) throw new ArgumentException("Source and Target languages are similar"); // maybe should rid of this
 
             var url = CombineUrl(text, source, target);
-            var response = await API.GetAsync(url);
-            return _parser.Invoke(response);
+
+            var response = await _apiConnector.GetAsync(url);
+            if (!response.IsHtml()) throw new FormatException("Response does not match html format");
+
+            return _parser.Invoke(response.Content);
         }
 
         private Uri CombineUrl(string text, Language source, Language target)
