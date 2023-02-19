@@ -14,10 +14,12 @@ namespace ReversoAPI.Web.Clients
             Synonyms = new SynonymsClient(apiConnector, new SynonymsResponseParser());
 
             Spelling = new SpellingClient(apiConnector);
+            Translation = new TranslationClient(apiConnector);
         }
 
         public IContextClient Context { get; }
         public ISynonymsClient Synonyms { get; }
         public ISpellingClient Spelling { get; }
+        public ITranslationClient Translation { get; }
     }
 }
