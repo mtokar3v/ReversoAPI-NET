@@ -11,6 +11,7 @@ namespace ReversoAPI.Web.Values
         English,
 
         [ShortName("ru")]
+        [MediumName("rus")]
         Russian,
 
         [ShortName("ar")]

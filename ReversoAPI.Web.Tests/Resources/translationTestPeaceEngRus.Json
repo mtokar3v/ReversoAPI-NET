@@ -1,0 +1,174 @@
+{
+    "id": "4cdcb55f-c531-411f-8c55-6ef18a8383bb",
+    "from": "eng",
+    "to": "rus",
+    "input": [
+        "peace"
+    ],
+    "correctedText": null,
+    "translation": [
+        "мир"
+    ],
+    "engines": [
+        "Context"
+    ],
+    "languageDetection": {
+        "detectedLanguage": "eng",
+        "isDirectionChanged": false,
+        "originalDirection": "eng-rus",
+        "originalDirectionContextMatches": 244583,
+        "changedDirectionContextMatches": 0,
+        "timeTaken": 33
+    },
+    "contextResults": {
+        "rudeWords": false,
+        "colloquialisms": false,
+        "riskyWords": false,
+        "results": [
+            {
+                "translation": "мир",
+                "sourceExamples": [
+                    "It gives us <em>peace</em> and tranquillity.",
+                    "Your mantra would be <em>peace</em>, <em>peace</em>, <em>peace</em>.",
+                    "Regional <em>peace</em> and security remain critical for ensuring global <em>peace</em>."
+                ],
+                "targetExamples": [
+                    "За то, что они обеспечивают нам <em>мир</em> и покой».",
+                    "Вашей мантрой будет <em>мир</em>, <em>мир</em>, <em>мир</em>.",
+                    "Региональный <em>мир</em> и безопасность продолжают играть крайне важную роль в обеспечении всеобщего <em>мира</em>."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "nm.",
+                "frequency": 238642,
+                "vowels": null,
+                "transliteration": "mir"
+            },
+            {
+                "translation": "мирный",
+                "sourceExamples": [
+                    "Unless there is adequate international support for <em>peace</em> efforts it may be impossible in some situations to maintain the momentum for <em>peace</em>.",
+                    "In 1392 a <em>peace</em> treaty was signed (Nibur <em>peace</em>) after which the parties came to agreement and trade continued."
+                ],
+                "targetExamples": [
+                    "В некоторых ситуациях без должной международной поддержки <em>мирных</em> усилий невозможно сохранить наметившийся <em>мирный</em> процесс.",
+                    "В 1392 году был заключен <em>мирный</em> договор (Нибуров <em>мир</em>), в результате которого стороны пришли к соглашению и торговля возобновилась."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "adj.",
+                "frequency": 35616,
+                "vowels": null,
+                "transliteration": "mirny"
+            },
+            {
+                "translation": "мирных",
+                "sourceExamples": [
+                    "The agreement came during <em>peace</em> talks in Sweden.",
+                    "Unless there is adequate international support for <em>peace</em> efforts it may be impossible in some situations to maintain the momentum for <em>peace</em>."
+                ],
+                "targetExamples": [
+                    "Данное высказывание было сделано во время <em>мирных</em> переговоров, проходящих в настоящий момент в Швеции.",
+                    "В некоторых ситуациях без должной международной поддержки <em>мирных</em> усилий невозможно сохранить наметившийся <em>мирный</em> процесс."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 10123,
+                "vowels": null,
+                "transliteration": "mirnykh"
+            },
+            {
+                "translation": "покой",
+                "sourceExamples": [
+                    "She believed world <em>peace</em> would come when enough people attain inner <em>peace</em>."
+                ],
+                "targetExamples": [
+                    "Она верила, что <em>мир во всем мире</em> наступит тогда, когда достаточно людей обретет внутренний <em>покой</em>."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "nm.",
+                "frequency": 7443,
+                "vowels": null,
+                "transliteration": "pokoy"
+            },
+            {
+                "translation": "спокойствие",
+                "sourceExamples": [
+                    "World <em>peace</em> begins with finding inner <em>peace</em> through warm-hearted relations with others.",
+                    "We need to maintain <em>peace</em>, harmony and cooperation among us, but external <em>peace</em> depends on inner <em>peace</em>."
+                ],
+                "targetExamples": [
+                    "<em>Мир во всём мире</em> начинается с того, что мы сами находим внутреннее <em>спокойствие</em> благодаря добросердечным отношениям с другими.",
+                    "Необходимо поддерживать <em>мир</em>, гармонию и сотрудничество, но внешнее <em>спокойствие</em> зависит от внутреннего."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "nn.",
+                "frequency": 4409,
+                "vowels": null,
+                "transliteration": "spokoystviye"
+            },
+            {
+                "translation": "миротворческих",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 1510,
+                "vowels": null,
+                "transliteration": "mirotvorcheskikh"
+            },
+            {
+                "translation": "тишина",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "nf.",
+                "frequency": 1064,
+                "vowels": null,
+                "transliteration": "tishina"
+            },
+            {
+                "translation": "умиротворение",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "nn.",
+                "frequency": 985,
+                "vowels": null,
+                "transliteration": "umirotvoreniye"
+            },
+            {
+                "translation": "миротворческие",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 361,
+                "vowels": null,
+                "transliteration": "mirotvorcheskiye"
+            },
+            {
+                "translation": "миротворческой",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "adj.",
+                "frequency": 318,
+                "vowels": null,
+                "transliteration": "mirotvorcheskoy"
+            }
+        ],
+        "totalContextCallsMade": 1,
+        "timeTakenContext": 0
+    },
+    "truncated": false,
+    "timeTaken": 33
+}

@@ -1,0 +1,50 @@
+{
+    "id": "d4549614-fea9-412b-808f-f58da742c249",
+    "language": "eng",
+    "text": "Maney",
+    "engine": "Ginger",
+    "truncated": false,
+    "timeTaken": 185,
+    "corrections": [
+        {
+            "group": "AutoCorrected",
+            "type": "Spelling",
+            "shortDescription": "Spelling Mistake",
+            "longDescription": "A proper or common noun is not capitalized",
+            "startIndex": 0,
+            "endIndex": 4,
+            "mistakeText": "maney",
+            "correctionText": "Maney",
+            "suggestions": [
+                {
+                    "text": "Maney",
+                    "category": "Spelling"
+                },
+                {
+                    "text": "money",
+                    "definition": "the most common medium of exchange; functions as legal tender",
+                    "category": "Spelling"
+                },
+                {
+                    "text": "many",
+                    "definition": "a quantifier that can be used with count nouns and is often preceded by 'as' or 'too' or 'so' or 'that'; amounting to a large but indefinite number",
+                    "category": "Spelling"
+                }
+            ]
+        }
+    ],
+    "sentences": [
+        {
+            "startIndex": 0,
+            "endIndex": 4,
+            "status": "Corrected"
+        }
+    ],
+    "autoReplacements": [],
+    "stats": {
+        "textLength": 5,
+        "wordCount": 1,
+        "sentenceCount": 1,
+        "longestSentence": 5
+    }
+}

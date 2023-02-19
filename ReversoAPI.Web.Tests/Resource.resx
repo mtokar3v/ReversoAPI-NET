@@ -124,4 +124,13 @@
   <data name="helloParseTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\helloParseTest.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="spellingTestMoneyEng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spellingTestMoneyEng.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="translationTestConsienceEndRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\translationTestConsienceEndRus.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="translationTestPeaceEngRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\translationTestPeaceEngRus.Json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

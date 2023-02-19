@@ -1,0 +1,67 @@
+{
+    "id": "63e80be6-b822-4a6d-be97-562255cbf566",
+    "from": "eng",
+    "to": "rus",
+    "input": [
+        "Consience"
+    ],
+    "correctedText": null,
+    "translation": [
+        "Разумность"
+    ],
+    "engines": [
+        "NMT"
+    ],
+    "languageDetection": {
+        "detectedLanguage": "eng",
+        "isDirectionChanged": false,
+        "originalDirection": "eng-rus",
+        "originalDirectionContextMatches": 4,
+        "changedDirectionContextMatches": 0,
+        "timeTaken": 260
+    },
+    "contextResults": {
+        "rudeWords": false,
+        "colloquialisms": false,
+        "riskyWords": false,
+        "results": [
+            {
+                "translation": "",
+                "sourceExamples": [
+                    "Has a capacity for suffering [<em>consience</em>].",
+                    "I said 55 because I had a good <em>consience</em> not to take you more.",
+                    "Considering if this was truely against his <em>consience</em>, the guilt would drive him mad.",
+                    "You say that wolves \"are animals, with no sense of remorse, <em>consience</em> or guilt.\"(sic) Have you ever seen a dog act guilty?",
+                    "We absolutely cannot go against our <em>conscience</em>; <em>conscience</em> must play a role.",
+                    "But I acted according to my <em>conscience</em>.",
+                    "Definition: Higher <em>Conscience</em> is a <em>conscience</em> that has always more knowledge (amount of information) than all people have.",
+                    "Furies were personifications of <em>conscience</em>, but <em>conscience</em> in a very limited sense: aroused only by the breach of a maternal taboo.",
+                    "No <em>conscience</em>, just indulge without <em>conscience</em>.",
+                    "Primacy of <em>Conscience</em> is a heresy because it purports to place one's <em>conscience</em> first in rank."
+                ],
+                "targetExamples": [
+                    "«Он (<em>Скудняков) умеет быть над схваткой</em>.",
+                    "Я сказал \"500\", <em>потому что мне неудобно брать</em> с вас больше.",
+                    "Если <em>же господин пренебрежёт этим</em>, то это будет считаться его виной.",
+                    "Из толкового словаря: «Бездомные животные - безнадзорные животные, <em>потерявшиеся</em>, либо никогда не имевшие хозяев, проживающие рядом с человеком.",
+                    "Нам ни в коем случае нельзя идти против своей <em>совести</em>; <em>совесть</em> должна играть важную роль.",
+                    "И, тем не менее, я действовал в соответствии со своими <em>убеждениями</em>».",
+                    "Определению: выше, <em>совесть-это совесть</em>, которая всегда больше знания (количество информации), чем все люди.",
+                    "Эринии олицетворяли <em>совесть</em>, но <em>лишь</em> в очень ограниченном смысле - просыпающуюся только при нарушении материнского табу.",
+                    "Никакой <em>совести</em>, одно лишь бездумное потворство себе.",
+                    "«Примат <em>совести</em>» - это ересь, потому что она претендует на то, чтобы <em>совесть</em> была первой по рангу или значению."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 0,
+                "vowels": null,
+                "transliteration": null
+            }
+        ],
+        "totalContextCallsMade": 2,
+        "timeTakenContext": 0
+    },
+    "truncated": false,
+    "timeTaken": 300
+}

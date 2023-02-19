@@ -94,5 +94,35 @@ namespace ReversoAPI.Web.Tests {
                 return ResourceManager.GetString("helloParseTest", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] spellingTestMoneyEng {
+            get {
+                object obj = ResourceManager.GetObject("spellingTestMoneyEng", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] translationTestConsienceEndRus {
+            get {
+                object obj = ResourceManager.GetObject("translationTestConsienceEndRus", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] translationTestPeaceEngRus {
+            get {
+                object obj = ResourceManager.GetObject("translationTestPeaceEngRus", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

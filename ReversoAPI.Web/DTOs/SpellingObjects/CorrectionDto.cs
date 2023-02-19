@@ -1,4 +1,6 @@
-﻿namespace ReversoAPI.Web.DTOs.SpellingResponseData
+﻿using System.Collections.Generic;
+
+namespace ReversoAPI.Web.DTOs.SpellingResponseData
 {
     public class CorrectionDto
     {
@@ -12,6 +14,6 @@
         public int EndIndex { get; set; }
 
         public string Group { get; set; } // Update to enum in future
-
+        public IEnumerable<SuggestionDto> Suggestions { get; set; }
     }
 }
