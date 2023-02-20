@@ -2,6 +2,7 @@
 using Polly;
 using ReversoAPI.Web.Http.Interfaces;
 using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -44,8 +45,14 @@ namespace ReversoAPI.Web.Http
                 .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
                 .ExecuteAsync(() => _httpClient.GetAsync(uri));
 
-            var content = await response.Content.ReadAsStringAsync();
-            return new HttpResponse { Content = content };
+            var content = await response.Content.ReadAsStreamAsync();
+
+
+            return new HttpResponse 
+            { 
+                ContentType = response.Content.Headers.ContentType.MediaType,
+                Content = await MakeACopyAsync(content),
+            };
         }
 
         public async Task<HttpResponse> PostAsync(Uri uri, object payload)
@@ -56,9 +63,27 @@ namespace ReversoAPI.Web.Http
             var json = JsonConvert.SerializeObject(payload);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync(uri, data);
-            var content = await response.Content.ReadAsStringAsync();
-            return new HttpResponse { Content = content };
+            using var response = await Policy
+                .Handle<HttpRequestException>()
+                .OrResult<HttpResponseMessage>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
+                .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
+                .ExecuteAsync(() => _httpClient.PostAsync(uri, data));
+
+            var content = await response.Content.ReadAsStreamAsync();
+
+            return new HttpResponse 
+            {
+                ContentType = response.Content.Headers.ContentType.MediaType,
+                Content = await MakeACopyAsync(content),
+            };
+        }
+
+        private async Task<Stream> MakeACopyAsync(Stream stream)
+        {
+            var ms = new MemoryStream();
+            await stream.CopyToAsync(ms);
+            ms.Position = 0;
+            return ms;
         }
     }
 }

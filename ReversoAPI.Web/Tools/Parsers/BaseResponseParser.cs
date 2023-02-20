@@ -6,12 +6,12 @@ namespace ReversoAPI.Web.Tools.Parsers
 {
     public abstract class BaseResponseParser<TResult> : IResponseParser<TResult>
     {
-        public TResult Invoke(string html)
+        public TResult Invoke(Stream html)
         {
-            if (string.IsNullOrEmpty(html)) throw new ArgumentNullException(nameof(html));
+            if (html == null) throw new ArgumentNullException(nameof(html));
 
             var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(html);
+            htmlDoc.Load(html);
 
             return Parse(htmlDoc);
         }

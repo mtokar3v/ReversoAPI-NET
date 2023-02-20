@@ -1,18 +1,18 @@
-﻿namespace ReversoAPI.Web.Http
+﻿using System;
+using System.IO;
+
+namespace ReversoAPI.Web.Http
 {
-    public class HttpResponse
+    public class HttpResponse : IDisposable
     { 
-        public string Content { get; set; }
+        public string ContentType { get; set; }
+        public Stream Content { get; set; }
 
-        public bool IsHtml()
+        public void Dispose()
         {
-            if (!string.IsNullOrWhiteSpace(Content))
-            {
-                var trimmedText = Content.Trim();
-                return trimmedText.StartsWith('<') && trimmedText.EndsWith('>');
-            }
-
-            return false;
+            Content.Dispose();
         }
+
+        public bool IsHtml() => ContentType.Contains("text/html", StringComparison.CurrentCultureIgnoreCase);
     }
 }

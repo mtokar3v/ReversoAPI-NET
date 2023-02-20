@@ -1,7 +1,9 @@
-﻿namespace ReversoAPI.Web.Tools.Parsers
+﻿using System.IO;
+
+namespace ReversoAPI.Web.Tools.Parsers
 {
     public interface IResponseParser<TResult>
     {
-        TResult Invoke(string html);
+        TResult Invoke(Stream html);
     }
 }

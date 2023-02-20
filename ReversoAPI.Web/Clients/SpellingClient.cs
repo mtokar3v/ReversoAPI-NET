@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using ReversoAPI.Web.Clients.Interfaces;
-using Newtonsoft.Json;
 using ReversoAPI.Web.Values;
 using ReversoAPI.Web.DTOs.SpellingResponseData;
 using ReversoAPI.Web.Extensions;
@@ -32,8 +31,8 @@ namespace ReversoAPI.Web.Clients
             if (!SupportedLanguades.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
             // TO DO: Add locale validation
 
-            var response = await _apiConnector.PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale));
-            var spellingDto = JsonConvert.DeserializeObject<SpellingResponse>(response.Content);
+            using var response = await _apiConnector.PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale));
+            var spellingDto = response.Content.Deserialize<SpellingResponse>();
 
             return spellingDto.ToModel();
         }

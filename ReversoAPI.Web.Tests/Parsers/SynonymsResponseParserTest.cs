@@ -1,8 +1,11 @@
 ﻿using FluentAssertions;
+using Newtonsoft.Json.Linq;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Tools.Parsers;
 using ReversoAPI.Web.Values;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Xunit;
 
 namespace ReversoAPI.Web.Tests.Parsers
@@ -11,13 +14,14 @@ namespace ReversoAPI.Web.Tests.Parsers
     {
         [Theory]
         [MemberData(nameof(HtmlResponsesForTest))]
-        public void Invoke_Test(SynonymsData expectedResult, string html)
+        public void Invoke_Test(SynonymsData expectedResult, Stream html)
         {
             // Arrange
             var parser = new SynonymsResponseParser();
 
             // Act
             var result = parser.Invoke(html);
+            html.Dispose();
 
             // Assert
             expectedResult.Text.Should().Be(result.Text);
@@ -110,7 +114,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                         new Word("guy", Language.English, PartOfSpeech.Noun),
                     }
                 },
-                Resource.folkSymonimsParseTest
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.folkSymonimsParseTest ?? string.Empty))
             };
         }
     }

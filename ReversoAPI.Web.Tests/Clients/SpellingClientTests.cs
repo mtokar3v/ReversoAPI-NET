@@ -7,7 +7,9 @@ using ReversoAPI.Web.Http;
 using ReversoAPI.Web.Http.Interfaces;
 using ReversoAPI.Web.Values;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -27,7 +29,7 @@ namespace ReversoAPI.Web.Tests.Clients
 
         [Theory]
         [MemberData(nameof(SpellingDataForTest))]
-        public async Task GetAsync_Success(string text, Language language, Locale locale, string json, SpellingData expectedResult)
+        public async Task GetAsync_Success(string text, Language language, Locale locale, Stream json, SpellingData expectedResult)
         {
             // Arrange
             var response = new HttpResponse() { Content = json };
@@ -51,8 +53,8 @@ namespace ReversoAPI.Web.Tests.Clients
             {
                 "maney",
                 Language.English,
-                Locale.None,
-                Encoding.UTF8.GetString(Resource.spellingTestMoneyEng),
+            Locale.None,
+                new MemoryStream(Resource.spellingTestMoneyEng),
                 new SpellingData
                 {
                     Text = "Maney",

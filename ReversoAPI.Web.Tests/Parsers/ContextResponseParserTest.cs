@@ -4,6 +4,8 @@ using Xunit;
 using FluentAssertions;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Values;
+using System.IO;
+using System.Text;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
@@ -11,13 +13,14 @@ namespace ReversoAPI.Web.Tests.Parsers
     {
         [Theory]
         [MemberData(nameof(HtmlResponsesForTest))]
-        public void Invoke_Test(ContextData expectedResult, string html)
+        public void Invoke_Test(ContextData expectedResult, Stream html)
         {
             // Arrange
             var parser = new ContextResponseParser();
 
             // Act
             var result = parser.Invoke(html);
+            html.Dispose();
 
             // Assert
             expectedResult.Text.Should().Be(result.Text);
@@ -74,7 +77,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                         new Example(new Sentence(Language.English, "Instead of you know, hello."), new Sentence(Language.Russian, "Вместо того, чего тебе еще нужно, привет.")),
                     }
                 },
-                Resource.helloParseTest
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.helloParseTest ?? string.Empty))
             };
         }
     }

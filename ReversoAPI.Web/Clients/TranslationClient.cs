@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ReversoAPI.Web.Clients.Interfaces;
+﻿using ReversoAPI.Web.Clients.Interfaces;
 using ReversoAPI.Web.DTOs.TranslationObjects;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Extensions;
@@ -23,8 +22,9 @@ namespace ReversoAPI.Web.Clients
             if (string.IsNullOrEmpty(text)) return null;
             if (source == target) throw new ArgumentException("Source and Target languages are similar"); // maybe should rid of this
 
-            var response = await _apiConnector.PostAsync(new Uri(TranslationURL), new TranslationRequest(text, source, target));
-            var translationDto = JsonConvert.DeserializeObject<TranslationResponse>(response.Content);
+            using var response = await _apiConnector.PostAsync(new Uri(TranslationURL), new TranslationRequest(text, source, target));
+            var translationDto = response.Content.Deserialize<TranslationResponse>();
+
             return translationDto.ToModel();
         }
     }

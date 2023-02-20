@@ -28,5 +28,21 @@ namespace ReversoAPI.Web.Values
 
         [MediumName("ita")]
         Italian,
+
+        German,
+
+        Japanese,
+
+        Dutch,
+
+        Polish,
+
+        Portuguese,
+
+        Romanian,
+
+        Turkish,
+
+        Chinese,
     }
 }

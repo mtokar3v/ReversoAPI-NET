@@ -28,7 +28,7 @@ namespace ReversoAPI.Web.Clients
 
             var url = CombineUrl(text, language);
 
-            var response = await _apiConnector.GetAsync(url);
+            using var response = await _apiConnector.GetAsync(url);
             if (!response.IsHtml()) throw new FormatException("Response does not match html format");
 
             return _parser.Invoke(response.Content);

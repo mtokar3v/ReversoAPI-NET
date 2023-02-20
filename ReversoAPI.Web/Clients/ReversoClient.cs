@@ -15,11 +15,13 @@ namespace ReversoAPI.Web.Clients
 
             Spelling = new SpellingClient(apiConnector);
             Translation = new TranslationClient(apiConnector);
+            Pronunciation = new PronunciationClient(apiConnector);
         }
 
         public IContextClient Context { get; }
         public ISynonymsClient Synonyms { get; }
         public ISpellingClient Spelling { get; }
         public ITranslationClient Translation { get; }
+        public IPronunciationClient Pronunciation { get; }
     }
 }

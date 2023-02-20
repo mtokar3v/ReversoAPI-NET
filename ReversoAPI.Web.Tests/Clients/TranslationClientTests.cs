@@ -8,7 +8,7 @@ using ReversoAPI.Web.Http.Interfaces;
 using ReversoAPI.Web.Values;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -27,7 +27,7 @@ namespace ReversoAPI.Web.Tests.Clients
 
         [Theory]
         [MemberData(nameof(SpellingDataForTest))]
-        public async Task GetFromOneWordAsync_Success(string text, Language source, Language target, string json, TranslationData expectedResult)
+        public async Task GetFromOneWordAsync_Success(string text, Language source, Language target, Stream json, TranslationData expectedResult)
         {
             // Arrange
             var response = new HttpResponse() { Content = json };
@@ -49,7 +49,7 @@ namespace ReversoAPI.Web.Tests.Clients
                 "Consience",
                 Language.English,
                 Language.Russian,
-                Encoding.UTF8.GetString(Resource.translationTestConsienceEndRus),
+                new MemoryStream(Resource.translationTestConsienceEndRus),
                 new TranslationData
                 {
                     Text = "Consience",
@@ -64,7 +64,7 @@ namespace ReversoAPI.Web.Tests.Clients
                 "peace",
                 Language.English,
                 Language.Russian,
-                Encoding.UTF8.GetString(Resource.translationTestPeaceEngRus),
+                new MemoryStream(Resource.translationTestPeaceEngRus),
                 new TranslationData
                 {
                     Text = "peace",
