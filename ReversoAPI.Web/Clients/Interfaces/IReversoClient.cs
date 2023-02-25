@@ -9,5 +9,6 @@ namespace ReversoAPI.Web.Clients
         ISpellingClient Spelling { get; }
         ITranslationClient Translation { get; }
         IPronunciationClient Pronunciation { get; }
+        IConjugationClient Conjugation { get; }
     }
 }

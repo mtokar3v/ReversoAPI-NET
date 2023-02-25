@@ -8,13 +8,13 @@ namespace ReversoAPI.Web.Examples
         static async Task Main(string[] args)
         {
             var reverso = new ReversoClient();
-            var ee = await reverso.Pronunciation.GetAsync("Чертила", Language.English);
+            var ee = await reverso.Conjugation.GetAsync("run", Language.English);
 
-            using (var fileStream = File.Create("C:\\Users\\Максим\\Desktop\\text.mp3"))
-            {
-                ee!.Seek(0, SeekOrigin.Begin);
-                ee!.CopyTo(fileStream);
-            }
+            //using (var fileStream = File.Create("C:\\Users\\Максим\\Desktop\\text.mp3"))
+            //{
+            //    ee!.Seek(0, SeekOrigin.Begin);
+            //    ee!.CopyTo(fileStream);
+            //}
 
 
             var x = await reverso.Spelling.GetAsync("Helo", Language.English);

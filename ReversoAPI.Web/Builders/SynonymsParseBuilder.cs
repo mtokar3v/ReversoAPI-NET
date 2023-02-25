@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ReversoAPI.Web.Builders
 {
-    public class SynonymsParseBuilder
+    internal class SynonymsParseBuilder
     {
         private readonly HtmlDocument _html;
         private readonly SynonymsData _response;

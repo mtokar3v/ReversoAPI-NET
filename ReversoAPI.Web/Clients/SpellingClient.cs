@@ -14,7 +14,7 @@ namespace ReversoAPI.Web.Clients
     {
         private const string SpellingURL = "https://orthographe.reverso.net/api/v1/Spelling/";
 
-        private static Language[] SupportedLanguades =
+        private static Language[] _supportedLanguades =
         {
             Language.English,
             Language.French,
@@ -28,7 +28,7 @@ namespace ReversoAPI.Web.Clients
 
         public async Task<SpellingData> GetAsync(string text, Language language, Locale locale = Locale.None)
         {
-            if (!SupportedLanguades.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
+            if (!_supportedLanguades.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
             // TO DO: Add locale validation
 
             using var response = await _apiConnector.PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale));

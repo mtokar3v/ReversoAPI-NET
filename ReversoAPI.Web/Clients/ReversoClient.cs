@@ -12,6 +12,7 @@ namespace ReversoAPI.Web.Clients
 
             Context = new ContextClient(apiConnector, new ContextResponseParser());
             Synonyms = new SynonymsClient(apiConnector, new SynonymsResponseParser());
+            Conjugation = new ConjugationClient(apiConnector, new ConjugationResponseParser());
 
             Spelling = new SpellingClient(apiConnector);
             Translation = new TranslationClient(apiConnector);
@@ -23,5 +24,6 @@ namespace ReversoAPI.Web.Clients
         public ISpellingClient Spelling { get; }
         public ITranslationClient Translation { get; }
         public IPronunciationClient Pronunciation { get; }
+        public IConjugationClient Conjugation { get; }
     }
 }

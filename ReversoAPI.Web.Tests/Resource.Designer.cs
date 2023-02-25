@@ -61,6 +61,40 @@ namespace ReversoAPI.Web.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///&lt;head&gt;&lt;title&gt;
+        ///	Conjugation run | Conjugate verb run | Reverso Conjugator English
+        ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the English verb run: indicative, past tense, participle, present perfect, gerund, conjugation models and irregular verbs. Translate run in context, with examples of use  and definition.&quot; /&gt;&lt;meta name=&quot;google&quot; value=&quot;notrans [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ConjugationParseTestRunEng {
+            get {
+                return ResourceManager.GetString("ConjugationParseTestRunEng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///&lt;head&gt;&lt;title&gt;
+        ///	Conjugation бежать (I)  | Conjugate verb бежать (I)  Russian | Reverso Conjugator
+        ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the Russian verb бежать (I) : indicative, past tense, participle, present perfect, gerund, conjugation models and irregular verbs. Translate бежать (I)  in context, with examples of use  and definition.&quot; /&gt;&lt;m [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ConjugationParseTestRunRus {
+            get {
+                return ResourceManager.GetString("ConjugationParseTestRunRus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
         ///
