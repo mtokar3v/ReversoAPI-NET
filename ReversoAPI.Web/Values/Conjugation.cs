@@ -1,4 +1,4 @@
-﻿namespace ReversoAPI.Web.Values.ConjugationObjects
+﻿namespace ReversoAPI.Web.Values
 {
     public class Conjugation
     {

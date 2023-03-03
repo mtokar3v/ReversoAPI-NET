@@ -1,5 +1,4 @@
 ﻿using ReversoAPI.Web.Values;
-using ReversoAPI.Web.Values.ConjugationObjects;
 using System.Collections.Generic;
 
 namespace ReversoAPI.Web.Entities

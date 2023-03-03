@@ -43,15 +43,17 @@ namespace ReversoAPI.Web.Http
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
                 .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
-                .ExecuteAsync(() => _httpClient.GetAsync(uri));
+                .ExecuteAsync(() => _httpClient.GetAsync(uri))
+                .ConfigureAwait(false);
 
-            var content = await response.Content.ReadAsStreamAsync();
-
+            var content = await response.Content
+                    .ReadAsStreamAsync()
+                    .ConfigureAwait(false);
 
             return new HttpResponse 
             { 
                 ContentType = response.Content.Headers.ContentType.MediaType,
-                Content = await MakeACopyAsync(content),
+                Content = await MakeACopyAsync(content).ConfigureAwait(false),
             };
         }
 
@@ -67,21 +69,24 @@ namespace ReversoAPI.Web.Http
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
                 .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
-                .ExecuteAsync(() => _httpClient.PostAsync(uri, data));
+                .ExecuteAsync(() => _httpClient.PostAsync(uri, data))
+                .ConfigureAwait(false);
 
-            var content = await response.Content.ReadAsStreamAsync();
+            var content = await response.Content
+                .ReadAsStreamAsync()
+                .ConfigureAwait(false);
 
             return new HttpResponse 
             {
                 ContentType = response.Content.Headers.ContentType.MediaType,
-                Content = await MakeACopyAsync(content),
+                Content = await MakeACopyAsync(content).ConfigureAwait(false),
             };
         }
 
         private async Task<Stream> MakeACopyAsync(Stream stream)
         {
             var ms = new MemoryStream();
-            await stream.CopyToAsync(ms);
+            await stream.CopyToAsync(ms).ConfigureAwait(false);
             ms.Position = 0;
             return ms;
         }

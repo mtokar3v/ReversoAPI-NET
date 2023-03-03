@@ -2,7 +2,6 @@
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Tools.Parsers;
 using ReversoAPI.Web.Values;
-using ReversoAPI.Web.Values.ConjugationObjects;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;

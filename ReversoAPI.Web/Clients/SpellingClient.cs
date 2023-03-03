@@ -31,7 +31,10 @@ namespace ReversoAPI.Web.Clients
             if (!_supportedLanguades.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
             // TO DO: Add locale validation
 
-            using var response = await _apiConnector.PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale));
+            using var response = await _apiConnector
+                .PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale))
+                .ConfigureAwait(false);
+
             var spellingDto = response.Content.Deserialize<SpellingResponse>();
 
             return spellingDto.ToModel();

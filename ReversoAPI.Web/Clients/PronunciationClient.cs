@@ -43,7 +43,10 @@ namespace ReversoAPI.Web.Clients
             // TO DO: add text validation (length)
 
             var url = CombineUrl(text, language, speed);
-            var response = await _apiConnector.GetAsync(url);
+
+            var response = await _apiConnector
+                .GetAsync(url)
+                .ConfigureAwait(false);
 
             return response.Content;
         }

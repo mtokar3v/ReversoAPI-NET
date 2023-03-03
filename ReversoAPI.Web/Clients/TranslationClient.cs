@@ -22,7 +22,10 @@ namespace ReversoAPI.Web.Clients
             if (string.IsNullOrEmpty(text)) return null;
             if (source == target) throw new ArgumentException("Source and Target languages are similar"); // maybe should rid of this
 
-            using var response = await _apiConnector.PostAsync(new Uri(TranslationURL), new TranslationRequest(text, source, target));
+            using var response = await _apiConnector
+                .PostAsync(new Uri(TranslationURL), new TranslationRequest(text, source, target))
+                .ConfigureAwait(false);
+
             var translationDto = response.Content.Deserialize<TranslationResponse>();
 
             return translationDto.ToModel();
