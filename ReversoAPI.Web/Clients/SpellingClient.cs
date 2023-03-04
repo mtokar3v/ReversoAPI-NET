@@ -1,12 +1,13 @@
-﻿using ReversoAPI.Web.Http.Interfaces;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
-using ReversoAPI.Web.Clients.Interfaces;
 using ReversoAPI.Web.Values;
-using ReversoAPI.Web.DTOs.SpellingResponseData;
-using ReversoAPI.Web.Extensions;
 using ReversoAPI.Web.Entities;
+using ReversoAPI.Web.Extensions;
+using ReversoAPI.Web.Http.Interfaces;
+using ReversoAPI.Web.Clients.Interfaces;
+using ReversoAPI.Web.DTOs.SpellingResponseData;
+using System.Threading;
 
 namespace ReversoAPI.Web.Clients
 {
@@ -26,13 +27,15 @@ namespace ReversoAPI.Web.Clients
         {
         }
 
-        public async Task<SpellingData> GetAsync(string text, Language language, Locale locale = Locale.None)
+        public async Task<SpellingData> GetAsync(string text, Language language, Locale locale = Locale.None, CancellationToken cancellationToken = default)
         {
+            if (string.IsNullOrEmpty(text)) return null;
+            if (text.Length > 3090) throw new ArgumentException("The text provided exceeds the limit of 3090 symbols.");
             if (!_supportedLanguades.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
-            // TO DO: Add locale validation
+            if (language != locale.GetLanguage()) throw new ArgumentException($"{language} does not support {locale} locale");
 
             using var response = await _apiConnector
-                .PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale))
+                .PostAsync(new Uri(SpellingURL), new SpellingRequest(text, language, locale), cancellationToken)
                 .ConfigureAwait(false);
 
             var spellingDto = response.Content.Deserialize<SpellingResponse>();

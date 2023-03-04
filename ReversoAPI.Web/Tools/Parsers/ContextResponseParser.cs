@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using ReversoAPI.Web.Builders;
 using ReversoAPI.Web.Entities;
+using ReversoAPI.Web.Exceptions;
 
 namespace ReversoAPI.Web.Tools.Parsers
 {
@@ -8,12 +9,18 @@ namespace ReversoAPI.Web.Tools.Parsers
     {
         protected override ContextData Parse(HtmlDocument html)
         {
-            return new ContextParseBuilder(html)
-                .WithInputText()
-                .WithLanguages()
-                .WithTranslations()
-                .WithExamples()
-                .Build();
+            try
+            {
+                return new ContextParseBuilder(html)
+                    .WithInputText()
+                    .WithLanguages()
+                    .WithExamples()
+                    .Build();
+            }
+            catch(ParsingException)
+            {
+                return null;
+            }
         }
     }
 }

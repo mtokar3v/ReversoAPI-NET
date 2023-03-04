@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -34,7 +35,7 @@ namespace ReversoAPI.Web.Tests.Clients
             // Arrange
             var response = new HttpResponse() { Content = json };
             _apiConnector
-                .Setup(c => c.PostAsync(It.IsAny<Uri>(), It.IsAny<SpellingRequest>()))
+                .Setup(c => c.PostAsync(It.IsAny<Uri>(), It.IsAny<SpellingRequest>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(response);
 
             // Act

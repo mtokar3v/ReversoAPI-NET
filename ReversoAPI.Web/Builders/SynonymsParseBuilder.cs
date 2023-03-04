@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using ReversoAPI.Web.Entities;
+using ReversoAPI.Web.Exceptions;
 using ReversoAPI.Web.Extensions;
 using ReversoAPI.Web.Values;
 using System;
@@ -23,14 +24,28 @@ namespace ReversoAPI.Web.Builders
 
         public SynonymsParseBuilder WithInputText()
         {
-            _response.Text = _html.DocumentNode.SelectSingleNode("//div[@class='search-title']").InnerHtml;
-            return this;
+            try
+            {
+                _response.Text = _html.DocumentNode.SelectSingleNode("//div[@class='search-title']").InnerHtml;
+                return this;
+            }
+            catch
+            {
+                throw new ParsingException("Unable to parse input field.");
+            }
         }
 
         public SynonymsParseBuilder WithLanguage()
         {
-            _response.Source = _html.DocumentNode.SelectSingleNode("//*[@id='trg-selector']//span[@class='lang-trg'][1]").InnerHtml.ToLanguage();
-            return this;
+            try
+            {
+                _response.Source = _html.DocumentNode.SelectSingleNode("//*[@id='trg-selector']//span[@class='lang-trg'][1]").InnerHtml.ToLanguage();
+                return this;
+            }
+            catch
+            {
+                throw new ParsingException("Unable to parse source language.");
+            }
         }
 
         public SynonymsParseBuilder WithSynonyms()
@@ -38,24 +53,31 @@ namespace ReversoAPI.Web.Builders
             var language = _response.Source;
             if (language == Language.Unknown) throw new ArgumentException($"'{_response.Source}' is not setted");
 
-            var partsOfSpeech = _html.DocumentNode
-                .SelectNodes("//*[@class='wrap-hold-prop']//div/h2")
-                .Select(n => n.InnerHtml.ToPartOfSpeech());
-
-            var synonyms = new List<Word>();
-
-            foreach (var partOfSpeech in partsOfSpeech.Select((value, index) => new { index, value }))
+            try
             {
-                var synonymTexts = _html.DocumentNode
-                    .SelectNodes($"//div[@class='wrap-hold-prop'][{partOfSpeech.index + 1}]//a[@class='synonym  relevant' or @class='synonym ']")
-                    .Select(n => n.InnerHtml.ReplaceSpecSymbols());
+                var partsOfSpeech = _html.DocumentNode
+                    .SelectNodes("//*[@class='wrap-hold-prop']//div/h2")
+                    .Select(n => n.InnerHtml.ToPartOfSpeech());
 
-                synonyms.AddRange(synonymTexts.Select(s => new Word(s, language, partOfSpeech.value)));
+                var synonyms = new List<Word>();
+
+                foreach (var partOfSpeech in partsOfSpeech.Select((v, i) => new { Index = i, Value = v }))
+                {
+                    var synonymTexts = _html.DocumentNode
+                        .SelectNodes($"//div[@class='wrap-hold-prop'][{partOfSpeech.Index + 1}]//a[@class='synonym  relevant' or @class='synonym ']")
+                        .Select(n => n.InnerHtml.ReplaceSpecSymbols());
+
+                    synonyms.AddRange(synonymTexts.Select(s => new Word(s, language, partOfSpeech.Value)));
+                }
+
+                _response.Synonyms = synonyms;
+
+                return this;
             }
-
-            _response.Synonyms = synonyms;
-
-            return this;
+            catch
+            {
+                throw new ParsingException("Unable to parse synonyms.");
+            }
         }
     }
 }

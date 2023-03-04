@@ -12,6 +12,8 @@ namespace ReversoAPI.Web.Extensions
     {
         public static SpellingData ToModel(this SpellingResponse spellingDto)
         {
+            if(spellingDto == null) return null;
+
             return new SpellingData
             {
                 Text = spellingDto.Text,
@@ -22,6 +24,8 @@ namespace ReversoAPI.Web.Extensions
 
         public static Correction ToModel(this CorrectionDto correctionDto) 
         {
+            if (correctionDto == null) return null;
+
             return new Correction(correctionDto.CorrectionText, correctionDto.MistakeText)
             {
                 StartIndex = correctionDto.StartIndex,
@@ -34,17 +38,17 @@ namespace ReversoAPI.Web.Extensions
 
         public static TranslationData ToModel(this TranslationResponse translationDto) 
         {
-            var hasFullTranslation = !string.IsNullOrWhiteSpace(translationDto.ContextResults?.Results?.FirstOrDefault()?.Translation);
+            if (translationDto == null) return null;
+
+            var hasExtraFields = !string.IsNullOrWhiteSpace(translationDto.ContextResults?.Results?.FirstOrDefault()?.Translation);
 
             return new TranslationData
             {
                 Text = string.Join(Environment.NewLine, translationDto.Input.Select(t => t.ReplaceSpecSymbols())),
                 Source = translationDto.From.ToLanguageFromMediumName(),
                 Target = translationDto.To.ToLanguageFromMediumName(),
-                Translations = hasFullTranslation ? GetFullTranslations() : GetShortTranslations(),
+                Translations = hasExtraFields ? GetFullTranslations() : GetShortTranslations(),
             };
-
-            // TO DO: Refactor this
 
             IEnumerable<Translation> GetShortTranslations()
             {

@@ -32,6 +32,7 @@ namespace ReversoAPI.Web.Tests.Parsers
             {
                 new ConjugationData
                 {
+                    Text = "run",
                     Language = Language.English,
                     Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
                     {
@@ -71,6 +72,7 @@ namespace ReversoAPI.Web.Tests.Parsers
             {
                 new ConjugationData
                 {
+                    Text = "бежать",
                     Language = Language.Russian,
                     Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
                     {

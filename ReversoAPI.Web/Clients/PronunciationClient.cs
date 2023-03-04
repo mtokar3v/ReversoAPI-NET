@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ReversoAPI.Web.Clients
@@ -37,15 +38,16 @@ namespace ReversoAPI.Web.Clients
         {
         }
 
-        public async Task<Stream> GetAsync(string text, Language language, int speed = 100)
+        public async Task<Stream> GetAsync(string text, Language language, int speed = 100, CancellationToken cancellationToken = default)
         {
+            if (string.IsNullOrEmpty(text)) return null;
+            if (text.Length > 1300) throw new ArgumentException("The text provided exceeds the limit of 1300 symbols.");
             if (!_voices.Keys.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
-            // TO DO: add text validation (length)
 
             var url = CombineUrl(text, language, speed);
 
             var response = await _apiConnector
-                .GetAsync(url)
+                .GetAsync(url, cancellationToken)
                 .ConfigureAwait(false);
 
             return response.Content;

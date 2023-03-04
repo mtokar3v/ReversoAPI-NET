@@ -124,6 +124,9 @@
   <data name="ConjugationParseTestRunRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ConjugationParseTestRunRus.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Context_Parse_Test_Human_Eng_Arab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Context_Parse_Test_Human_Eng_Arab.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="folkSymonimsParseTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\folkSymonimsParseTest.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

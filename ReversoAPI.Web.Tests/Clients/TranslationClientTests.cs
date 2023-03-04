@@ -9,6 +9,7 @@ using ReversoAPI.Web.Values;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -32,7 +33,7 @@ namespace ReversoAPI.Web.Tests.Clients
             // Arrange
             var response = new HttpResponse() { Content = json };
             _apiConnector
-                .Setup(c => c.PostAsync(It.IsAny<Uri>(), It.IsAny<TranslationRequest>()))
+                .Setup(c => c.PostAsync(It.IsAny<Uri>(), It.IsAny<TranslationRequest>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(response);
 
             // Act

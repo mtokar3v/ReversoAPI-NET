@@ -1,11 +1,11 @@
-﻿using HtmlAgilityPack;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Exceptions;
 using ReversoAPI.Web.Extensions;
 using ReversoAPI.Web.Values;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using HtmlAgilityPack;
 
 namespace ReversoAPI.Web.Builders
 {
@@ -24,48 +24,51 @@ namespace ReversoAPI.Web.Builders
 
         public ContextParseBuilder WithInputText()
         {
-            _response.Text = _html.DocumentNode
-                .SelectSingleNode("//*[@id='search-input']//input[1]")
-                .GetAttributeValue("value", string.Empty);
+            try
+            {
+                _response.Text = _html.DocumentNode
+                    .SelectSingleNode("//*[@id='search-input']//input[1]")
+                    .GetAttributeValue("value", string.Empty);
 
-            return this;
+                return this;
+            }
+            catch
+            {
+                throw new ParsingException("Unable to parse input field.");
+            }
         }
 
         public ContextParseBuilder WithLanguages()
         {
-            _response.Source = _html.DocumentNode
-                .SelectSingleNode("//*[@id='src-selector']//span[@class='option front']")
-                .GetAttributeValue("data-value", string.Empty)
-                .ToLanguageFromShortName();
+            try
+            {
+                _response.Source = _html.DocumentNode
+                    .SelectSingleNode("//*[@id='src-selector']//span[@class='option front']")
+                    .GetAttributeValue("data-value", string.Empty)
+                    .ToLanguageFromShortName();
 
-            _response.Target = _html.DocumentNode
-                .SelectSingleNode("//*[@id='trg-selector']//span[@class='option front']")
-                .GetAttributeValue("data-value", string.Empty)
-                .ToLanguageFromShortName();
+                if (_response.Source == Language.Unknown) throw new ParsingException();
+            }
+            catch
+            {
+                throw new ParsingException("Unable to parse source language.");
+            }
+
+            try
+            { 
+                _response.Target = _html.DocumentNode
+                    .SelectSingleNode("//*[@id='trg-selector']//span[@class='option front']")
+                    .GetAttributeValue("data-value", string.Empty)
+                    .ToLanguageFromShortName();
+
+                if (_response.Target == Language.Unknown) throw new ParsingException();
+            }
+            catch
+            {
+                throw new ParsingException("Unable to parse target language.");
+            }
 
             return this;
-        }
-
-        public ContextParseBuilder WithTranslations()
-        {
-            var targetLanguage = _response.Target;
-            if (targetLanguage == Language.Unknown) throw new ArgumentException($"'{_response.Target}' is not setted");
-
-            _response.Translations = _html.DocumentNode
-                            .SelectNodes("//*[@id='translations-content']//span[@class='display-term']")
-                            ?.Select(n => new Word(n.InnerHtml.ReplaceSpecSymbols(), targetLanguage, GetPartOfSpeech(n)));
-
-            return this;
-
-            PartOfSpeech GetPartOfSpeech(HtmlNode node) => node.ParentNode
-                    ?.ChildNodes
-                    ?.FirstOrDefault(n => n.Name == "div")
-                    ?.ChildNodes
-                    ?.FirstOrDefault(n => n.Name == "span")
-                    //maybe should use short names (class name) instead of title, cause title depends of page language
-                    ?.GetAttributeValue("title", string.Empty)
-                    ?.ToPartOfSpeech()
-                    ?? PartOfSpeech.Unknown;
         }
 
         public ContextParseBuilder WithExamples()
@@ -76,31 +79,38 @@ namespace ReversoAPI.Web.Builders
             var targetLanguage = _response.Target;
             if (targetLanguage == Language.Unknown) throw new ArgumentException($"'{_response.Target}' is not setted");
 
-            var sourceLayout = GetLayout(sourceLanguage);
-            var sourceSentences = _html.DocumentNode
-                .SelectNodes($"//*[@id='examples-content']/div[@class='example']/div[@class='src {sourceLayout}']/span")
-                .Select(n => n.InnerHtml.RemoveHtmlTags().ReplaceSpecSymbols());
-
-            var targetLayout = GetLayout(targetLanguage);
-            var targetSentences = _html.DocumentNode
-                .SelectNodes($"//*[@id='examples-content']/div[@class='example']/div[@class='trg {targetLayout}']/span[@class='text'][1]")
-                .Select(n => n.InnerHtml.RemoveHtmlTags().ReplaceSpecSymbols());
-
-            if (targetSentences.Count() != sourceSentences.Count())
-                throw new ParsingException("Failed to parse an examples");
-
-            var examples = new List<Example>();
-
-            for (var i = 0; i < targetSentences.Count(); i++)
+            try
             {
-                var sourceSentence = new Sentence(sourceLanguage, sourceSentences.ElementAt(i));
-                var targetSentence = new Sentence(targetLanguage, targetSentences.ElementAt(i));
-                examples.Add(new Example(sourceSentence, targetSentence));
+                var sourceLayout = GetLayout(sourceLanguage);
+                var sourceSentences = _html.DocumentNode
+                    .SelectNodes($"//*[@id='examples-content']/div[@class='example']/div[@class='src {sourceLayout}']/span")
+                    .Select(n => n.InnerHtml.RemoveHtmlTags().ReplaceSpecSymbols());
+
+                var targetLayout = GetLayout(targetLanguage);
+                var targetSentences = _html.DocumentNode
+                    .SelectNodes($"//*[@id='examples-content']/div[@class='example']/div[@class='trg {targetLayout}']/span[@class='text'][1]")
+                    .Select(n => n.InnerHtml.RemoveHtmlTags().ReplaceSpecSymbols());
+
+                if (targetSentences.Count() != sourceSentences.Count())
+                    throw new ParsingException("Failed to parse an examples");
+
+                var examples = new List<Example>();
+
+                for (var i = 0; i < targetSentences.Count(); i++)
+                {
+                    var sourceSentence = new Sentence(sourceLanguage, sourceSentences.ElementAt(i));
+                    var targetSentence = new Sentence(targetLanguage, targetSentences.ElementAt(i));
+                    examples.Add(new Example(sourceSentence, targetSentence));
+                }
+
+                _response.Examples = examples;
+
+                return this;
             }
-
-            _response.Examples = examples;
-
-            return this;
+            catch
+            {
+                throw new ParsingException("Unable to parse contexts examples.");
+            }
         }
 
         private string GetLayout(Language language)

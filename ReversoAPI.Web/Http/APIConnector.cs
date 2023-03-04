@@ -1,13 +1,14 @@
-﻿using Newtonsoft.Json;
-using Polly;
-using ReversoAPI.Web.Http.Interfaces;
-using System;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
+using System.Linq;
 using System.Text;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
+using Polly;
+using Newtonsoft.Json;
+using ReversoAPI.Web.Http.Interfaces;
 
 namespace ReversoAPI.Web.Http
 {
@@ -35,7 +36,7 @@ namespace ReversoAPI.Web.Http
             return new APIConnector(httpClientCache.GetHttpClient());
         }
 
-        public async Task<HttpResponse> GetAsync(Uri uri)
+        public async Task<HttpResponse> GetAsync(Uri uri, CancellationToken cancellationToken = default)
         {
             if (uri == null) throw new ArgumentNullException(nameof(uri));
 
@@ -43,7 +44,7 @@ namespace ReversoAPI.Web.Http
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
                 .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
-                .ExecuteAsync(() => _httpClient.GetAsync(uri))
+                .ExecuteAsync(() => _httpClient.GetAsync(uri, cancellationToken))
                 .ConfigureAwait(false);
 
             var content = await response.Content
@@ -53,11 +54,11 @@ namespace ReversoAPI.Web.Http
             return new HttpResponse 
             { 
                 ContentType = response.Content.Headers.ContentType.MediaType,
-                Content = await MakeACopyAsync(content).ConfigureAwait(false),
+                Content = await MakeACopyAsync(content, cancellationToken).ConfigureAwait(false),
             };
         }
 
-        public async Task<HttpResponse> PostAsync(Uri uri, object payload)
+        public async Task<HttpResponse> PostAsync(Uri uri, object payload, CancellationToken cancellationToken = default)
         {
             if (uri == null) throw new ArgumentNullException(nameof(uri));
             if (payload == null) throw new ArgumentNullException(nameof(payload));
@@ -69,7 +70,7 @@ namespace ReversoAPI.Web.Http
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
                 .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
-                .ExecuteAsync(() => _httpClient.PostAsync(uri, data))
+                .ExecuteAsync(() => _httpClient.PostAsync(uri, data, cancellationToken))
                 .ConfigureAwait(false);
 
             var content = await response.Content
@@ -79,14 +80,15 @@ namespace ReversoAPI.Web.Http
             return new HttpResponse 
             {
                 ContentType = response.Content.Headers.ContentType.MediaType,
-                Content = await MakeACopyAsync(content).ConfigureAwait(false),
+                Content = await MakeACopyAsync(content, cancellationToken).ConfigureAwait(false),
             };
         }
 
-        private async Task<Stream> MakeACopyAsync(Stream stream)
+        // TODO: Rid of this. HttpResponseMessage disposing leads to close Content stream.
+        private async Task<Stream> MakeACopyAsync(Stream stream, CancellationToken cancellationToken = default)
         {
             var ms = new MemoryStream();
-            await stream.CopyToAsync(ms).ConfigureAwait(false);
+            await stream.CopyToAsync(ms, cancellationToken).ConfigureAwait(false);
             ms.Position = 0;
             return ms;
         }

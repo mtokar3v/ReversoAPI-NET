@@ -10,7 +10,6 @@ namespace ReversoAPI.Web.Entities
         public Language Source { get; set; }
         public Language Target { get; set; }
 
-        public IEnumerable<Word> Translations { get; set; } // may be rid this?
         public IEnumerable<Example> Examples { get; set; }
     }
 }

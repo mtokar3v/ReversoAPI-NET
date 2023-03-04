@@ -5,40 +5,127 @@ namespace ReversoAPI.Web.Examples
 {
     internal class Program
     {
+        private static readonly IReversoClient _reversoClient = new ReversoClient();
+
         static async Task Main(string[] args)
         {
-            var reverso = new ReversoClient();
-            var ee = await reverso.Conjugation.GetAsync("run", Language.English);
+            var text = "run";
+            var source = Language.English;
+            var target = Language.Russian;
 
-            //using (var fileStream = File.Create("C:\\Users\\Максим\\Desktop\\text.mp3"))
-            //{
-            //    ee!.Seek(0, SeekOrigin.Begin);
-            //    ee!.CopyTo(fileStream);
-            //}
+            var path = $"C:\\Users\\Максим\\Desktop\\{source}.mp3";
 
-
-            var x = await reverso.Spelling.GetAsync("Helo", Language.English);
-
-            for (var i = 0; i < 100; i++)
-                Console.WriteLine((await reverso.Synonyms.GetAsync("folk", Language.English)).Text);
+            await DownloadSpeakingAsync(text, source, path);
+            await PrintConjugationAsync(text, source);
+            await PrintTranslationAsync(text, source, target);
+            await PrintContextAsync(text, source, target);
         }
 
-        private static async Task DisplayContext(IReversoClient reverso)
+        private static async Task DownloadSpeakingAsync(string text, Language language, string path)
         {
-            var response = await reverso.Context.GetAsync("hello", Language.English, Language.Russian);
+            var pronunciation = await _reversoClient.Pronunciation.GetAsync(text, language);
 
-            Console.WriteLine(response.Text);
-            Console.WriteLine($"Source Language: {response.Source}");
-            Console.WriteLine($"Target Language: {response.Target}");
-            Console.WriteLine("___________");
-            response.Translations.ToList().ForEach(t => Console.WriteLine($"Word: {t.Value}, Part of speech: {t.PartOfSpeech}, Language: {t.Language}"));
-            Console.WriteLine("___________");
-            response.Examples.ToList().ForEach(t =>
+            if (pronunciation is null)
             {
-                Console.WriteLine($"Source: {t.Source.Text}");
-                Console.WriteLine($"Target: {t.Target.Text}");
-                Console.WriteLine("<");
-            });
+                Console.WriteLine("Failed to get pronunciation");
+                return;
+            }
+
+            using (var fileStream = File.Create(path))
+            {
+                pronunciation!.CopyTo(fileStream);
+            }
+        }
+
+        private static async Task PrintConjugationAsync(string text, Language language)
+        {
+            var conjugation = await _reversoClient.Conjugation.GetAsync(text, language);
+
+            if (conjugation is null)
+            {
+                Console.WriteLine("Failed to get conjugation");
+                return;
+            }
+
+            Console.WriteLine($"Input: {conjugation.Text} | Language: {conjugation.Language}");
+            Console.WriteLine();
+
+            foreach(var group in conjugation.Conjugations.Keys)
+            {
+                Console.WriteLine($"Group: {group}");
+                if (!conjugation.Conjugations.TryGetValue(group, out var conjugations))
+                    continue;
+                
+                foreach (var selection in conjugations.Select((c, i) => new { Index = i, Conjugation = c }))
+                {
+                    Console.WriteLine($"{selection.Index}. {selection.Conjugation.Verb}");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        private static async Task PrintTranslationAsync(string text, Language source, Language target)
+        {
+            var translation = await _reversoClient.Translation.GetAsync(text, source, target);
+
+            if (translation is null)
+            {
+                Console.WriteLine("Failed to get translation");
+                return;
+            }
+
+            Console.WriteLine($"Input: {translation.Text} | Source language: {translation.Source} | Target language: {translation.Target}");
+            Console.WriteLine();
+
+            foreach (var selection in translation.Translations.Select((t, i) => new { Index = i, Translation = t }))
+            {
+                Console.WriteLine($"Number {selection.Index}");
+
+                Console.WriteLine($"Language: {selection.Translation.Source}");
+                Console.WriteLine(selection.Translation.Text);
+
+                Console.WriteLine($"Language: {selection.Translation.Target}");
+                Console.WriteLine(selection.Translation.Value);
+
+                if (selection.Translation.Frequency.HasValue)
+                {
+                    Console.WriteLine("Extra information:");
+                    Console.WriteLine($"Is colloquial: {selection.Translation.IsColloquial}");
+                    Console.WriteLine($"Is rude: {selection.Translation.IsRude}");
+                    Console.WriteLine($"Frequency: {selection.Translation.Frequency}");
+                    Console.WriteLine($"Transliteration: {selection.Translation.Transliteration}");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        private static async Task PrintContextAsync(string text, Language source, Language target)
+        {
+            var context = await _reversoClient.Context.GetAsync(text, source, target);
+
+            if(context is null)
+            {
+                Console.WriteLine("Failed to get context");
+                return;
+            }
+
+            Console.WriteLine($"Input: {context.Text} | Source language: {context.Source} | Target language: {context.Target}");
+            Console.WriteLine();
+            
+            foreach(var selection in context.Examples.Select((e, i) => new { Index = i, Example = e }))
+            {
+                Console.WriteLine($"Number {selection.Index}");
+
+                Console.WriteLine($"Language: {selection.Example.Source.Language}");
+                Console.WriteLine(selection.Example.Source.Text);
+
+                Console.WriteLine($"Language: {selection.Example.Target.Language}");
+                Console.WriteLine(selection.Example.Target.Text);
+
+                Console.WriteLine();
+            }
         }
     }
 }
