@@ -1,0 +1,26 @@
+{
+    "id": "c4e214d3-568f-4498-b608-83933996aca1",
+    "from": "ara",
+    "to": "hin",
+    "input": [
+        "مرحبا العالم"
+    ],
+    "correctedText": null,
+    "translation": [
+        "नमस्ते दुनिया"
+    ],
+    "engines": [
+        "BeGlobal"
+    ],
+    "languageDetection": {
+        "detectedLanguage": "ara",
+        "isDirectionChanged": false,
+        "originalDirection": "ara-hin",
+        "originalDirectionContextMatches": 0,
+        "changedDirectionContextMatches": 0,
+        "timeTaken": 12
+    },
+    "contextResults": null,
+    "truncated": false,
+    "timeTaken": 1301
+}

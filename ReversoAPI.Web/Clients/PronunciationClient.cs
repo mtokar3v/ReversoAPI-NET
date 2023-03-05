@@ -17,26 +17,17 @@ namespace ReversoAPI.Web.Clients
 
         private static Dictionary<Language, string> _voices = new Dictionary<Language, string>
         {
-            { Language.Arabic, "Mehdi22k" },
-            { Language.German, "Mehdi22k" },
-            { Language.Spanish, "Ines22k" },
-            { Language.French, "Alice22k" },
-            { Language.Hebrew, "he-IL-Asaf" },
-            { Language.Italian, "Chiara22k" },
-            { Language.Japanese, "Sakura22k" },
-            { Language.Dutch, "Femke22k" },
-            { Language.Polish, "Ania22k" },
-            { Language.Portuguese, "Celia22k" },
-            { Language.Romanian, "ro-RO-Andrei" },
-            { Language.Russian, "Alyona22k" },
-            { Language.Turkish, "Ipek22k" },
-            { Language.Chinese, "Lulu22k" },
+            { Language.Arabic, "Mehdi22k" },       { Language.German, "Mehdi22k" },
+            { Language.Spanish, "Ines22k" },       { Language.French, "Alice22k" },
+            { Language.Hebrew, "he-IL-Asaf" },     { Language.Italian, "Chiara22k" },
+            { Language.Japanese, "Sakura22k" },    { Language.Dutch, "Femke22k" },
+            { Language.Polish, "Ania22k" },        { Language.Portuguese, "Celia22k" },
+            { Language.Romanian, "ro-RO-Andrei" }, { Language.Russian, "Alyona22k" },
+            { Language.Turkish, "Ipek22k" },       { Language.Chinese, "Lulu22k" },
             { Language.English, "Heather22k" },
         };
 
-        public PronunciationClient(IAPIConnector apiConnector) : base(apiConnector)
-        {
-        }
+        public PronunciationClient(IAPIConnector apiConnector) : base(apiConnector) { }
 
         public async Task<Stream> GetAsync(string text, Language language, int speed = 100, CancellationToken cancellationToken = default)
         {

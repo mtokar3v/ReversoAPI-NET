@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Newtonsoft.Json.Linq;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Tools.Parsers;
 using ReversoAPI.Web.Values;
@@ -25,9 +24,11 @@ namespace ReversoAPI.Web.Tests.Parsers
 
             // Assert
             expectedResult.Text.Should().Be(result.Text);
-            expectedResult.Source.Should().Be(result.Source);
+            expectedResult.Language.Should().Be(result.Language);
             expectedResult.Synonyms.Should().BeEquivalentTo(result.Synonyms);
         }
+
+        #region TestData
 
         public static IEnumerable<object[]> HtmlResponsesForTest()
         {
@@ -36,86 +37,165 @@ namespace ReversoAPI.Web.Tests.Parsers
                 new SynonymsData
                 {
                     Text = "folk",
-                    Source = Language.English,
+                    Language = Language.English,
                     Synonyms = new []
                     {
-                        new Word("people's", Language.English, PartOfSpeech.Adjective),
-                        new Word("traditional", Language.English, PartOfSpeech.Adjective),
-                        new Word("popular", Language.English, PartOfSpeech.Adjective),
-                        new Word("conventional", Language.English, PartOfSpeech.Adjective),
-                        new Word("grassroots", Language.English, PartOfSpeech.Adjective),
-                        new Word("old-fashioned", Language.English, PartOfSpeech.Adjective),
-                        new Word("public", Language.English, PartOfSpeech.Adjective),
-                        new Word("formal", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("people's", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("traditional", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("popular", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("conventional", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("grassroots", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("old-fashioned", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("public", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("formal", Language.English, PartOfSpeech.Adjective),
 
-                        new Word("standard", Language.English, PartOfSpeech.Adjective),
-                        new Word("classic", Language.English, PartOfSpeech.Adjective),
-                        new Word("classical", Language.English, PartOfSpeech.Adjective),
-                        new Word("famous", Language.English, PartOfSpeech.Adjective),
-                        new Word("long-standing", Language.English, PartOfSpeech.Adjective),
-                        new Word("customary", Language.English, PartOfSpeech.Adjective),
-                        new Word("conservative", Language.English, PartOfSpeech.Adjective),
-                        new Word("time-honored", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("standard", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("classic", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("classical", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("famous", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("long-standing", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("customary", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("conservative", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("time-honored", Language.English, PartOfSpeech.Adjective),
 
-                        new Word("popular with", Language.English, PartOfSpeech.Adjective),
-                        new Word("pop", Language.English, PartOfSpeech.Adjective),
-                        new Word("mainstream", Language.English, PartOfSpeech.Adjective),
-                        new Word("typical", Language.English, PartOfSpeech.Adjective),
-                        new Word("custom", Language.English, PartOfSpeech.Adjective),
-                        new Word("well-known", Language.English, PartOfSpeech.Adjective),
-                        new Word("ancient", Language.English, PartOfSpeech.Adjective),
-                        new Word("elderly", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("popular with", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("pop", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("mainstream", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("typical", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("custom", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("well-known", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("ancient", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("elderly", Language.English, PartOfSpeech.Adjective),
 
-                        new Word("old", Language.English, PartOfSpeech.Adjective),
-                        new Word("auld", Language.English, PartOfSpeech.Adjective),
-                        new Word("long-running", Language.English, PartOfSpeech.Adjective),
-                        new Word("older", Language.English, PartOfSpeech.Adjective),
-                        new Word("regular", Language.English, PartOfSpeech.Adjective),
-                        new Word("normal", Language.English, PartOfSpeech.Adjective),
-                        new Word("usual", Language.English, PartOfSpeech.Adjective),
-                        new Word("common", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("old", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("auld", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("long-running", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("older", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("regular", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("normal", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("usual", Language.English, PartOfSpeech.Adjective),
+                        new Synonim("common", Language.English, PartOfSpeech.Adjective),
 
-                        new Word("people", Language.English, PartOfSpeech.Noun),
-                        new Word("kin", Language.English, PartOfSpeech.Noun),
-                        new Word("common people", Language.English, PartOfSpeech.Noun),
-                        new Word("parents", Language.English, PartOfSpeech.Noun),
-                        new Word("family", Language.English, PartOfSpeech.Noun),
-                        new Word("kinfolk", Language.English, PartOfSpeech.Noun),
-                        new Word("peoples", Language.English, PartOfSpeech.Noun),
-                        new Word("individuals", Language.English, PartOfSpeech.Noun),
-                        new Word("population", Language.English, PartOfSpeech.Noun),
+                        new Synonim("people", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kin", Language.English, PartOfSpeech.Noun),
+                        new Synonim("common people", Language.English, PartOfSpeech.Noun),
+                        new Synonim("parents", Language.English, PartOfSpeech.Noun),
+                        new Synonim("family", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kinfolk", Language.English, PartOfSpeech.Noun),
+                        new Synonim("peoples", Language.English, PartOfSpeech.Noun),
+                        new Synonim("individuals", Language.English, PartOfSpeech.Noun),
+                        new Synonim("population", Language.English, PartOfSpeech.Noun),
 
-                        new Word("persons", Language.English, PartOfSpeech.Noun),
-                        new Word("tribe", Language.English, PartOfSpeech.Noun),
-                        new Word("inhabitants", Language.English, PartOfSpeech.Noun),
-                        new Word("relations", Language.English, PartOfSpeech.Noun),
-                        new Word("crowd", Language.English, PartOfSpeech.Noun),
-                        new Word("nation", Language.English, PartOfSpeech.Noun),
-                        new Word("pueblo", Language.English, PartOfSpeech.Noun),
-                        new Word("grassroots", Language.English, PartOfSpeech.Noun),
-                        new Word("populace", Language.English, PartOfSpeech.Noun),
+                        new Synonim("persons", Language.English, PartOfSpeech.Noun),
+                        new Synonim("tribe", Language.English, PartOfSpeech.Noun),
+                        new Synonim("inhabitants", Language.English, PartOfSpeech.Noun),
+                        new Synonim("relations", Language.English, PartOfSpeech.Noun),
+                        new Synonim("crowd", Language.English, PartOfSpeech.Noun),
+                        new Synonim("nation", Language.English, PartOfSpeech.Noun),
+                        new Synonim("pueblo", Language.English, PartOfSpeech.Noun),
+                        new Synonim("grassroots", Language.English, PartOfSpeech.Noun),
+                        new Synonim("populace", Language.English, PartOfSpeech.Noun),
 
-                        new Word("relative", Language.English, PartOfSpeech.Noun),
-                        new Word("household", Language.English, PartOfSpeech.Noun),
-                        new Word("crew", Language.English, PartOfSpeech.Noun),
-                        new Word("kinship", Language.English, PartOfSpeech.Noun),
-                        new Word("mob", Language.English, PartOfSpeech.Noun),
-                        new Word("parentage", Language.English, PartOfSpeech.Noun),
-                        new Word("kinsfolk", Language.English, PartOfSpeech.Noun),
-                        new Word("kith", Language.English, PartOfSpeech.Noun),
-                        new Word("father", Language.English, PartOfSpeech.Noun),
+                        new Synonim("relative", Language.English, PartOfSpeech.Noun),
+                        new Synonim("household", Language.English, PartOfSpeech.Noun),
+                        new Synonim("crew", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kinship", Language.English, PartOfSpeech.Noun),
+                        new Synonim("mob", Language.English, PartOfSpeech.Noun),
+                        new Synonim("parentage", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kinsfolk", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kith", Language.English, PartOfSpeech.Noun),
+                        new Synonim("father", Language.English, PartOfSpeech.Noun),
 
-                        new Word("kindred", Language.English, PartOfSpeech.Noun),
-                        new Word("race", Language.English, PartOfSpeech.Noun),
-                        new Word("home", Language.English, PartOfSpeech.Noun),
-                        new Word("lot", Language.English, PartOfSpeech.Noun),
-                        new Word("country", Language.English, PartOfSpeech.Noun),
-                        new Word("kinsman", Language.English, PartOfSpeech.Noun),
-                        new Word("guy", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kindred", Language.English, PartOfSpeech.Noun),
+                        new Synonim("race", Language.English, PartOfSpeech.Noun),
+                        new Synonim("home", Language.English, PartOfSpeech.Noun),
+                        new Synonim("lot", Language.English, PartOfSpeech.Noun),
+                        new Synonim("country", Language.English, PartOfSpeech.Noun),
+                        new Synonim("kinsman", Language.English, PartOfSpeech.Noun),
+                        new Synonim("guy", Language.English, PartOfSpeech.Noun),
                     }
                 },
-                new MemoryStream(Encoding.UTF8.GetBytes(Resource.folkSymonimsParseTest ?? string.Empty))
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Symonims_Parse_Test_English ?? string.Empty))
+            };
+
+            yield return new object[]
+            {
+                new SynonymsData
+                {
+                    Text = "איש",
+                    Language = Language.Hebrew,
+                    Synonyms = new []
+                    {
+                        new Synonim("אדם", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("מישהו", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("בן אדם", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אף אחד", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("גבר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אחד", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אנשים", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("בחור", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("חבר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("מישהי", Language.Hebrew, PartOfSpeech.Noun),
+                        
+                        new Synonim("אחי", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("טיפוס", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("חבוב", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("ברנש", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אנוש", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("יחיד", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("פרט", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("בן", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("שוטר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אדוני", Language.Hebrew, PartOfSpeech.Noun),
+
+                        new Synonim("נער", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("סוכן", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("זכר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("כלומניק", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("בנאדם", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("בן זוג", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("מר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אחת", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("ילד", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("המפקד", Language.Hebrew, PartOfSpeech.Noun),
+
+                        new Synonim("אדון", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("סר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("מתווך", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("סוחר", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("סוג", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("ידיד", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("אשה", Language.Hebrew, PartOfSpeech.Noun),
+                        new Synonim("נקבה", Language.Hebrew, PartOfSpeech.Noun),
+                    }
+                },
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Synonims_Parse_Test_Herbew ?? string.Empty))
+            };
+
+            yield return new object[]
+            {
+                new SynonymsData
+                {
+                    Text = "جمل",
+                    Language = Language.Arabic,
+                    Synonyms = new []
+                    {
+                        new Synonim("ناقة", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("إبل", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("بعير", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("كلام", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("عبارة", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("قول", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("مقولة", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("تعبير", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("كلمة", Language.Arabic, PartOfSpeech.Noun),
+                        new Synonim("مصطلح", Language.Arabic, PartOfSpeech.Noun),
+                    }
+                },
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Synonim_Parse_Text_Arabic ?? string.Empty))
             };
         }
+
+        #endregion
     }
 }

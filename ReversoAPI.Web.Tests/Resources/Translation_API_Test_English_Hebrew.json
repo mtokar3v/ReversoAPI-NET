@@ -1,0 +1,168 @@
+{
+    "id": "2e66727a-9e2a-4e89-becf-65c960669653",
+    "from": "eng",
+    "to": "heb",
+    "input": [
+        "hello"
+    ],
+    "correctedText": null,
+    "translation": [
+        "שלום"
+    ],
+    "engines": [
+        "Context"
+    ],
+    "languageDetection": {
+        "detectedLanguage": "eng",
+        "isDirectionChanged": false,
+        "originalDirection": "eng-heb",
+        "originalDirectionContextMatches": 20335,
+        "changedDirectionContextMatches": 0,
+        "timeTaken": 37
+    },
+    "contextResults": {
+        "rudeWords": false,
+        "colloquialisms": false,
+        "riskyWords": false,
+        "results": [
+            {
+                "translation": "שלום",
+                "sourceExamples": [
+                    "A person could be killed simply for saying <em>hello</em> to me.",
+                    "You always make my day when you wave and smile <em>hello</em>.",
+                    "It can be <em>hello</em> with a lot of miles between us.",
+                    "I just brought you in here for a friendly <em>hello</em>.",
+                    "He said <em>hello</em> and where to find the donkey.",
+                    "A kind lady came up to us and said <em>hello</em>.",
+                    "Nearly every person I passed on my walks said <em>hello</em>.",
+                    "Sometimes all you have to say is <em>hello</em>.",
+                    "Well, people never give a good <em>hello</em> at the funeral."
+                ],
+                "targetExamples": [
+                    "אני מסוגלת להרוג בנאדם סתם כי הוא אמר לי <em>שלום</em>...",
+                    "אתה תמיד עושה לי את היום כשאתה מנפנף ואומר <em>שלום</em>.",
+                    "זה יכול להיות <em>שלום</em> עם הרבה קילומטרים בנינו.",
+                    "אני רק הבאתי אותך לכאן בשביל <em>שלום</em> ידידותי.",
+                    "הוא אמר לי <em>שלום</em> איפה אפשר למצוא את החמור.",
+                    "אישה מבוגרת ניגשה אלינו ואמרה לו <em>שלום</em>.",
+                    "כמעט כל האנשים שאנחנו חולפים על פניהם ברחוב אומרים לנו <em>שלום</em>.",
+                    "לפעמים כל מה שאתה צריך להגיד זה <em>שלום</em>.",
+                    "אנשים אף פעם לא אומרים <em>שלום</em> יפה בהלוויה."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "adv.",
+                "frequency": 17186,
+                "vowels": "שָׁלוֹם;שָׁלוֹם",
+                "transliteration": "shalom"
+            },
+            {
+                "translation": "הלו",
+                "sourceExamples": [
+                    "I'm out of my <em>hello</em> kitty phase."
+                ],
+                "targetExamples": [
+                    "אני מתוך שלי <em>הלו</em> קיטי שלב."
+                ],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 3968,
+                "vowels": "הַלּוֹ",
+                "transliteration": "halo"
+            },
+            {
+                "translation": "היי",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 754,
+                "vowels": null,
+                "transliteration": null
+            },
+            {
+                "translation": "ד\"ש",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 207,
+                "vowels": "דַּ\"שׁ",
+                "transliteration": "da\"sh"
+            },
+            {
+                "translation": "בוקר טוב",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "n.",
+                "frequency": 124,
+                "vowels": "בּוּקַּר טוֹב",
+                "transliteration": "buqar tov"
+            },
+            {
+                "translation": "הי",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 89,
+                "vowels": "הֵי",
+                "transliteration": "hei"
+            },
+            {
+                "translation": "לשלום",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "adv.",
+                "frequency": 67,
+                "vowels": null,
+                "transliteration": null
+            },
+            {
+                "translation": "ערב טוב",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": "n.",
+                "frequency": 36,
+                "vowels": "עֶרֶב טוֹב",
+                "transliteration": "'erev tov"
+            },
+            {
+                "translation": "אהלן",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 35,
+                "vowels": "אַהְלָן",
+                "transliteration": "ahelann"
+            },
+            {
+                "translation": "מה שלומך",
+                "sourceExamples": [],
+                "targetExamples": [],
+                "rude": false,
+                "colloquial": false,
+                "partOfSpeech": null,
+                "frequency": 19,
+                "vowels": "מָה שְׁלוֹמְךָ",
+                "transliteration": "mah shelomekha"
+            }
+        ],
+        "totalContextCallsMade": 1,
+        "timeTakenContext": 0
+    },
+    "truncated": false,
+    "timeTaken": 37
+}

@@ -1,8 +1,8 @@
 ﻿namespace ReversoAPI.Web.Values
 {
-    public class Word
+    public class Synonim
     {
-        public Word(string value, Language language, PartOfSpeech partOfSpeech)
+        public Synonim(string value, Language language, PartOfSpeech partOfSpeech)
         {
             Value = value;
             Language = language;

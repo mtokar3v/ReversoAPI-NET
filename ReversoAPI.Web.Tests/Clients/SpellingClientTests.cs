@@ -48,14 +48,16 @@ namespace ReversoAPI.Web.Tests.Clients
             expectedResult.Correction.Should().BeEquivalentTo(result.Correction);
         }
 
+        #region TestData
+
         public static IEnumerable<object[]> SpellingDataForTest()
         {
             yield return new object[]
             {
                 "maney",
                 Language.English,
-            Locale.None,
-                new MemoryStream(Resource.spellingTestMoneyEng),
+                Locale.None,
+                new MemoryStream(Resource.Spelling_API_Test_English),
                 new SpellingData
                 {
                     Text = "Maney",
@@ -74,5 +76,7 @@ namespace ReversoAPI.Web.Tests.Clients
                 }
             };
         }
+
+        #endregion
     }
 }

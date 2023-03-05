@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using ReversoAPI.Web.Values;
 using ReversoAPI.Web.Entities;
@@ -8,25 +7,13 @@ using ReversoAPI.Web.Http.Interfaces;
 using ReversoAPI.Web.Clients.Interfaces;
 using System.Threading;
 using System.Web;
+using ReversoAPI.Web.Values.Validators;
 
 namespace ReversoAPI.Web.Clients
 {
     public class ConjugationClient : APIClient, IConjugationClient
     {
         private string ConjugationURL = "https://conjugator.reverso.net/conjugation-";
-        private static Language[] _supportedLanguades =
-        {
-            Language.English,
-            Language.French,
-            Language.Spanish,
-            Language.German,
-            Language.Italian,
-            Language.Portuguese,
-            //Language.Hebrew, 
-            Language.Russian,
-            //Language.Arabic,
-            //Language.Japanese,
-        };
 
         private readonly IResponseParser<ConjugationData> _parser;
 
@@ -39,9 +26,8 @@ namespace ReversoAPI.Web.Clients
 
         public async Task<ConjugationData> GetAsync(string text, Language language, CancellationToken cancellationToken = default)
         {
-            if (string.IsNullOrEmpty(text)) return null;
-            if (text.Length > 300) throw new ArgumentException("The text provided exceeds the limit of 300 symbols.");
-            if (!_supportedLanguades.Contains(language)) throw new NotSupportedException($"'{language}' is not supported");
+            var validationResult = new ConjugationRequestValidator(text, language).Validate();
+            if (!validationResult.IsValid) throw validationResult.Exception;
 
             var url = CombineUrl(text, language);
 
@@ -49,7 +35,7 @@ namespace ReversoAPI.Web.Clients
                 .GetAsync(url, cancellationToken)
                 .ConfigureAwait(false);
 
-            if (!response.IsHtml()) throw new FormatException("Response does not match html format");
+            if (!response.IsHtml()) throw new FormatException("The server response contains data that is not in HTML format.");
 
             return _parser.Invoke(response.Content);
         }

@@ -1,0 +1,26 @@
+{
+    "id": "aca1129b-f506-4f6e-b8be-9e9a66aa8760",
+    "from": "eng",
+    "to": "kor",
+    "input": [
+        "hello world!"
+    ],
+    "correctedText": null,
+    "translation": [
+        "헬로우 월드!"
+    ],
+    "engines": [
+        "BeGlobal"
+    ],
+    "languageDetection": {
+        "detectedLanguage": "eng",
+        "isDirectionChanged": false,
+        "originalDirection": "eng-kor",
+        "originalDirectionContextMatches": 0,
+        "changedDirectionContextMatches": 0,
+        "timeTaken": 6
+    },
+    "contextResults": null,
+    "truncated": false,
+    "timeTaken": 473
+}

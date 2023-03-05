@@ -39,7 +39,7 @@ namespace ReversoAPI.Web.Builders
         {
             try
             {
-                _response.Source = _html.DocumentNode.SelectSingleNode("//*[@id='trg-selector']//span[@class='lang-trg'][1]").InnerHtml.ToLanguage();
+                _response.Language = _html.DocumentNode.SelectSingleNode("//*[@id='trg-selector']//span[@class='lang-trg'][1]").InnerHtml.ToLanguage();
                 return this;
             }
             catch
@@ -50,8 +50,8 @@ namespace ReversoAPI.Web.Builders
 
         public SynonymsParseBuilder WithSynonyms()
         {
-            var language = _response.Source;
-            if (language == Language.Unknown) throw new ArgumentException($"'{_response.Source}' is not setted");
+            var language = _response.Language;
+            if (language == Language.Unknown) throw new ArgumentException($"'{_response.Language}' is not setted");
 
             try
             {
@@ -59,15 +59,15 @@ namespace ReversoAPI.Web.Builders
                     .SelectNodes("//*[@class='wrap-hold-prop']//div/h2")
                     .Select(n => n.InnerHtml.ToPartOfSpeech());
 
-                var synonyms = new List<Word>();
+                var synonyms = new List<Synonim>();
 
                 foreach (var partOfSpeech in partsOfSpeech.Select((v, i) => new { Index = i, Value = v }))
                 {
                     var synonymTexts = _html.DocumentNode
-                        .SelectNodes($"//div[@class='wrap-hold-prop'][{partOfSpeech.Index + 1}]//a[@class='synonym  relevant' or @class='synonym ']")
+                        .SelectNodes($"//div[@class='wrap-hold-prop'][{partOfSpeech.Index + 1}]//a[contains(@class, 'synonym')]")
                         .Select(n => n.InnerHtml.ReplaceSpecSymbols());
 
-                    synonyms.AddRange(synonymTexts.Select(s => new Word(s, language, partOfSpeech.Value)));
+                    synonyms.AddRange(synonymTexts.Select(s => new Synonim(s, language, partOfSpeech.Value)));
                 }
 
                 _response.Synonyms = synonyms;

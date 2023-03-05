@@ -84,7 +84,7 @@ namespace ReversoAPI.Web.Builders
                     string.Empty;
 
                 
-                var rowsCount = _html.DocumentNode.SelectNodes("//div[@class='word-wrap-row']").Count();
+                var rowsCount = _html.DocumentNode.SelectNodes(XPathWrapper).Count();
 
                 for (var row = 1; row <= rowsCount; row++)
                 {
@@ -98,7 +98,7 @@ namespace ReversoAPI.Web.Builders
 
                         var groupName = blueBoxWrap.GetAttributeValue("mobile-title", null).Trim();
 
-                        var verbs = _html.DocumentNode.SelectNodes(gridXPath + $"//i[{GetXPathVerbSelector(composite, language)}]")
+                        var verbs = _html.DocumentNode.SelectNodes(gridXPath + $"//i[{(composite ? "contains(@class, 'verbtxt-term')" : "@class='verbtxt'")}]")
                                                      ?.Where(n => n.ParentNode.ParentNode.GetAttributeValue("class", null) != "transliteration")
                                                      .Select(n => n.InnerHtml.Trim())
                                                      .Distinct()
@@ -125,16 +125,9 @@ namespace ReversoAPI.Web.Builders
         private bool IsComposite(Language language) 
             => _canBeCompositeLanguages.Contains(language) && _html.DocumentNode.SelectSingleNode("//*[@class='verbtxt']") != null;
 
-        private string GetXPathVerbSelector(bool isComposite, Language language) 
-            => (isComposite, language) switch
-            {
-                (false, _) => "@class='verbtxt'",
-                (_, Language.Portuguese) => string.Join(" or ", (new[] { "verbtxt-term", "verbtxt-term-irr" }).Select(c => $"@class='{c}'")),
-                (_, Language.Russian) => "@class='verbtxt-term'",
-                _ => throw new NotImplementedException()
-            };
-
         private string GetXPathGrid(int row, int col) 
-            => $"//div[@class='word-wrap-row'][{row}]/div[@class='wrap-three-col'][{col}]/div[@class='blue-box-wrap' or @class='blue-box-wrap alt-tense']";
+            => $"{XPathWrapper}[{row}]/div[@class='wrap-three-col'][{col}]/div[contains(@class, 'blue-box-wrap')]";
+
+        private string XPathWrapper => "//div[contains(@class, 'word-wrap-row')]";
     }
 }

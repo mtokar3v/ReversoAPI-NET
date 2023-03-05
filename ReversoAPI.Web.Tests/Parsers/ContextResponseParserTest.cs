@@ -29,6 +29,8 @@ namespace ReversoAPI.Web.Tests.Parsers
             expectedResult.Examples.Should().BeEquivalentTo(result.Examples);
         }
 
+        #region TestData
+
         public static IEnumerable<object[]> HtmlResponsesForTest()
         {
             yield return new object[]
@@ -51,7 +53,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                         new Example(new Sentence(Language.English, "Instead of you know, hello."), new Sentence(Language.Russian, "Вместо того, чего тебе еще нужно, привет.")),
                     }
                 },
-                new MemoryStream(Encoding.UTF8.GetBytes(Resource.helloParseTest ?? string.Empty))
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Context_Parse_Test_English_Russian ?? string.Empty))
             };
 
             // There is problem with dots (they are on the right, not left)
@@ -75,8 +77,10 @@ namespace ReversoAPI.Web.Tests.Parsers
                         new Example(new Sentence(Language.English, "I've only emulated human reactions, but to actually feel..."), new Sentence(Language.Arabic, "أنا فقط قمت بمحاكاة ردود الأفعال البشرية لكن لأشعر حقا...")),
                     }
                 },
-                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Context_Parse_Test_Human_Eng_Arab ?? string.Empty))
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Context_Parse_Test_English_Arabic ?? string.Empty))
             };
         }
+
+        #endregion
     }
 }

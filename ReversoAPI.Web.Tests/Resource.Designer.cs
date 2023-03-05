@@ -71,9 +71,26 @@ namespace ReversoAPI.Web.Tests {
         ///	Conjugation run | Conjugate verb run | Reverso Conjugator English
         ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the English verb run: indicative, past tense, participle, present perfect, gerund, conjugation models and irregular verbs. Translate run in context, with examples of use  and definition.&quot; /&gt;&lt;meta name=&quot;google&quot; value=&quot;notrans [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ConjugationParseTestRunEng {
+        internal static string Conjugation_Parse_Test_English {
             get {
-                return ResourceManager.GetString("ConjugationParseTestRunEng", resourceCulture);
+                return ResourceManager.GetString("Conjugation_Parse_Test_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///&lt;head&gt;&lt;title&gt;
+        ///	Conjugation cair | Conjugate verb cair Portuguese | Reverso Conjugator
+        ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the Portuguese verb cair: particípio, pretérito, subjuntivo, futuro, see similar Portuguese verbs, irregular verbs, reflexive verbs. Translate cair in context, with examples of use  and definition.&quot; /&gt;&lt;meta name=&quot;google [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Conjugation_Parse_Test_Portuguese {
+            get {
+                return ResourceManager.GetString("Conjugation_Parse_Test_Portuguese", resourceCulture);
             }
         }
         
@@ -88,9 +105,9 @@ namespace ReversoAPI.Web.Tests {
         ///	Conjugation бежать (I)  | Conjugate verb бежать (I)  Russian | Reverso Conjugator
         ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the Russian verb бежать (I) : indicative, past tense, participle, present perfect, gerund, conjugation models and irregular verbs. Translate бежать (I)  in context, with examples of use  and definition.&quot; /&gt;&lt;m [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ConjugationParseTestRunRus {
+        internal static string Conjugation_Parse_Test_Russian {
             get {
-                return ResourceManager.GetString("ConjugationParseTestRunRus", resourceCulture);
+                return ResourceManager.GetString("Conjugation_Parse_Test_Russian", resourceCulture);
             }
         }
         
@@ -103,9 +120,36 @@ namespace ReversoAPI.Web.Tests {
         ///&lt;meta name=&quot;description&quot; content=&quot;Translations in context of &amp;quot;human&amp;quot; in English-Arabic from Reverso Context: human rights, human beings, human trafficking, human being, human resources&quot; /&gt;
         ///&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-arab [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Context_Parse_Test_Human_Eng_Arab {
+        internal static string Context_Parse_Test_English_Arabic {
             get {
-                return ResourceManager.GetString("Context_Parse_Test_Human_Eng_Arab", resourceCulture);
+                return ResourceManager.GetString("Context_Parse_Test_English_Arabic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///
+        ///&lt;head&gt;
+        ///	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+        ///	&lt;title&gt;hello - Translation into Russian - examples English | Reverso Context&lt;/title&gt;
+        ///	&lt;meta name=&quot;description&quot;
+        ///		content=&quot;Translations in context of &amp;quot;hello&amp;quot; in English-Russian from Reverso Context: say hello, hello kitty, to say hello to, saying hello, said hello&quot; /&gt;
+        ///	&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-russian/hell [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Context_Parse_Test_English_Russian {
+            get {
+                return ResourceManager.GetString("Context_Parse_Test_English_Russian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Spelling_API_Test_English {
+            get {
+                object obj = ResourceManager.GetObject("Spelling_API_Test_English", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -121,35 +165,50 @@ namespace ReversoAPI.Web.Tests {
         ///		crossorigin&gt;
         ///	&lt;link rel=&quot;preconnect&quot; crossorigin href=&quot;https://sd [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string folkSymonimsParseTest {
+        internal static string Symonims_Parse_Test_English {
             get {
-                return ResourceManager.GetString("folkSymonimsParseTest", resourceCulture);
+                return ResourceManager.GetString("Symonims_Parse_Test_English", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
-        ///
         ///&lt;head&gt;
-        ///	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
-        ///	&lt;title&gt;hello - Translation into Russian - examples English | Reverso Context&lt;/title&gt;
-        ///	&lt;meta name=&quot;description&quot;
-        ///		content=&quot;Translations in context of &amp;quot;hello&amp;quot; in English-Russian from Reverso Context: say hello, hello kitty, to say hello to, saying hello, said hello&quot; /&gt;
-        ///	&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-russian/hell [rest of string was truncated]&quot;;.
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+        ///        &lt;title&gt;جمل | Synonyms and analogies for جمل in Arabic | Reverso Dictionary&lt;/title&gt;
+        ///        	&lt;link rel=&quot;preload&quot; href=&quot;//cdn.reverso.net/fonts/roboto/latin-n500.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+        ///        &lt;link rel=&quot;preload&quot; href=&quot;https://cdn.reverso.net/syn/v40010/fonts/synonyms.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+        ///    &lt;link rel=&quot;preconnect&quot; crossori [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string helloParseTest {
+        internal static string Synonim_Parse_Text_Arabic {
             get {
-                return ResourceManager.GetString("helloParseTest", resourceCulture);
+                return ResourceManager.GetString("Synonim_Parse_Text_Arabic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+        ///        &lt;title&gt;איש | Synonyms and analogies for איש in Hebrew | Reverso Dictionary&lt;/title&gt;
+        ///        	&lt;link rel=&quot;preload&quot; href=&quot;//cdn.reverso.net/fonts/roboto/latin-n500.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+        ///        &lt;link rel=&quot;preload&quot; href=&quot;https://cdn.reverso.net/syn/v40010/fonts/synonyms.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+        ///    &lt;link rel=&quot;preconnect&quot; crossori [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Synonims_Parse_Test_Herbew {
+            get {
+                return ResourceManager.GetString("Synonims_Parse_Test_Herbew", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] spellingTestMoneyEng {
+        internal static byte[] Translation_API_Test_Arabic_Hindi {
             get {
-                object obj = ResourceManager.GetObject("spellingTestMoneyEng", resourceCulture);
+                object obj = ResourceManager.GetObject("Translation_API_Test_Arabic_Hindi", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -157,9 +216,9 @@ namespace ReversoAPI.Web.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] translationTestConsienceEndRus {
+        internal static byte[] Translation_API_Test_English_Hebrew {
             get {
-                object obj = ResourceManager.GetObject("translationTestConsienceEndRus", resourceCulture);
+                object obj = ResourceManager.GetObject("Translation_API_Test_English_Hebrew", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -167,9 +226,29 @@ namespace ReversoAPI.Web.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] translationTestPeaceEngRus {
+        internal static byte[] Translation_API_Test_English_Korean {
             get {
-                object obj = ResourceManager.GetObject("translationTestPeaceEngRus", resourceCulture);
+                object obj = ResourceManager.GetObject("Translation_API_Test_English_Korean", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Translation_API_Test_English_Russian {
+            get {
+                object obj = ResourceManager.GetObject("Translation_API_Test_English_Russian", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Translation_API_Test_English_Russian_2_ {
+            get {
+                object obj = ResourceManager.GetObject("Translation_API_Test_English_Russian_2_", resourceCulture);
                 return ((byte[])(obj));
             }
         }

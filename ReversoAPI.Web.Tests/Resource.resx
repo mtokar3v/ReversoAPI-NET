@@ -118,28 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ConjugationParseTestRunEng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ConjugationParseTestRunEng.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Conjugation_Parse_Test_English" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Conjugation_Parse_Test_English.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="ConjugationParseTestRunRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ConjugationParseTestRunRus.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Conjugation_Parse_Test_Portuguese" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Conjugation_Parse_Test_Portuguese.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="Context_Parse_Test_Human_Eng_Arab" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Context_Parse_Test_Human_Eng_Arab.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Conjugation_Parse_Test_Russian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Conjugation_Parse_Test_Russian.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="folkSymonimsParseTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\folkSymonimsParseTest.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Context_Parse_Test_English_Arabic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Context_Parse_Test_English_Arabic.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="helloParseTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\helloParseTest.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Context_Parse_Test_English_Russian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Context_Parse_Test_English_Russian.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="spellingTestMoneyEng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\spellingTestMoneyEng.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Spelling_API_Test_English" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Spelling_API_Test_English.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="translationTestConsienceEndRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\translationTestConsienceEndRus.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Symonims_Parse_Test_English" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Symonims_Parse_Test_English.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="translationTestPeaceEngRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\translationTestPeaceEngRus.Json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Synonims_Parse_Test_Herbew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Synonims_Parse_Test_Herbew.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Synonim_Parse_Text_Arabic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Synonim_Parse_Text_Arabic.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translation_API_Test_Arabic_Hindi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Translation_API_Test_Arabic_Hindi.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Translation_API_Test_English_Hebrew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Translation_API_Test_English_Hebrew.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Translation_API_Test_English_Korean" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Translation_API_Test_English_Korean.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Translation_API_Test_English_Russian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Translation_API_Test_English_Russian.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Translation_API_Test_English_Russian_2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Translation_API_Test_English_Russian(2).Json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
