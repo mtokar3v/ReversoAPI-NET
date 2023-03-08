@@ -1,5 +1,5 @@
 ﻿using ReversoAPI.Web.Clients;
-using ReversoAPI.Web.Values;
+using ReversoAPI.Web.Domain.Generic.ValueObjects;
 
 namespace ReversoAPI.Web.Examples
 {

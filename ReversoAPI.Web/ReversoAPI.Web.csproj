@@ -11,4 +11,14 @@
     <PackageReference Include="Polly" Version="7.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\Core\GrammarCheck\" />
+    <Folder Include="Domain\Core\Conjugation\" />
+    <Folder Include="Domain\Core\Pronunciation\" />
+    <Folder Include="Domain\Core\Synonyms\" />
+    <Folder Include="Domain\Core\Translation\" />
+    <Folder Include="Domain\Supporting\" />
+    <Folder Include="Libs\" />
+  </ItemGroup>
+
 </Project>

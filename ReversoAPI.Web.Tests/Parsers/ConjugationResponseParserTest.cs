@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using ReversoAPI.Web.Domain.Generic.ValueObjects;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Tools.Parsers;
 using ReversoAPI.Web.Values;

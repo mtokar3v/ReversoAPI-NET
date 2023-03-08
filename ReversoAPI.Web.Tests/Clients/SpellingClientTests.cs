@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Moq;
 using ReversoAPI.Web.Clients;
+using ReversoAPI.Web.Domain.Generic.ValueObjects;
 using ReversoAPI.Web.DTOs.SpellingResponseData;
 using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Http;

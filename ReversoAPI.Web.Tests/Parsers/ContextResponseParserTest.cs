@@ -1,11 +1,12 @@
 ﻿using System.IO;
 using System.Text;
 using ReversoAPI.Web.Values;
-using ReversoAPI.Web.Entities;
 using ReversoAPI.Web.Tools.Parsers;
 using Xunit;
 using FluentAssertions;
 using System.Collections.Generic;
+using ReversoAPI.Web.Domain.Core.Context.Enities;
+using ReversoAPI.Web.Domain.Generic.ValueObjects;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
