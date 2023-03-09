@@ -1,11 +1,13 @@
-﻿using FluentAssertions;
-using ReversoAPI.Web.Entities;
-using ReversoAPI.Web.Tools.Parsers;
-using ReversoAPI.Web.Values;
-using System.Collections.Generic;
+﻿using Xunit;
+using FluentAssertions;
 using System.IO;
 using System.Text;
-using Xunit;
+using System.Collections.Generic;
+using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
+using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.ValueObjects;
+using ReversoAPI.Web.ConjugationFeature.Domain.Core.Services;
+using ReversoAPI.Web.ConjugationFeature.Domain.Core.ValueObjects;
+using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
@@ -16,7 +18,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(ConjugationData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new ConjugationResponseParser();
+            var parser = new ConjugationParser();
 
             // Act
             var result = parser.Invoke(html);
@@ -36,7 +38,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                 {
                     Text = "run",
                     Language = Language.English,
-                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
+                    Conjugations = new Dictionary<string, IEnumerable<IConjugation>>
                     {
                         { "Indicative Present", new[] 
                                                 {
@@ -76,7 +78,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                 {
                     Text = "бежать",
                     Language = Language.Russian,
-                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
+                    Conjugations = new Dictionary<string, IEnumerable<IConjugation>>
                     {
                         { "настоящее", new[]
                                        {
@@ -141,7 +143,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                 {
                     Text = "cair",
                     Language = Language.Portuguese,
-                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
+                    Conjugations = new Dictionary<string, IEnumerable<IConjugation>>
                     {
                         { "Indicativo Presente", new[]
                                                 {

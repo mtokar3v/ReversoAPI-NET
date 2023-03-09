@@ -1,29 +1,31 @@
-﻿using FluentAssertions;
-using Moq;
-using ReversoAPI.Web.Clients;
-using ReversoAPI.Web.DTOs.TranslationObjects;
-using ReversoAPI.Web.Entities;
-using ReversoAPI.Web.Http;
-using ReversoAPI.Web.Http.Interfaces;
-using ReversoAPI.Web.Values;
+﻿using Moq;
+using Xunit;
+using FluentAssertions;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit;
+using System.Collections.Generic;
+using ReversoAPI.Web.TranslationFeature.Application.DTOs;
+using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
+using ReversoAPI.Web.TranslationFeature.Application.Services;
+using ReversoAPI.Web.TranslationFeature.Domain.Entities;
+using ReversoAPI.Web.TranslationFeature.Domain.ValueObjects;
+using ReversoAPI.Web.Shared.Domain.ValueObjects;
+using ReversoAPI.Web.Shared.Infrastructure.Http;
+using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.Tests.Clients
 {
     public class TranslationClientTests
     {
         private readonly Mock<IAPIConnector> _apiConnector;
-        private readonly TranslationClient _client;
+        private readonly ITranslationService _client;
 
         public TranslationClientTests()
         {
             _apiConnector = new Mock<IAPIConnector>();
-            _client = new TranslationClient(_apiConnector.Object);
+            _client = new TranslationService(_apiConnector.Object);
         }
 
         [Theory]
@@ -43,19 +45,21 @@ namespace ReversoAPI.Web.Tests.Clients
             expectedResult.Should().BeEquivalentTo(result);
         }
 
-        [Fact]
-        public async Task GetFromOneWordAsync_Length_Exceeded()
-        {
-            // Arrange
-            var text = new string('x', 2001);
+        //TO DO: Move it into separate service tests
 
-            // Act
-            var act = async () => await _client.GetAsync(text, It.IsAny<Language>(), It.IsAny<Language>());
+        //[Fact]
+        //public async Task GetFromOneWordAsync_Length_Exceeded()
+        //{
+        //    // Arrange
+        //    var text = new string('x', 2001);
 
-            // Assert
-            var exception = await Assert.ThrowsAsync<ArgumentException>(act);
-            Assert.Equal("The text provided exceeds the limit of 2000 symbols. (Parameter 'text')", exception.Message);
-        }
+        //    // Act
+        //    var act = async () => await _client.GetAsync(text, It.IsAny<Language>(), It.IsAny<Language>());
+
+        //    // Assert
+        //    var exception = await Assert.ThrowsAsync<ArgumentException>(act);
+        //    Assert.Equal("The text provided exceeds the limit of 2000 symbols. (Parameter 'text')", exception.Message);
+        //}
 
         #region TestData
 
