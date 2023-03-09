@@ -1,4 +1,4 @@
-﻿using ReversoAPI.Web.Attributes;
+﻿using ReversoAPI.Web.Shared.Domain.Attributes;
 
 namespace ReversoAPI.Web.Shared.Domain.ValueObjects
 {

@@ -1,32 +1,31 @@
-﻿using FluentAssertions;
-using Moq;
-using ReversoAPI.Web.Clients;
-using ReversoAPI.Web.Domain.Generic.ValueObjects;
-using ReversoAPI.Web.DTOs.SpellingResponseData;
-using ReversoAPI.Web.Entities;
-using ReversoAPI.Web.Http;
-using ReversoAPI.Web.Http.Interfaces;
-using ReversoAPI.Web.Values;
+﻿using Moq;
+using Xunit;
+using FluentAssertions;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit;
+using System.Collections.Generic;
+using ReversoAPI.Web.GrammarCheckFeature.Domain.Entities;
+using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
+using ReversoAPI.Web.GrammarCheckFeature.Application.DTOs;
+using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services;
+using ReversoAPI.Web.GrammarCheckFeature.Application.Services;
+using ReversoAPI.Web.Shared.Domain.ValueObjects;
+using ReversoAPI.Web.Shared.Infrastructure.Http;
+using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.Tests.Clients
 {
     public class SpellingClientTests
     { 
         private readonly Mock<IAPIConnector> _apiConnector;
-        private readonly SpellingClient _client;
+        private readonly ISpellingService _client;
 
         public SpellingClientTests()
         {
             _apiConnector = new Mock<IAPIConnector>();
-            _client = new SpellingClient(_apiConnector.Object);
+            _client = new SpellingService(_apiConnector.Object);
         }
 
         [Theory]
@@ -65,14 +64,14 @@ namespace ReversoAPI.Web.Tests.Clients
                     Language = Language.English,
                     Correction = new []
                     {
-                        new Correction("Maney", "maney")
-                        {
-                            StartIndex = 0,
-                            EndIndex = 4,
-                            ShortDescription = "Spelling Mistake",
-                            LongDescription = "A proper or common noun is not capitalized",
-                            Suggestions = new[] { "Maney", "money", "many" }
-                        },
+                        new Correction(
+                            "Maney",
+                            "maney",
+                            startIndex: 0,
+                            endIndex: 4,
+                            "Spelling Mistake",
+                            "A proper or common noun is not capitalized",
+                            suggestions: new[] { "Maney", "money", "many" })
                     }
                 }
             };

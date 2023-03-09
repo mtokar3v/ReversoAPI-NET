@@ -1,5 +1,5 @@
-﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
-using System;
+﻿using System;
+using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Shared.Domain.Attributes
 {

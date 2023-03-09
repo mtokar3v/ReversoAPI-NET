@@ -1,5 +1,4 @@
-﻿using ReversoAPI.Web.Clients;
-using ReversoAPI.Web.Domain.Generic.ValueObjects;
+﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Examples
 {
@@ -23,7 +22,7 @@ namespace ReversoAPI.Web.Examples
 
             await PrintSpellingsAsync(text, source);
 
-            await DownloadPronunciationAsync(text, source, Directory.GetCurrentDirectory());
+            await DownloadPronunciationAsync(text, source, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{source}.mp3"));
         }
 
         private static async Task PrintSpellingsAsync(string text, Language language)

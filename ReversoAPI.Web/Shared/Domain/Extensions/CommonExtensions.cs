@@ -1,4 +1,4 @@
-﻿using ReversoAPI.Web.GrammarCheck.Domain.ValueObjects;
+﻿using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Attributes;
 using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using System;

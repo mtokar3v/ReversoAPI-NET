@@ -1,12 +1,12 @@
-﻿using FluentAssertions;
-using ReversoAPI.Web.Domain.Generic.ValueObjects;
-using ReversoAPI.Web.Entities;
-using ReversoAPI.Web.Tools.Parsers;
-using ReversoAPI.Web.Values;
-using System.Collections.Generic;
+﻿using Xunit;
+using FluentAssertions;
 using System.IO;
 using System.Text;
-using Xunit;
+using System.Collections.Generic;
+using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
+using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
+using ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects;
+using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
@@ -17,7 +17,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(SynonymsData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new SynonymsResponseParser();
+            var parser = new SynonymsParser();
 
             // Act
             var result = parser.Invoke(html);

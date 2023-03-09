@@ -1,9 +1,9 @@
-﻿using ReversoAPI.Web.Conjugation.App.Interfaces;
-using ReversoAPI.Web.Context.App.Interfaces;
-using ReversoAPI.Web.GrammarCheck.App.Interfaces;
-using ReversoAPI.Web.Pronunciation.App.Interfaces;
-using ReversoAPI.Web.Synonyms.App.Interfaces;
-using ReversoAPI.Web.Translation.App.Interfaces;
+﻿using ReversoAPI.Web.ConjugationFeature.Application.Interfaces;
+using ReversoAPI.Web.ContextFeature.Application.Interfaces;
+using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces;
+using ReversoAPI.Web.PronunciationFeature.Application.Interfaces;
+using ReversoAPI.Web.SynonymsFeature.Application.Interfaces;
+using ReversoAPI.Web.TranslationFeature.Application.Interfaces;
 
 namespace ReversoAPI.Web
 {

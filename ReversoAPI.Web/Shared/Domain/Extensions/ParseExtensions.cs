@@ -1,14 +1,12 @@
-﻿using ReversoAPI.Web.Attributes;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Shared.Domain.Extensions
 {
     public static class ParseExtensions
     {
-        // Revise this approach if it is possible
+        // TO DO: Revise this approach if it is possible
 
         private static HashSet<string> AdverbPseudonyms = new HashSet<string>
         {
