@@ -3,7 +3,35 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>disable</Nullable>
+    <Title>ReversoAPI-NET</Title>
+    <Version>1.0.0</Version>
+    <Authors>Maxim Tokarev</Authors>
+    <Description>A Client for the Reverso Web API, written in C#/.NET
+(Based on Site API and HTML parsing)</Description>
+    <PackageId>ReversoAPI</PackageId>
+    <Copyright>Copyright © 2023 Maxim Tokarev</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageIcon>ico.png</PackageIcon>
+    <RepositoryUrl>https://github.com/mtokar3v/ReversoAPI-NET</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>text-to-speech, translation, context, synonyms, spelling, conjugation, reverso</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Downloads\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\..\..\Downloads\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\ReversoAPI.Docs\Static\Images\ico.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
