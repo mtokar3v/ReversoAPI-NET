@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversoAPI.Web", "ReversoAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversoAPI.Web.Tests", "ReversoAPI.Web.Tests\ReversoAPI.Web.Tests.csproj", "{E9D3238A-0648-4350-B4A3-E6CEFC432C06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReversoAPI.Web.Examples", "ReversoAPI.Web.Examples\ReversoAPI.Web.Examples.csproj", "{54348FC9-7A74-43AD-B9C6-54DE089CC13D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversoAPI.Web.Examples", "ReversoAPI.Web.Examples\ReversoAPI.Web.Examples.csproj", "{54348FC9-7A74-43AD-B9C6-54DE089CC13D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
