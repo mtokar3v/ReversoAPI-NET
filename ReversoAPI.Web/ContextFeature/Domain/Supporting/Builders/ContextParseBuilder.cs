@@ -1,11 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
 using ReversoAPI.Web.ContextFeature.Domain.Core.Enities;
 using ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Interfaces.Entities;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Interfaces.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Extensions;
 using ReversoAPI.Web.Shared.Domain.Exceptions;
@@ -15,15 +14,16 @@ namespace ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders
     public class ContextParseBuilder
     {
         private readonly HtmlDocument _html;
-        private readonly IContextData _response;
+        private readonly ContextData _response;
 
-        public ContextParseBuilder(HtmlDocument html)
+        public ContextParseBuilder(Stream htmlStream)
         {
-            _html = html;
+            _html = new HtmlDocument();
+            _html.Load(htmlStream);
             _response = new ContextData();
         }
 
-        public IContextData Build() => _response;
+        public ContextData Build() => _response;
 
         public ContextParseBuilder WithInputText()
         {
@@ -97,7 +97,7 @@ namespace ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders
                 if (targetSentences.Count() != sourceSentences.Count())
                     throw new ParsingException("Failed to parse an examples");
 
-                var examples = new List<IExample>();
+                var examples = new List<Example>();
 
                 for (var i = 0; i < targetSentences.Count(); i++)
                 {

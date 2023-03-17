@@ -1,16 +1,14 @@
-﻿using ReversoAPI.Web.ContextFeature.Domain.Core.Interfaces.ValueObjects;
-
-namespace ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects
+﻿namespace ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects
 {
-    public class Example : IExample
+    public class Example
     {
-        public Example(ISentence source, ISentence target)
+        public Example(Sentence source, Sentence target)
         {
             Source = source;
             Target = target;
         }
 
-        public ISentence Source { get; }
-        public ISentence Target { get; }
+        public Sentence Source { get; }
+        public Sentence Target { get; }
     }
 }

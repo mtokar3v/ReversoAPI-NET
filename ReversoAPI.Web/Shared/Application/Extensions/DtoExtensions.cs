@@ -2,14 +2,12 @@
 using System.Linq;
 using System.Collections.Generic;
 using ReversoAPI.Web.GrammarCheckFeature.Domain.Entities;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.Interfaces.Entities;
 using ReversoAPI.Web.GrammarCheckFeature.Application.DTOs;
 using ReversoAPI.Web.TranslationFeature.Domain.Entities;
-using ReversoAPI.Web.TranslationFeature.Domain.Interfaces.Entities;
-using ReversoAPI.Web.TranslationFeature.Domain.Interfaces.ValueObjects;
 using ReversoAPI.Web.TranslationFeature.Domain.ValueObjects;
 using ReversoAPI.Web.TranslationFeature.Application.DTOs;
 using ReversoAPI.Web.Shared.Domain.Extensions;
+using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Shared.Application.Extensions
 {
@@ -27,7 +25,7 @@ namespace ReversoAPI.Web.Shared.Application.Extensions
             };
         }
 
-        public static ICorrection ToModel(this CorrectionDto correctionDto)
+        public static Correction ToModel(this CorrectionDto correctionDto)
         {
             if (correctionDto == null) return null;
 
@@ -41,7 +39,7 @@ namespace ReversoAPI.Web.Shared.Application.Extensions
                 correctionDto.Suggestions.Select(s => s.Text));
         }
 
-        public static ITranslationData ToModel(this TranslationResponse translationDto)
+        public static TranslationData ToModel(this TranslationResponse translationDto)
         {
             if (translationDto == null) return null;
 
@@ -55,7 +53,7 @@ namespace ReversoAPI.Web.Shared.Application.Extensions
                 Translations = hasExtraFields ? GetFullTranslations() : GetShortTranslations(),
             };
 
-            IEnumerable<ITranslation> GetShortTranslations()
+            IEnumerable<Translation> GetShortTranslations()
             {
                 var originalText = string.Join(Environment.NewLine, translationDto.Input.Select(t => t.ReplaceSpecSymbols()));
                 var translatedText = string.Join(Environment.NewLine, translationDto.Translation.Select(t => t.ReplaceSpecSymbols()));
@@ -67,7 +65,7 @@ namespace ReversoAPI.Web.Shared.Application.Extensions
                 return new Translation[] { translation };
             }
 
-            IEnumerable<ITranslation> GetFullTranslations()
+            IEnumerable<Translation> GetFullTranslations()
             {
                 var originalText = string.Join(Environment.NewLine, translationDto.Input.Select(t => t.ReplaceSpecSymbols()));
 

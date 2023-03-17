@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.Interfaces.Entities;
 
-namespace ReversoAPI.Web.GrammarCheckFeature.Domain.Entities
+namespace ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects
 {
-    public class Correction : ICorrection
+    public class Correction
     {
         public Correction(
             string correctedText,

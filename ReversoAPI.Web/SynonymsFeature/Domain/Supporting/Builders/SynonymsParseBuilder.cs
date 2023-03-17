@@ -1,10 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
 using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Interfaces.Entities;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Interfaces.ValueObjects;
 using ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Exceptions;
 using ReversoAPI.Web.Shared.Domain.Extensions;
@@ -15,15 +14,16 @@ namespace ReversoAPI.Web.SynonymsFeature.Domain.Supporting.Builders
     public class SynonymsParseBuilder
     {
         private readonly HtmlDocument _html;
-        private readonly ISynonymsData _response;
+        private readonly SynonymsData _response;
 
-        public SynonymsParseBuilder(HtmlDocument html)
+        public SynonymsParseBuilder(Stream htmlStream)
         {
-            _html = html;
+            _html = new HtmlDocument();
+            _html.Load(htmlStream);
             _response = new SynonymsData();
         }
 
-        public ISynonymsData Build() => _response;
+        public SynonymsData Build() => _response;
 
         public SynonymsParseBuilder WithInputText()
         {
@@ -62,7 +62,7 @@ namespace ReversoAPI.Web.SynonymsFeature.Domain.Supporting.Builders
                     .SelectNodes("//*[@class='wrap-hold-prop']//div/h2")
                     .Select(n => n.InnerHtml.ToPartOfSpeech());
 
-                var synonyms = new List<ISynonim>();
+                var synonyms = new List<Synonim>();
 
                 foreach (var partOfSpeech in partsOfSpeech.Select((v, i) => new { Index = i, Value = v }))
                 {

@@ -1,15 +1,15 @@
-﻿using HtmlAgilityPack;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Interfaces.Entities;
+﻿using System.IO;
+using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
 using ReversoAPI.Web.SynonymsFeature.Domain.Supporting.Builders;
 using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.Services
 {
-    public class SynonymsParser : BaseParser<ISynonymsData>
+    public class SynonymsParser : BaseParser<SynonymsData>
     {
-        protected override ISynonymsData Parse(HtmlDocument html)
+        protected override SynonymsData Parse(Stream htmlStream)
         {
-            return new SynonymsParseBuilder(html)
+            return new SynonymsParseBuilder(htmlStream)
                 .WithInputText()
                 .WithLanguage()
                 .WithSynonyms()

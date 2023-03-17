@@ -4,7 +4,6 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.ValueObjects;
 using ReversoAPI.Web.ConjugationFeature.Domain.Core.Services;
 using ReversoAPI.Web.ConjugationFeature.Domain.Core.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.ValueObjects;
@@ -38,7 +37,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                 {
                     Text = "run",
                     Language = Language.English,
-                    Conjugations = new Dictionary<string, IEnumerable<IConjugation>>
+                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
                     {
                         { "Indicative Present", new[] 
                                                 {
@@ -78,7 +77,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                 {
                     Text = "бежать",
                     Language = Language.Russian,
-                    Conjugations = new Dictionary<string, IEnumerable<IConjugation>>
+                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
                     {
                         { "настоящее", new[]
                                        {
@@ -143,7 +142,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                 {
                     Text = "cair",
                     Language = Language.Portuguese,
-                    Conjugations = new Dictionary<string, IEnumerable<IConjugation>>
+                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
                     {
                         { "Indicativo Presente", new[]
                                                 {

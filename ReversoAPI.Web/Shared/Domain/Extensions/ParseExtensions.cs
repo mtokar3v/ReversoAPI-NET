@@ -10,31 +10,23 @@ namespace ReversoAPI.Web.Shared.Domain.Extensions
 
         private static HashSet<string> AdverbPseudonyms = new HashSet<string>
         {
-            "adv.",
-            "adverb",
+            "adv.", "adverb",
         };
 
         private static HashSet<string> VerbPseudonyms = new HashSet<string>()
         {
-            "v.",
-            "verb",
+            "v.", "verb",
         };
 
         private static HashSet<string> NounPseudonyms = new HashSet<string>()
         {
-            "n.",
-            "nn.",
-            "nf.",
-            "nm.",
-            "noun",
-            "noun - masculine",
-            "noun - neutral"
+            "n.", "nn.", "nf.", "nm.", "noun",
+            "noun - masculine", "noun - neutral"
         };
 
         private static HashSet<string> AdjectivePseudonyms = new HashSet<string>()
 {
-            "adj.",
-            "adjective",
+            "adj.", "adjective",
         };
 
         public static PartOfSpeech ToPartOfSpeech(this string value)

@@ -1,11 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
 using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
 using ReversoAPI.Web.ConjugationFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.Entities;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Exceptions;
 
@@ -20,15 +19,16 @@ namespace ReversoAPI.Web.ConjugationFeature.Domain.Supporting.Builders
         };
 
         private readonly HtmlDocument _html;
-        private readonly IConjugationData _response;
+        private readonly ConjugationData _response;
 
-        public ConjugationParseBuilder(HtmlDocument html)
+        public ConjugationParseBuilder(Stream htmlStream)
         {
-            _html = html;
+            _html = new HtmlDocument();
+            _html.Load(htmlStream);
             _response = new ConjugationData();
         }
 
-        public IConjugationData Build() => _response;
+        public ConjugationData Build() => _response;
 
         public ConjugationParseBuilder WithInputText()
         {
@@ -77,7 +77,7 @@ namespace ReversoAPI.Web.ConjugationFeature.Domain.Supporting.Builders
 
             try
             {
-                var conjugations = new Dictionary<string, IEnumerable<IConjugation>>();
+                var conjugations = new Dictionary<string, IEnumerable<Conjugation>>();
 
                 var composite = IsComposite(language);
                 var root = composite ?
@@ -106,7 +106,7 @@ namespace ReversoAPI.Web.ConjugationFeature.Domain.Supporting.Builders
                                                      .Select(n => n.InnerHtml.Trim())
                                                      .Distinct()
                                                      .Select(v => new Conjugation(groupName, root + v, language))
-                                                     ?? Enumerable.Empty<IConjugation>();
+                                                     ?? Enumerable.Empty<Conjugation>();
 
                         conjugations.Add(groupName, verbs);
                         col++;

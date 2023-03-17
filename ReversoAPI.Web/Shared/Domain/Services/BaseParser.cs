@@ -1,22 +1,17 @@
-﻿using HtmlAgilityPack;
-using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
-using System;
+﻿using System;
 using System.IO;
+using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 
 namespace ReversoAPI.Web.Shared.Domain.Services
 {
     public abstract class BaseParser<TResult> : IParser<TResult>
     {
-        public TResult Invoke(Stream html)
+        public TResult Invoke(Stream htmlStream)
         {
-            if (html == null) throw new ArgumentNullException(nameof(html));
-
-            var htmlDoc = new HtmlDocument();
-            htmlDoc.Load(html);
-
-            return Parse(htmlDoc);
+            if (htmlStream == null) throw new ArgumentNullException(nameof(htmlStream));
+            return Parse(htmlStream);
         }
 
-        protected abstract TResult Parse(HtmlDocument html);
+        protected abstract TResult Parse(Stream htmlStream);
     }
 }

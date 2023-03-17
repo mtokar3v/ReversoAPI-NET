@@ -1,9 +1,8 @@
-﻿using ReversoAPI.Web.SynonymsFeature.Domain.Core.Interfaces.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
+﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects
 {
-    public class Synonim : ISynonim
+    public class Synonim
     {
         public Synonim(string value, Language language, PartOfSpeech partOfSpeech)
         {

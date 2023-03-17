@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.TranslationFeature.Domain.Interfaces.Entities;
+using ReversoAPI.Web.TranslationFeature.Domain.Entities;
 using ReversoAPI.Web.TranslationFeature.Application.DTOs;
 using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Validators;
@@ -18,7 +18,7 @@ namespace ReversoAPI.Web.TranslationFeature.Application.Services
         private readonly IAPIConnector _apiConnector;
         public TranslationService(IAPIConnector apiConnector) => _apiConnector = apiConnector;
 
-        public async Task<ITranslationData> GetAsync(string text, Language source, Language target, CancellationToken cancellationToken = default)
+        public async Task<TranslationData> GetAsync(string text, Language source, Language target, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(text)) throw new ArgumentNullException(nameof(text));
 

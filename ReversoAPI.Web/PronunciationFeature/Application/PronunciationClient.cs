@@ -19,7 +19,10 @@ namespace ReversoAPI.Web.PronunciationFeature.Application
             var validationResult = new PronunciationValidator(text, language).Validate();
             if (!validationResult.IsValid) throw validationResult.Exception;
 
-            var output = await _pronunciationService.GetAsync(text, language, speed, cancellationToken).ConfigureAwait(false);
+            var output = await _pronunciationService
+                .GetAsync(text, language, speed, cancellationToken)
+                .ConfigureAwait(false);
+
             return output;
         }
     }

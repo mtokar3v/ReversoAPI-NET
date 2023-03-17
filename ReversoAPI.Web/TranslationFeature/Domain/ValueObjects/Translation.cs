@@ -1,9 +1,8 @@
 ﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
-using ReversoAPI.Web.TranslationFeature.Domain.Interfaces.ValueObjects;
 
 namespace ReversoAPI.Web.TranslationFeature.Domain.ValueObjects
 {
-    public class Translation : ITranslation
+    public class Translation
     {
         public Translation(
             string originalText,

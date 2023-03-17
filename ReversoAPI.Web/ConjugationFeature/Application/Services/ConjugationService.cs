@@ -2,12 +2,13 @@
 using System.Web;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.Entities;
+using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
 using ReversoAPI.Web.ConjugationFeature.Application.Validators;
 using ReversoAPI.Web.ConjugationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
+
 
 namespace ReversoAPI.Web.ConjugationFeature.Application.Services
 {
@@ -16,17 +17,17 @@ namespace ReversoAPI.Web.ConjugationFeature.Application.Services
         private string ConjugationURL = "https://conjugator.reverso.net/conjugation-";
 
         private readonly IAPIConnector _apiConnector;
-        private readonly IParser<IConjugationData> _parser;
+        private readonly IParser<ConjugationData> _parser;
 
         public ConjugationService(
             IAPIConnector apiConnector,
-            IParser<IConjugationData> parser)
+            IParser<ConjugationData> parser)
         {
             _apiConnector = apiConnector;
             _parser = parser;
         }
 
-        public async Task<IConjugationData> GetAsync(string text, Language language, CancellationToken cancellationToken = default)
+        public async Task<ConjugationData> GetAsync(string text, Language language, CancellationToken cancellationToken = default)
         {
             var validationResult = new ConjugationRequestValidator(text, language).Validate();
             if (!validationResult.IsValid) throw validationResult.Exception;
