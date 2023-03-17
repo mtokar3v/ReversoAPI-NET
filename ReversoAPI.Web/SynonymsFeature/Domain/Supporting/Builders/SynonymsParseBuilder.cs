@@ -3,11 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.Exceptions;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.SynonymsFeature.Domain.Supporting.Builders
 {

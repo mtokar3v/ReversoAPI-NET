@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Enities;
 using ReversoAPI.Web.ContextFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 

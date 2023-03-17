@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.GrammarCheckFeature.Domain.Entities
-{
+namespace ReversoAPI
+{ 
     public class SpellingData
     {
         public string Text { get; set; }

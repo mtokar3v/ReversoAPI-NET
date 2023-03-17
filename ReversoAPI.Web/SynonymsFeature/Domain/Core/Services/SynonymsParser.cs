@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
 using ReversoAPI.Web.SynonymsFeature.Domain.Supporting.Builders;
 using ReversoAPI.Web.Shared.Domain.Services;
 

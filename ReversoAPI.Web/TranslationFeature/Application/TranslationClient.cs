@@ -1,12 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.TranslationFeature.Domain.Entities;
 using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.TranslationFeature.Application.Interfaces;
 using ReversoAPI.Web.TranslationFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.TranslationFeature.Application
+namespace ReversoAPI
 {
     public class TranslationClient : ITranslationClient
     {

@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities
+namespace ReversoAPI
 {
     public class SynonymsData
     {

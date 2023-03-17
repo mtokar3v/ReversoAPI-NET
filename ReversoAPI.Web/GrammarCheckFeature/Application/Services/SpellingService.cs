@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.Entities;
 using ReversoAPI.Web.GrammarCheckFeature.Application.DTOs;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Extensions;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 

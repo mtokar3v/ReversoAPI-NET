@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects
-{
+namespace ReversoAPI
+{ 
     public class Correction
     {
         public Correction(

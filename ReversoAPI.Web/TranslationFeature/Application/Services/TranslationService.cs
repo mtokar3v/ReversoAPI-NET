@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.TranslationFeature.Domain.Entities;
 using ReversoAPI.Web.TranslationFeature.Application.DTOs;
 using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Extensions;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 

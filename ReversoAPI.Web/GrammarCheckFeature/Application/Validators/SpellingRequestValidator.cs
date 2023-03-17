@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Interfaces;
 using ReversoAPI.Web.Shared.Application.Validators;
 

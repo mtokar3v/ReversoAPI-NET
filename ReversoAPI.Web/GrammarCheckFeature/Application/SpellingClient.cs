@@ -1,13 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.Entities;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.GrammarCheckFeature.Application
+namespace ReversoAPI
 {
     public class SpellingClient : ISpellingClient
     {

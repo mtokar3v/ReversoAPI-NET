@@ -1,12 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
 using ReversoAPI.Web.SynonymsFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.SynonymsFeature.Application.Interfaces;
 using ReversoAPI.Web.SynonymsFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.SynonymsFeature.Application
+namespace ReversoAPI
 {
     public class SynonymsClient : ISynonymsClient
     {

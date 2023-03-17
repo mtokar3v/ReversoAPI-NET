@@ -1,6 +1,4 @@
-﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects
+﻿namespace ReversoAPI
 {
     public class Sentence
     {

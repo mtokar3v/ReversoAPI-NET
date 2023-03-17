@@ -1,7 +1,4 @@
-﻿using ReversoAPI.Web.Shared.Domain.Attributes;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects
+﻿namespace ReversoAPI
 {
     public enum Locale
     {

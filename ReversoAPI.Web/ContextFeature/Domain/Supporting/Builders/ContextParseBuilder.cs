@@ -3,11 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Enities;
-using ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.Exceptions;
 
 namespace ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders
 {

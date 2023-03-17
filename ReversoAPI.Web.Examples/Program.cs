@@ -1,6 +1,4 @@
-﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.Examples
+﻿namespace ReversoAPI.Web.Examples
 {
     internal class Program
     {

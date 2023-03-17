@@ -1,5 +1,4 @@
 ﻿using Xunit;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Extensions;
 
 namespace ReversoAPI.Web.Tests.Extensions

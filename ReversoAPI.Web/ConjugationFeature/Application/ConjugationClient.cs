@@ -1,12 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
 using ReversoAPI.Web.ConjugationFeature.Application.Validators;
 using ReversoAPI.Web.ConjugationFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.ConjugationFeature.Application.Interfaces;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.ConjugationFeature.Application
+namespace ReversoAPI
 {
     public class ConjugationClient : IConjugationClient
     {

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.Entities;
 using ReversoAPI.Web.GrammarCheckFeature.Application.DTOs;
-using ReversoAPI.Web.TranslationFeature.Domain.Entities;
-using ReversoAPI.Web.TranslationFeature.Domain.ValueObjects;
 using ReversoAPI.Web.TranslationFeature.Application.DTOs;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Shared.Application.Extensions
 {

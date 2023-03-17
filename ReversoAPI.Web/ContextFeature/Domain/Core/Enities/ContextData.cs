@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.ContextFeature.Domain.Core.Enities
+namespace ReversoAPI
 {
     public class ContextData
     {

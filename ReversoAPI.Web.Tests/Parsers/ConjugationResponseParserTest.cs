@@ -3,10 +3,7 @@ using FluentAssertions;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
 using ReversoAPI.Web.ConjugationFeature.Domain.Core.Services;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {

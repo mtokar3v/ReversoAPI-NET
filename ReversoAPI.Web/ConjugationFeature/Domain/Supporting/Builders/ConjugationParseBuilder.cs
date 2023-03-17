@@ -3,10 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HtmlAgilityPack;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Entities;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.Exceptions;
 
 namespace ReversoAPI.Web.ConjugationFeature.Domain.Supporting.Builders
 {

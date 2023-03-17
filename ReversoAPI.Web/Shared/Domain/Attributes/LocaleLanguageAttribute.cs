@@ -1,7 +1,6 @@
 ﻿using System;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.Shared.Domain.Attributes
+namespace ReversoAPI
 {
     public class LocaleLanguageAttribute : Attribute
     {

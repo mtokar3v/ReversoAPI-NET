@@ -1,12 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Enities;
-using ReversoAPI.Web.ContextFeature.Application.Interfaces;
 using ReversoAPI.Web.ContextFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.ContextFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.ContextFeature.Application
+namespace ReversoAPI
 {
     public class ContextClient : IContextClient
     {

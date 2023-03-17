@@ -1,6 +1,4 @@
-﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects
+﻿namespace ReversoAPI
 {
     public class Synonim
     {

@@ -1,7 +1,5 @@
 ﻿using System.IO;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Enities;
 using ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders;
-using ReversoAPI.Web.Shared.Domain.Exceptions;
 using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
