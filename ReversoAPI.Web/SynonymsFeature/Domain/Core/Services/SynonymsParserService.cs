@@ -4,7 +4,7 @@ using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.Services
 {
-    public class SynonymsParser : BaseParser<SynonymsData>
+    public class SynonymsParserService : BaseParser<SynonymsData>
     {
         protected override SynonymsData Parse(Stream htmlStream)
         {

@@ -9,7 +9,7 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Validators
 {
     public class SpellingRequestValidator : AbstractValidator
     {
-        private static Language[] _supportedLanguades =
+        private static Language[] _supportedLanguages =
         {
             Language.English, Language.French,
             Language.Spanish, Language.Italian
@@ -59,7 +59,7 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Validators
 
         private IValidationResult ValidateLanguage(Language language)
         {
-            if (!_supportedLanguades.Contains(language))
+            if (!_supportedLanguages.Contains(language))
             {
                 var message = $"'{language}' is not supported.";
                 return new ValidationResult(false, message, new NotSupportedException(message));

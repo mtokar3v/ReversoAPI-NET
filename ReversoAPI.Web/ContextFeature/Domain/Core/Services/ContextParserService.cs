@@ -4,7 +4,7 @@ using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
 {
-    public class ContextParser : BaseParser<ContextData>
+    public class ContextParserService : BaseParser<ContextData>
     {
         protected override ContextData Parse(Stream htmlStream)
         {

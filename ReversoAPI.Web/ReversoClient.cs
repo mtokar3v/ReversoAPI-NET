@@ -17,9 +17,9 @@ namespace ReversoAPI.Web
         {
             var apiConnector = APIConnector.Create(HttpClientCacheWrapper.GetInstance());
 
-            Context = new ContextClient(new ContextService(apiConnector, new ContextParser()));
-            Synonyms = new SynonymsClient(new SynonymsService(apiConnector, new SynonymsParser()));
-            Conjugation = new ConjugationClient(new ConjugationService(apiConnector, new ConjugationParser()));
+            Context = new ContextClient(new ContextService(apiConnector, new ContextParserService()));
+            Synonyms = new SynonymsClient(new SynonymsService(apiConnector, new SynonymsParserService()));
+            Conjugation = new ConjugationClient(new ConjugationService(apiConnector, new ConjugationParserService()));
 
             Spelling = new SpellingClient(new SpellingService(apiConnector));
             Translation = new TranslationClient(new TranslationService(apiConnector));

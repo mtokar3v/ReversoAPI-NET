@@ -8,7 +8,7 @@ namespace ReversoAPI.Web.SynonymsFeature.Application.Validators
 {
     public class SynonymsRequestValidator : AbstractValidator
     {
-        private readonly static Language[] _supportedLanguades =
+        private readonly static Language[] _supportedLanguages =
         {
             Language.Arabic, Language.German, Language.Spanish,
             Language.French, Language.Hebrew, Language.Italian,
@@ -58,7 +58,7 @@ namespace ReversoAPI.Web.SynonymsFeature.Application.Validators
 
         private IValidationResult ValidateLanguage(Language language)
         {
-            if (!_supportedLanguades.Contains(language))
+            if (!_supportedLanguages.Contains(language))
             {
                 var message = $"'{language}' is not supported.";
                 return new ValidationResult(false, message, new NotSupportedException(message));

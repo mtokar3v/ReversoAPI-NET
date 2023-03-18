@@ -85,6 +85,40 @@ namespace ReversoAPI.Web.Tests {
         ///&lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
         ///&lt;head&gt;&lt;title&gt;
+        ///	Conjugation לברוח | Conjugate verb לברוח Hebrew | Reverso Conjugator
+        ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the Hebrew verb לברוח: indicative, past tense, participle, present, future, conjugation models, binyan. Translate לברוח in context, with examples of use  and definition.&quot; /&gt;&lt;meta name=&quot;google&quot; value=&quot;notranslate&quot; /&gt;&lt;meta  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Conjugation_Parse_Test_Hebrew {
+            get {
+                return ResourceManager.GetString("Conjugation_Parse_Test_Hebrew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///&lt;head&gt;&lt;title&gt;
+        ///	Conjugation 逃げる | Conjugate verb 逃げる Japanese | Reverso Conjugator
+        ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the Japanese verb 逃げる: present, past, volitional, potential, conjugation models and irregular verbs. Translate 逃げる in context, with examples of use  and definition.&quot; /&gt;&lt;meta name=&quot;google&quot; value=&quot;notranslate&quot; /&gt;&lt;meta name=&quot;v [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Conjugation_Parse_Test_Japanese {
+            get {
+                return ResourceManager.GetString("Conjugation_Parse_Test_Japanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+        ///&lt;head&gt;&lt;title&gt;
         ///	Conjugation cair | Conjugate verb cair Portuguese | Reverso Conjugator
         ///&lt;/title&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;meta id=&quot;metaDescription&quot; name=&quot;description&quot; content=&quot;Conjugate the Portuguese verb cair: particípio, pretérito, subjuntivo, futuro, see similar Portuguese verbs, irregular verbs, reflexive verbs. Translate cair in context, with examples of use  and definition.&quot; /&gt;&lt;meta name=&quot;google [rest of string was truncated]&quot;;.
         /// </summary>

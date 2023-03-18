@@ -4,7 +4,7 @@ using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.ConjugationFeature.Domain.Core.Services
 {
-    public class ConjugationParser : BaseParser<ConjugationData>
+    public class ConjugationParserService : BaseParser<ConjugationData>
     {
         protected override ConjugationData Parse(Stream htmlStream)
         {

@@ -14,7 +14,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(ConjugationData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new ConjugationParser();
+            var parser = new ConjugationParserService();
 
             // Act
             var result = parser.Invoke(html);
@@ -36,7 +36,7 @@ namespace ReversoAPI.Web.Tests.Parsers
                     Language = Language.English,
                     Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
                     {
-                        { "Indicative Present", new[] 
+                        { "Indicative Present", new[]
                                                 {
                                                     new Conjugation("Indicative Present", "run", Language.English),
                                                     new Conjugation("Indicative Present", "runs", Language.English),
@@ -134,7 +134,7 @@ namespace ReversoAPI.Web.Tests.Parsers
             };
 
             yield return new object[]
-{
+            {
                 new ConjugationData
                 {
                     Text = "cair",
@@ -294,7 +294,141 @@ namespace ReversoAPI.Web.Tests.Parsers
                     }
                 },
                 new MemoryStream(Encoding.UTF8.GetBytes(Resource.Conjugation_Parse_Test_Portuguese)),
-                };
+            };
+
+            yield return new object[]
+            {
+                new ConjugationData
+                {
+                    Text = "逃げる",
+                    Language = Language.Japanese,
+                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
+                    {
+                        { "Present Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Present Positive Informal", "逃げる", Language.Japanese),
+                                                    new Conjugation("Present Positive Informal", "逃げます", Language.Japanese),
+                                                    new Conjugation("Present Positive Informal", "逃げない", Language.Japanese),
+                                                    new Conjugation("Present Positive Informal", "逃げません", Language.Japanese),
+                                                }},
+                        { "Past Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Past Positive Informal", "逃げた", Language.Japanese),
+                                                    new Conjugation("Past Positive Informal", "逃げました", Language.Japanese),
+                                                    new Conjugation("Past Positive Informal", "逃げなかった", Language.Japanese),
+                                                    new Conjugation("Past Positive Informal", "逃げませんでした", Language.Japanese),
+                                                }},
+                        { "Te Form Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Te Form Positive Informal", "逃げて", Language.Japanese),
+                                                    new Conjugation("Te Form Positive Informal", "逃げなくて", Language.Japanese),
+                                                }},
+                        { "Volitional Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Volitional Positive Informal", "逃げよう", Language.Japanese),
+                                                    new Conjugation("Volitional Positive Informal", "逃げましょう", Language.Japanese),
+                                                }},
+                        { "Potential Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Potential Positive Informal", "逃げられる", Language.Japanese),
+                                                    new Conjugation("Potential Positive Informal", "逃げられます", Language.Japanese),
+                                                    new Conjugation("Potential Positive Informal", "逃げられない", Language.Japanese),
+                                                    new Conjugation("Potential Positive Informal", "逃げられません", Language.Japanese),
+                                                }},
+                        { "Passive Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Passive Positive Informal", "逃げられる", Language.Japanese),
+                                                    new Conjugation("Passive Positive Informal", "逃げられます", Language.Japanese),
+                                                    new Conjugation("Passive Positive Informal", "逃げられない", Language.Japanese),
+                                                    new Conjugation("Passive Positive Informal", "逃げられません", Language.Japanese),
+                                                }},
+                        { "Causative Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Causative Positive Informal", "逃げさせる", Language.Japanese),
+                                                    new Conjugation("Causative Positive Informal", "逃げさせます", Language.Japanese),
+                                                    new Conjugation("Causative Positive Informal", "逃げさせない", Language.Japanese),
+                                                    new Conjugation("Causative Positive Informal", "逃げさせません", Language.Japanese),
+                                                }},
+                        { "Imperative Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Imperative Positive Informal", "逃げよ/逃げろ", Language.Japanese),
+                                                    new Conjugation("Imperative Positive Informal", "逃げてください", Language.Japanese),
+                                                    new Conjugation("Imperative Positive Informal", "逃げるな", Language.Japanese),
+                                                    new Conjugation("Imperative Positive Informal", "逃げないでください", Language.Japanese),
+                                                }},
+                        { "Conditional Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Conditional Positive Informal", "逃げれば", Language.Japanese),
+                                                    new Conjugation("Conditional Positive Informal", "逃げなければ", Language.Japanese),
+                                                }},
+                        { "Conditional (-tara) Positive Informal", new[]
+                                                {
+                                                    new Conjugation("Conditional (-tara) Positive Informal", "逃げたら", Language.Japanese),
+                                                    new Conjugation("Conditional (-tara) Positive Informal", "逃げなかったら", Language.Japanese),
+                                                }},
+                    }
+                },
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Conjugation_Parse_Test_Japanese)),
+            };
+
+            yield return new object[]
+            {
+                new ConjugationData
+                {
+                    Text = "לברוח",
+                    Language = Language.Hebrew,
+                    Conjugations = new Dictionary<string, IEnumerable<Conjugation>>
+                    {
+                        { "Present", new[]
+                                    {
+                                        new Conjugation("Present", "בּוֹרַחַת", Language.Hebrew),
+                                        new Conjugation("Present", "בּוֹרְחוֹת", Language.Hebrew),
+                                        new Conjugation("Present", "בּוֹרֵחַ", Language.Hebrew),
+                                        new Conjugation("Present", "בּוֹרְחִים", Language.Hebrew),
+                                    }},
+                        { "Past", new[]
+                                    {
+                                        new Conjugation("Past", "בָּרַחְתִּי", Language.Hebrew),
+                                        new Conjugation("Past", "בָּרַחְתְּ", Language.Hebrew),
+                                        new Conjugation("Past", "בָּרְחָה", Language.Hebrew),
+                                        new Conjugation("Past", "בָּרַחְתָּ", Language.Hebrew),
+                                        new Conjugation("Past", "בָּרַח", Language.Hebrew),
+                                        new Conjugation("Past", "בָּרַחְנוּ", Language.Hebrew),
+                                        new Conjugation("Past", "בְּרַחְתֶּן", Language.Hebrew),
+                                        new Conjugation("Past", "בָּרְחוּ", Language.Hebrew),
+                                        new Conjugation("Past", "בְּרַחְתֶּם", Language.Hebrew),
+                                    }},
+                        { "Future", new[]
+                                    {
+                                        new Conjugation("Future", "אֶבְרַח", Language.Hebrew),
+                                        new Conjugation("Future", "תִּבְרְחִי", Language.Hebrew),
+                                        new Conjugation("Future", "תִּבְרַח", Language.Hebrew),
+                                        new Conjugation("Future", "יִבְרַח", Language.Hebrew),
+                                        new Conjugation("Future", "נִבְרַח", Language.Hebrew),
+                                        new Conjugation("Future", "תִּבְרְחוּ", Language.Hebrew),
+                                        new Conjugation("Future", "יִבְרְחוּ", Language.Hebrew),
+                                    }},
+                        { "Imperative", new[]
+                                    {
+                                        new Conjugation("Imperative", "בִּרְחִי", Language.Hebrew),
+                                        new Conjugation("Imperative", "בִּרְחוּ", Language.Hebrew),
+                                        new Conjugation("Imperative", "בְּרַח", Language.Hebrew),
+                                    }},
+                        { "Passive Participle", new[]
+                                    {
+                                        new Conjugation("Passive Participle", "בְּרוּחָה", Language.Hebrew),
+                                        new Conjugation("Passive Participle", "בְּרוּחוֹת", Language.Hebrew),
+                                        new Conjugation("Passive Participle", "בָּרוּחַ", Language.Hebrew),
+                                        new Conjugation("Passive Participle", "בְּרוּחִים", Language.Hebrew),
+                                    }},
+                        { "Infinitive", new[]
+                                    {
+                                        new Conjugation("Infinitive", "לִבְרוֹחַ", Language.Hebrew),
+                                    }}
+                    }
+                },
+                new MemoryStream(Encoding.UTF8.GetBytes(Resource.Conjugation_Parse_Test_Hebrew)),
+            };
         }
 
         #endregion

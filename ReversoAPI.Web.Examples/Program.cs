@@ -4,7 +4,7 @@
     {
         private static readonly IReversoClient _reversoClient = new ReversoClient();
 
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             var text = "run";
             var source = Language.English;

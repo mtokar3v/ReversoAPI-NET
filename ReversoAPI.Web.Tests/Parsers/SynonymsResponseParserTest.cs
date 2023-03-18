@@ -14,7 +14,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(SynonymsData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new SynonymsParser();
+            var parser = new SynonymsParserService();
 
             // Act
             var result = parser.Invoke(html);

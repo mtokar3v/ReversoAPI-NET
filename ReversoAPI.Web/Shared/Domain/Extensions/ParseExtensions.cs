@@ -53,5 +53,13 @@ namespace ReversoAPI.Web.Shared.Domain.Extensions
             if (string.IsNullOrEmpty(value)) return value;
             return value.Replace("\t", "").Replace('\n', ' ').Replace("\r", "");
         }
+
+        public static string RemoveAlternativeWord(this string value)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            if (!value.Contains('/')) return value;
+
+            return value.Substring(0, value.IndexOf('/'));
+        }
     }
 }
