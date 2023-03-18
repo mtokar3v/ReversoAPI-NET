@@ -1,4 +1,4 @@
-﻿namespace ReversoAPI.Web
+﻿namespace ReversoAPI
 {
     public interface IReversoClient
     {

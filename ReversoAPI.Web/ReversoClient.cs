@@ -9,7 +9,7 @@ using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http;
 
-namespace ReversoAPI.Web
+namespace ReversoAPI
 {
     public class ReversoClient : IReversoClient
     {
