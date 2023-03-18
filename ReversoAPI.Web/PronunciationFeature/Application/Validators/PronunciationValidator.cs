@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Interfaces;
 using ReversoAPI.Web.Shared.Application.Validators;
 
@@ -9,7 +8,7 @@ namespace ReversoAPI.Web.PronunciationFeature.Application.Validators
 {
     public class PronunciationValidator : AbstractValidator
     {
-        private static Language[] _supportedLanguades =
+        private static Language[] _supportedLanguages =
         {
             Language.Arabic, Language.Spanish, Language.Hebrew,
             Language.Japanese, Language.Polish, Language.Romanian,
@@ -62,7 +61,7 @@ namespace ReversoAPI.Web.PronunciationFeature.Application.Validators
 
         private IValidationResult ValidateLanguage(Language language)
         {
-            if (!_supportedLanguades.Contains(language))
+            if (!_supportedLanguages.Contains(language))
             {
                 var message = $"'{language}' is not supported.";
                 return new ValidationResult(false, message, new NotSupportedException(message));

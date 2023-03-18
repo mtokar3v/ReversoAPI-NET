@@ -1,12 +1,10 @@
-﻿using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.Examples
+﻿namespace ReversoAPI.Web.Examples
 {
     internal class Program
     {
         private static readonly IReversoClient _reversoClient = new ReversoClient();
 
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             var text = "run";
             var source = Language.English;

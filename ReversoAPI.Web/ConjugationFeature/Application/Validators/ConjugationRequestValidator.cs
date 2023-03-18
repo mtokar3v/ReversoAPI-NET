@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Interfaces;
 using ReversoAPI.Web.Shared.Application.Validators;
 
@@ -9,15 +8,13 @@ namespace ReversoAPI.Web.ConjugationFeature.Application.Validators
 {
     public class ConjugationRequestValidator : AbstractValidator
     {
-        private static Language[] _supportedLanguades =
+        private static Language[] _supportedLanguages =
         {
             Language.English, Language.French,
             Language.Spanish, Language.German,
             Language.Italian, Language.Portuguese,
-            Language.Russian,
-            //Language.Hebrew, 
-            //Language.Arabic,
-            //Language.Japanese,
+            Language.Russian, Language.Japanese,
+            Language.Hebrew,  Language.Arabic,
         };
 
         public ConjugationRequestValidator(string text, Language language)
@@ -61,7 +58,7 @@ namespace ReversoAPI.Web.ConjugationFeature.Application.Validators
 
         private IValidationResult ValidateLanguage(Language language)
         {
-            if (!_supportedLanguades.Contains(language))
+            if (!_supportedLanguages.Contains(language))
             {
                 var message = $"'{language}' is not supported.";
                 return new ValidationResult(false, message, new NotSupportedException(message));

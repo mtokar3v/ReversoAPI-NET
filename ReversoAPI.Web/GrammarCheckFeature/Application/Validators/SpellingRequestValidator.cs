@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Interfaces;
 using ReversoAPI.Web.Shared.Application.Validators;
 
@@ -11,7 +9,7 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Validators
 {
     public class SpellingRequestValidator : AbstractValidator
     {
-        private static Language[] _supportedLanguades =
+        private static Language[] _supportedLanguages =
         {
             Language.English, Language.French,
             Language.Spanish, Language.Italian
@@ -61,7 +59,7 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Validators
 
         private IValidationResult ValidateLanguage(Language language)
         {
-            if (!_supportedLanguades.Contains(language))
+            if (!_supportedLanguages.Contains(language))
             {
                 var message = $"'{language}' is not supported.";
                 return new ValidationResult(false, message, new NotSupportedException(message));

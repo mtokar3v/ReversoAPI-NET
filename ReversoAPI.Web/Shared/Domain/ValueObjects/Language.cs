@@ -1,6 +1,4 @@
-﻿using ReversoAPI.Web.Shared.Domain.Attributes;
-
-namespace ReversoAPI.Web.Shared.Domain.ValueObjects
+﻿namespace ReversoAPI
 {
     public enum Language
     {

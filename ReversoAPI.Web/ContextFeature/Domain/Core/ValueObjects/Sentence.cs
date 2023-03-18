@@ -1,9 +1,6 @@
-﻿using ReversoAPI.Web.ContextFeature.Domain.Core.Interfaces.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects
+﻿namespace ReversoAPI
 {
-    public class Sentence : ISentence
+    public class Sentence
     {
         public Sentence(Language language, string text)
         {

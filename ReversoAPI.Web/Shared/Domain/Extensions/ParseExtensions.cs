@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Shared.Domain.Extensions
 {
@@ -10,31 +9,23 @@ namespace ReversoAPI.Web.Shared.Domain.Extensions
 
         private static HashSet<string> AdverbPseudonyms = new HashSet<string>
         {
-            "adv.",
-            "adverb",
+            "adv.", "adverb",
         };
 
         private static HashSet<string> VerbPseudonyms = new HashSet<string>()
         {
-            "v.",
-            "verb",
+            "v.", "verb",
         };
 
         private static HashSet<string> NounPseudonyms = new HashSet<string>()
         {
-            "n.",
-            "nn.",
-            "nf.",
-            "nm.",
-            "noun",
-            "noun - masculine",
-            "noun - neutral"
+            "n.", "nn.", "nf.", "nm.", "noun",
+            "noun - masculine", "noun - neutral"
         };
 
         private static HashSet<string> AdjectivePseudonyms = new HashSet<string>()
 {
-            "adj.",
-            "adjective",
+            "adj.", "adjective",
         };
 
         public static PartOfSpeech ToPartOfSpeech(this string value)
@@ -61,6 +52,14 @@ namespace ReversoAPI.Web.Shared.Domain.Extensions
         {
             if (string.IsNullOrEmpty(value)) return value;
             return value.Replace("\t", "").Replace('\n', ' ').Replace("\r", "");
+        }
+
+        public static string RemoveAlternativeWord(this string value)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            if (!value.Contains('/')) return value;
+
+            return value.Substring(0, value.IndexOf('/'));
         }
     }
 }

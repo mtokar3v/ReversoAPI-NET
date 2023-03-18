@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Interfaces.Entities;
 using ReversoAPI.Web.ContextFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
@@ -14,16 +12,16 @@ namespace ReversoAPI.Web.ContextFeature.Application.Services
         private const string ContextURL = "https://context.reverso.net/translation/";
 
         private readonly IAPIConnector _apiConnector;
-        private readonly IParser<IContextData> _parser;
+        private readonly IParser<ContextData> _parser;
 
         public ContextService(IAPIConnector apiConnector,
-            IParser<IContextData> parser)
+            IParser<ContextData> parser)
         {
             _apiConnector = apiConnector;
             _parser = parser;
         }
 
-        public async Task<IContextData> GetAsync(string text, Language source, Language target, CancellationToken cancellationToken = default)
+        public async Task<ContextData> GetAsync(string text, Language source, Language target, CancellationToken cancellationToken = default)
         {
             var url = CombineUrl(text, source, target);
 

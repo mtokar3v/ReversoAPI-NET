@@ -1,18 +1,16 @@
-﻿using HtmlAgilityPack;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Interfaces.Entities;
+﻿using System.IO;
 using ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders;
-using ReversoAPI.Web.Shared.Domain.Exceptions;
 using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
 {
-    public class ContextParser : BaseParser<IContextData>
+    public class ContextParserService : BaseParser<ContextData>
     {
-        protected override IContextData Parse(HtmlDocument html)
+        protected override ContextData Parse(Stream htmlStream)
         {
             try
             {
-                return new ContextParseBuilder(html)
+                return new ContextParseBuilder(htmlStream)
                     .WithInputText()
                     .WithLanguages()
                     .WithExamples()

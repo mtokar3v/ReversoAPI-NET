@@ -1,6 +1,4 @@
-﻿using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
+﻿using ReversoAPI.Web.Shared.Domain.Extensions;
 
 namespace ReversoAPI.Web.GrammarCheckFeature.Application.DTOs
 {
@@ -21,7 +19,7 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.DTOs
             GetCorrectionDetails = true;
             InterfaceLanguage = "eu";
             IsHtml = false;
-            Locale = locale == Domain.ValueObjects.Locale.None ? string.Empty : locale.ToString();
+            Locale = locale == ReversoAPI.Locale.None ? string.Empty : locale.ToString();
             Origin = "interactive";
             OriginalText = string.Empty;
             SpellingFeedbackOptions = new SpellingFeedbackOptionsDto

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Interfaces.Entities;
 using ReversoAPI.Web.SynonymsFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
@@ -15,17 +13,17 @@ namespace ReversoAPI.Web.SynonymsFeature.Application.Services
         private const string SynonimsURL = "https://synonyms.reverso.net/synonym/";
 
         private readonly IAPIConnector _apiConnector;
-        private readonly IParser<ISynonymsData> _parser;
+        private readonly IParser<SynonymsData> _parser;
 
         public SynonymsService(
             IAPIConnector apiConnector,
-            IParser<ISynonymsData> parser)
+            IParser<SynonymsData> parser)
         {
             _apiConnector = apiConnector;
             _parser = parser;
         }
 
-        public async Task<ISynonymsData> GetAsync(string text, Language language, CancellationToken cancellationToken = default)
+        public async Task<SynonymsData> GetAsync(string text, Language language, CancellationToken cancellationToken = default)
         {
             var url = CombineUrl(text, language);
 

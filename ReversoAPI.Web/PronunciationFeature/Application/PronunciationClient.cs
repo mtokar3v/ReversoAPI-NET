@@ -1,12 +1,10 @@
 ﻿using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.PronunciationFeature.Application.Interfaces;
 using ReversoAPI.Web.PronunciationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.PronunciationFeature.Application.Validators;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
-namespace ReversoAPI.Web.PronunciationFeature.Application
+namespace ReversoAPI
 {
     public class PronunciationClient : IPronunciationClient
     {
@@ -19,7 +17,10 @@ namespace ReversoAPI.Web.PronunciationFeature.Application
             var validationResult = new PronunciationValidator(text, language).Validate();
             if (!validationResult.IsValid) throw validationResult.Exception;
 
-            var output = await _pronunciationService.GetAsync(text, language, speed, cancellationToken).ConfigureAwait(false);
+            var output = await _pronunciationService
+                .GetAsync(text, language, speed, cancellationToken)
+                .ConfigureAwait(false);
+
             return output;
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReversoAPI.Web.Shared.Domain.Attributes
+namespace ReversoAPI
 {
     public class MediumNameAttribute : Attribute
     {

@@ -1,5 +1,4 @@
 ﻿using Xunit;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Domain.Extensions;
 
 namespace ReversoAPI.Web.Tests.Extensions
@@ -83,6 +82,19 @@ namespace ReversoAPI.Web.Tests.Extensions
 
             // Assert
             Assert.Equal(textWithoutHtml, result);
+        }
+
+        [Theory]
+
+        [InlineData("בָּרַחְתְּ/בָּרַחַתְּ", "בָּרַחְתְּ")]
+        [InlineData("בָּרַחַתְּ", "בָּרַחַתְּ")]
+        public void RemoveAlternativeWord_Test(string textWithAlternative, string textWithoutAlternative)
+        {
+            // Act
+            var result = textWithAlternative.RemoveAlternativeWord();
+
+            // Assert
+            Assert.Equal(textWithoutAlternative, result);
         }
     }
 }

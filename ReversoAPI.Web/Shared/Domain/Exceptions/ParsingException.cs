@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReversoAPI.Web.Shared.Domain.Exceptions
+namespace ReversoAPI
 {
     public class ParsingException : Exception
     {

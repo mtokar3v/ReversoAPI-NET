@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Threading;
+using System.Collections.Concurrent;
 
 public class SimpleCache<TKey, TValue> : IDisposable, ICache<TKey, TValue>
 {

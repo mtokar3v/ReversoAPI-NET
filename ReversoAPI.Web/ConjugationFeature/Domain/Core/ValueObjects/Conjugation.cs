@@ -1,9 +1,6 @@
-﻿using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
-
-namespace ReversoAPI.Web.ConjugationFeature.Domain.Core.ValueObjects
+﻿namespace ReversoAPI
 {
-    public class Conjugation : IConjugation
+    public class Conjugation
     {
         public Conjugation(string group, string verb, Language language)
         {

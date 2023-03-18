@@ -3,10 +3,7 @@ using FluentAssertions;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Entities;
 using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
@@ -17,7 +14,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(SynonymsData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new SynonymsParser();
+            var parser = new SynonymsParserService();
 
             // Act
             var result = parser.Invoke(html);

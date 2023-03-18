@@ -1,13 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.Interfaces.Entities;
-using ReversoAPI.Web.GrammarCheckFeature.Domain.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services
 {
     public interface ISpellingService
     {
-        Task<ISpellingData> GetAsync(string text, Language language, Locale locale = Locale.None, CancellationToken cancellationToken = default);
+        Task<SpellingData> GetAsync(string text, Language language, Locale locale = Locale.None, CancellationToken cancellationToken = default);
     }
 }

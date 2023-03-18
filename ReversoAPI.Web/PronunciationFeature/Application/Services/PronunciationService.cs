@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using ReversoAPI.Web.PronunciationFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 using ReversoAPI.Web.Shared.Application.Extensions;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 

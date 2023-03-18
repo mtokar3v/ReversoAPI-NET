@@ -88,7 +88,11 @@ namespace ReversoAPI.Web.Shared.Infrastructure.Http
         private async Task<Stream> MakeACopyAsync(Stream stream, CancellationToken cancellationToken = default)
         {
             var ms = new MemoryStream();
-            await stream.CopyToAsync(ms, cancellationToken).ConfigureAwait(false);
+
+            await stream
+                .CopyToAsync(ms, cancellationToken)
+                .ConfigureAwait(false);
+
             ms.Position = 0;
             return ms;
         }

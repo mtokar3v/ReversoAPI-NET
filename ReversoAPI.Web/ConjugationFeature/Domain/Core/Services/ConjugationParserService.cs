@@ -1,18 +1,16 @@
-﻿using HtmlAgilityPack;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Interfaces.Entities;
+﻿using System.IO;
 using ReversoAPI.Web.ConjugationFeature.Domain.Supporting.Builders;
-using ReversoAPI.Web.Shared.Domain.Exceptions;
 using ReversoAPI.Web.Shared.Domain.Services;
 
 namespace ReversoAPI.Web.ConjugationFeature.Domain.Core.Services
 {
-    public class ConjugationParser : BaseParser<IConjugationData>
+    public class ConjugationParserService : BaseParser<ConjugationData>
     {
-        protected override IConjugationData Parse(HtmlDocument html)
+        protected override ConjugationData Parse(Stream htmlStream)
         {
             try
             {
-                return new ConjugationParseBuilder(html)
+                return new ConjugationParseBuilder(htmlStream)
                     .WithInputText()
                     .WithLanguage()
                     .WithConjugations()

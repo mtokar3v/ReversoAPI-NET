@@ -3,10 +3,7 @@ using FluentAssertions;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Enities;
 using ReversoAPI.Web.ContextFeature.Domain.Core.Services;
-using ReversoAPI.Web.ContextFeature.Domain.Core.ValueObjects;
-using ReversoAPI.Web.Shared.Domain.ValueObjects;
 
 namespace ReversoAPI.Web.Tests.Parsers
 {
@@ -17,7 +14,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(ContextData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new ContextParser();
+            var parser = new ContextParserService();
 
             // Act
             var result = parser.Invoke(html);

@@ -121,6 +121,12 @@
   <data name="Conjugation_Parse_Test_English" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Conjugation_Parse_Test_English.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Conjugation_Parse_Test_Hebrew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Conjugation_Parse_Test_Hebrew.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Conjugation_Parse_Test_Japanese" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Conjugation_Parse_Test_Japanese.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Conjugation_Parse_Test_Portuguese" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Conjugation_Parse_Test_Portuguese.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
