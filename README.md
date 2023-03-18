@@ -7,16 +7,21 @@ This open source C# library for the Reverso Web API offers a comprehensive set o
 ## Example
 
 ```csharp
-    class Program
-    {
-        static async Task Main()
-        {
-            var reverso = new ReversoClient();
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using ReversoAPI;
 
-            var translation = await reverso.Translation.GetAsync("run", Language.English, Language.Russian);
-            Console.WriteLine(translation.Translations.First().Value);
-        }
+class Program
+{
+    static async Task Main()
+    {
+        var reverso = new ReversoClient();
+
+        var translation = await reverso.Translation.GetAsync("run", Language.English, Language.Russian);
+        Console.WriteLine(translation.Translations.First().Value);
     }
+}
 ```
     
-More examples can be found in the ReversoAPI.Web.Examples directory.
+More examples can be found in the [ReversoAPI.Web.Examples](https://github.com/mtokar3v/ReversoAPI-NET/tree/master/ReversoAPI.Web.Examples)  directory.
