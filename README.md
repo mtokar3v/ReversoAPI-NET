@@ -4,6 +4,7 @@ This open source C# library for the Reverso Web API offers a comprehensive set o
 
 [![License](https://img.shields.io/github/license/JohnnyCrazy/SpotifyAPI-NET?style=flat-square)](./LICENSE)
 [![ReversoAPI NuGET](https://img.shields.io/nuget/vpre/ReversoAPI?label=ReversoAPI&style=flat-square)](https://www.nuget.org/packages/ReversoAPI/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/ReversoAPI.svg)](https://www.nuget.org/packages/ReversoAPI/)
 ## Example
 
 ```csharp
