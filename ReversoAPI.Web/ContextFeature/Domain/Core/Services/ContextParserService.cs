@@ -1,11 +1,18 @@
 ﻿using System.IO;
 using ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders;
 using ReversoAPI.Web.Shared.Domain.Services;
+using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
 namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
 {
     public class ContextParserService : BaseParser<ContextData>
     {
+        private readonly ILogger _log;
+        public ContextParserService(ILogger log)
+        {
+            _log = log;
+        }
+
         protected override ContextData Parse(Stream htmlStream)
         {
             try
@@ -16,8 +23,9 @@ namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
                     .WithExamples()
                     .Build();
             }
-            catch (ParsingException)
+            catch (ParsingException ex)
             {
+                _log?.Error(ex.Message);
                 return null;
             }
         }

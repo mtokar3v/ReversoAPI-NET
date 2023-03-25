@@ -15,7 +15,7 @@ namespace ReversoAPI.Web
     {
         public ReversoClient()
         {
-            var apiConnector = APIConnector.Create(HttpClientCacheWrapper.GetInstance());
+            var apiConnector = new APIConnector(new CachedHttpClient());
 
             Context = new ContextClient(new ContextService(apiConnector, new ContextParserService()));
             Synonyms = new SynonymsClient(new SynonymsService(apiConnector, new SynonymsParserService()));

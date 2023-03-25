@@ -1,12 +1,21 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 
 namespace ReversoAPI.Web.Shared.Infrastructure.Http
 {
     public class HttpResponse : IDisposable
     {
-        public string ContentType { get; set; }
-        public Stream Content { get; set; }
+        public HttpResponse(string contentType, Stream content, HttpStatusCode statusCode)
+        {
+            ContentType = contentType;
+            Content = content;
+            StatusCode = statusCode;
+        }
+
+        public string ContentType { get; }
+        public Stream Content { get; }
+        public HttpStatusCode StatusCode { get; }
 
         public void Dispose()
         {

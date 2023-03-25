@@ -6,6 +6,7 @@ using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Validators;
 using ReversoAPI.Web.Shared.Application.Extensions;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
+using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
 namespace ReversoAPI.Web.TranslationFeature.Application.Services
 {
@@ -14,7 +15,13 @@ namespace ReversoAPI.Web.TranslationFeature.Application.Services
         private const string TranslationURL = "https://api.reverso.net/translate/v1/translation";
 
         private readonly IAPIConnector _apiConnector;
-        public TranslationService(IAPIConnector apiConnector) => _apiConnector = apiConnector;
+        private readonly ILogger _log;
+
+        public TranslationService(IAPIConnector apiConnector, ILogger  log)
+        {
+            _log = log;
+            _apiConnector = apiConnector;
+        }
 
         public async Task<TranslationData> GetAsync(string text, Language source, Language target, CancellationToken cancellationToken = default)
         {
@@ -27,7 +34,11 @@ namespace ReversoAPI.Web.TranslationFeature.Application.Services
             var translationDto = response.Content.Deserialize<TranslationResponse>();
 
             var validationResult = new TranslationResponseValidator(translationDto).Validate();
-            if (!validationResult.IsValid) return null;
+            if (!validationResult.IsValid)
+            {
+                _log?.Error(validationResult.Message);
+                return null;
+            }
 
             return translationDto.ToModel();
         }
