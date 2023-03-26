@@ -12,10 +12,10 @@ namespace ReversoAPI.Web.ContextFeature.Application.Services
         private const string ContextURL = "https://context.reverso.net/translation/";
 
         private readonly IAPIConnector _apiConnector;
-        private readonly IParser<ContextData> _parser;
+        private readonly IParseService<ContextData> _parser;
 
         public ContextService(IAPIConnector apiConnector,
-            IParser<ContextData> parser)
+            IParseService<ContextData> parser)
         {
             _apiConnector = apiConnector;
             _parser = parser;

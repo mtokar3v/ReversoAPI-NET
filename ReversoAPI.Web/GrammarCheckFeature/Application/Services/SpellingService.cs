@@ -6,6 +6,7 @@ using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Validators;
 using ReversoAPI.Web.Shared.Application.Extensions;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
+using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
 namespace ReversoAPI.Web.GrammarCheckFeature.Application.Services
 {
@@ -13,8 +14,14 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Services
     {
         private const string SpellingURL = "https://orthographe.reverso.net/api/v1/Spelling/";
 
+        private readonly ILogger _log;
         private readonly IAPIConnector _apiConnector;
-        public SpellingService(IAPIConnector apiConnector) => _apiConnector = apiConnector;
+
+        public SpellingService(IAPIConnector apiConnector, ILogger log)
+        {
+            _log = log;
+            _apiConnector = apiConnector;
+        }
 
         public async Task<SpellingData> GetAsync(string text, Language language, Locale locale = Locale.None, CancellationToken cancellationToken = default)
         {
@@ -27,7 +34,11 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Services
             var spellingDto = response.Content.Deserialize<SpellingResponse>();
 
             var validationResult = new SpellingResponseValidator(spellingDto).Validate();
-            if (!validationResult.IsValid) return null;
+            if (!validationResult.IsValid) 
+            {
+                _log?.Error(validationResult.Message);
+                return null;
+            }
 
             return spellingDto.ToModel();
         }

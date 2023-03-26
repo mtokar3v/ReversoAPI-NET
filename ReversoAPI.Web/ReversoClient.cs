@@ -1,29 +1,29 @@
 ﻿using ReversoAPI.Web.ConjugationFeature.Application.Services;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Services;
 using ReversoAPI.Web.ContextFeature.Application.Services;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Services;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Services;
 using ReversoAPI.Web.PronunciationFeature.Application.Services;
 using ReversoAPI.Web.SynonymsFeature.Application.Services;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Http;
 
 namespace ReversoAPI
 {
     public class ReversoClient : IReversoClient
     {
-        public ReversoClient()
+        public ReversoClient(ReversoClientConfig config)
         {
-            var apiConnector = APIConnector.Create(HttpClientCacheWrapper.GetInstance());
+            var apiConnector = config.APIConnector;
 
-            Context = new ContextClient(new ContextService(apiConnector, new ContextParserService()));
-            Synonyms = new SynonymsClient(new SynonymsService(apiConnector, new SynonymsParserService()));
-            Conjugation = new ConjugationClient(new ConjugationService(apiConnector, new ConjugationParserService()));
+            Context = new ContextClient(new ContextService(apiConnector, config.ContextParser));
+            Synonyms = new SynonymsClient(new SynonymsService(apiConnector, config.SynonymsParser));
+            Conjugation = new ConjugationClient(new ConjugationService(apiConnector, config.ConjugationParser));
 
-            Spelling = new SpellingClient(new SpellingService(apiConnector));
-            Translation = new TranslationClient(new TranslationService(apiConnector));
+            Spelling = new SpellingClient(new SpellingService(apiConnector, config.Logger));
+            Translation = new TranslationClient(new TranslationService(apiConnector, config.Logger));
             Pronunciation = new PronunciationClient(new PronunciationService(apiConnector));
+        }
+
+        public ReversoClient() : this(new ReversoClientConfig().CreateDefault())
+        {
         }
 
         public IContextClient Context { get; }

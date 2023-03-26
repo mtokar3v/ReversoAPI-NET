@@ -4,7 +4,7 @@ using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 
 namespace ReversoAPI.Web.Shared.Domain.Services
 {
-    public abstract class BaseParser<TResult> : IParser<TResult>
+    public abstract class BaseParser<TResult> : IParseService<TResult>
     {
         public TResult Invoke(Stream htmlStream)
         {

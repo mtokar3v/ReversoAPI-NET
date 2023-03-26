@@ -14,7 +14,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(ContextData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new ContextParserService();
+            var parser = new ContextParseService(null);
 
             // Act
             var result = parser.Invoke(html);
