@@ -1,27 +1,26 @@
 ﻿using System.IO;
-using ReversoAPI.Web.ConjugationFeature.Domain.Supporting.Builders;
+using ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders;
 using ReversoAPI.Web.Shared.Domain.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
-namespace ReversoAPI.Web.ConjugationFeature.Domain.Core.Services
+namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
 {
-    public class ConjugationParserService : BaseParser<ConjugationData>
+    public class ContextParseService : BaseParser<ContextData>
     {
         private readonly ILogger _log;
-
-        public ConjugationParserService(ILogger log)
+        public ContextParseService(ILogger log)
         {
             _log = log;
         }
 
-        protected override ConjugationData Parse(Stream htmlStream)
+        protected override ContextData Parse(Stream htmlStream)
         {
             try
             {
-                return new ConjugationParseBuilder(htmlStream)
+                return new ContextParseBuilder(htmlStream)
                     .WithInputText()
-                    .WithLanguage()
-                    .WithConjugations()
+                    .WithLanguages()
+                    .WithExamples()
                     .Build();
             }
             catch (ParsingException ex)

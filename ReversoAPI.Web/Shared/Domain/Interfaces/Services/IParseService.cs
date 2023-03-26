@@ -2,7 +2,7 @@
 
 namespace ReversoAPI.Web.Shared.Domain.Interfaces.Services
 {
-    public interface IParser<TResult>
+    public interface IParseService<TResult>
     {
         TResult Invoke(Stream html);
     }

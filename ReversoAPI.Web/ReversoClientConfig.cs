@@ -1,58 +1,87 @@
-﻿using ReversoAPI.Web.ContextFeature.Domain.Core.Services;
+﻿using System;
+using ReversoAPI.Web.ConjugationFeature.Domain.Core.Services;
+using ReversoAPI.Web.ContextFeature.Domain.Core.Services;
+using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
 using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 using ReversoAPI.Web.Shared.Infrastructure.Logger;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
-using System;
 
 namespace ReversoAPI.Web
 {
     public class ReversoClientConfig
     {
         // General
-        public IHttpClient HttpClient { get; private set; }
-        public IAPIConnector APIConnector { get; private set; }
+        private IHttpClient _httpClient;
+        public IHttpClient HttpClient 
+        { 
+            get => _httpClient ?? new CachedHttpClient();
+            private set => _httpClient = value;
+        }
 
-        // Let's fill up only elementary fields
-        // complex objects neither will be filled by user or will be setted by default
-        private IParser<ContextData> _contextParser;
-        public IParser<ContextData> ContextParser 
+        private IAPIConnector _apiConnector;
+        public IAPIConnector APIConnector 
         {
-            get => _contextParser ?? new ContextParserService(Logger);
+            get => _apiConnector ?? new APIConnector(new CachedHttpClient());
+            private set => _apiConnector = value;
+        }
+
+        private IParseService<ContextData> _contextParser;
+        public IParseService<ContextData> ContextParser 
+        {
+            get => _contextParser ?? new ContextParseService(Logger);
             private set => _contextParser = value;
         }
-        public IParser<SynonymsData> SynonymsParser { get; private set; }
+
+        private IParseService<SynonymsData> _synonymsParser;
+        public IParseService<SynonymsData> SynonymsParser 
+        {
+            get => _synonymsParser ?? new SynonymsParseService(Logger);
+            private set => _synonymsParser = value;
+        }
+
+        private IParseService<ConjugationData> _conjugationParser;
+        public IParseService<ConjugationData> ConjugationParser
+        {
+            get => _conjugationParser ?? new ConjugationParseService(Logger);
+            private set => _conjugationParser = value;
+        }
 
         // Extra
         public ILogger Logger { get; private set; }
 
-        private ReversoClientConfig(
+        public ReversoClientConfig() { }
+
+        public ReversoClientConfig(
             IHttpClient httpClient,
             IAPIConnector apiConnector,
-            IParser<ContextData> contextParser, 
-            IParser<SynonymsData> synonymsParser,
+            IParseService<ContextData> contextParser, 
+            IParseService<SynonymsData> synonymsParser,
+            IParseService<ConjugationData> conjugationParser,
             ILogger logger)
         {
             HttpClient = httpClient;
             APIConnector = apiConnector;
             ContextParser = contextParser;
+            SynonymsParser = synonymsParser;
+            ConjugationParser = conjugationParser;
             Logger = logger;
         }
 
-        ReversoClientConfig CreateDefault()
+        public ReversoClientConfig CreateDefault()
         {
             var httpClient = new CachedHttpClient();
 
             return new ReversoClientConfig(
                 httpClient,
                 new APIConnector(httpClient),
-                new ContextParserService(null),
-                new SynonymsParserService(null),
+                new ContextParseService(null),
+                new SynonymsParseService(null),
+                new ConjugationParseService(null),
                 null);
         }
 
-        ReversoClientConfig WithHttpClient(IHttpClient httpClient)
+        public ReversoClientConfig WithHttpClient(IHttpClient httpClient)
         {
             if(httpClient is null) throw new ArgumentNullException(nameof(httpClient));
 
@@ -60,7 +89,7 @@ namespace ReversoAPI.Web
             return this;
         }
 
-        ReversoClientConfig WithApiConnector(IAPIConnector apiConnector)
+        public ReversoClientConfig WithApiConnector(IAPIConnector apiConnector)
         {
             if (apiConnector is null) throw new ArgumentNullException(nameof(apiConnector));
 
@@ -68,7 +97,31 @@ namespace ReversoAPI.Web
             return this;
         }
 
-        ReversoClientConfig WithLogger(ILogger logger)
+        public ReversoClientConfig WithContextParseService(IParseService<ContextData> contextParser)
+        {
+            if (contextParser is null) throw new ArgumentNullException(nameof(contextParser));
+
+            ContextParser = contextParser;
+            return this;
+        }
+
+        public ReversoClientConfig WithSynonymsParseService(IParseService<SynonymsData> synonymsParser)
+        {
+            if (synonymsParser is null) throw new ArgumentNullException(nameof(synonymsParser));
+
+            SynonymsParser = synonymsParser;
+            return this;
+        }
+
+        public ReversoClientConfig WithConjugationParseService(IParseService<ConjugationData> conjugationParser)
+        {
+            if (conjugationParser is null) throw new ArgumentNullException(nameof(conjugationParser));
+
+            ConjugationParser = conjugationParser;
+            return this;
+        }
+
+        public ReversoClientConfig WithLogger(ILogger logger)
         {
             Logger = logger;
             return this;

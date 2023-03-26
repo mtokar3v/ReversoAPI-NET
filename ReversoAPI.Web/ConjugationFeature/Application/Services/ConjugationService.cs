@@ -14,11 +14,11 @@ namespace ReversoAPI.Web.ConjugationFeature.Application.Services
         private string ConjugationURL = "https://conjugator.reverso.net/conjugation-";
 
         private readonly IAPIConnector _apiConnector;
-        private readonly IParser<ConjugationData> _parser;
+        private readonly IParseService<ConjugationData> _parser;
 
         public ConjugationService(
             IAPIConnector apiConnector,
-            IParser<ConjugationData> parser)
+            IParseService<ConjugationData> parser)
         {
             _apiConnector = apiConnector;
             _parser = parser;

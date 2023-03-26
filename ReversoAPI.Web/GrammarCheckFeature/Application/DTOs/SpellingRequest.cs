@@ -17,7 +17,7 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.DTOs
             AutoReplace = true;
             EnglishDialect = "indifferent";
             GetCorrectionDetails = true;
-            InterfaceLanguage = "eu";
+            InterfaceLanguage = "en";
             IsHtml = false;
             Locale = locale == ReversoAPI.Locale.None ? string.Empty : locale.ToString();
             Origin = "interactive";

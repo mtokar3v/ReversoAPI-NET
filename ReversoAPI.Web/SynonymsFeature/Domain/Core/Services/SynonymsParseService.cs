@@ -5,11 +5,11 @@ using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
 namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.Services
 {
-    public class SynonymsParserService : BaseParser<SynonymsData>
+    public class SynonymsParseService : BaseParser<SynonymsData>
     {
         private readonly ILogger _log;
 
-        public SynonymsParserService(ILogger log)
+        public SynonymsParseService(ILogger log)
         {
             _log = log;
         }

@@ -13,11 +13,11 @@ namespace ReversoAPI.Web.SynonymsFeature.Application.Services
         private const string SynonimsURL = "https://synonyms.reverso.net/synonym/";
 
         private readonly IAPIConnector _apiConnector;
-        private readonly IParser<SynonymsData> _parser;
+        private readonly IParseService<SynonymsData> _parser;
 
         public SynonymsService(
             IAPIConnector apiConnector,
-            IParser<SynonymsData> parser)
+            IParseService<SynonymsData> parser)
         {
             _apiConnector = apiConnector;
             _parser = parser;
