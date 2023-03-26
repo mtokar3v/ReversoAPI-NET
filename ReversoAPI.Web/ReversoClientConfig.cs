@@ -7,7 +7,7 @@ using ReversoAPI.Web.Shared.Infrastructure.Http;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
-namespace ReversoAPI.Web
+namespace ReversoAPI
 {
     public class ReversoClientConfig
     {
