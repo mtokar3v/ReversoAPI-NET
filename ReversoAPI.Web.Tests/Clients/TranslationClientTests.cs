@@ -3,6 +3,7 @@ using Xunit;
 using FluentAssertions;
 using System;
 using System.IO;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace ReversoAPI.Web.Tests.Clients
         public TranslationClientTests()
         {
             _apiConnector = new Mock<IAPIConnector>();
-            _client = new TranslationService(_apiConnector.Object);
+            _client = new TranslationService(_apiConnector.Object, null);
         }
 
         [Theory]
@@ -30,7 +31,7 @@ namespace ReversoAPI.Web.Tests.Clients
         public async Task GetFromOneWordAsync_Success(string text, Language source, Language target, Stream json, TranslationData expectedResult)
         {
             // Arrange
-            var response = new HttpResponse() { Content = json };
+            var response = new HttpResponse("text/html", json, HttpStatusCode.OK);
             _apiConnector
                 .Setup(c => c.PostAsync(It.IsAny<Uri>(), It.IsAny<TranslationRequest>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(response);

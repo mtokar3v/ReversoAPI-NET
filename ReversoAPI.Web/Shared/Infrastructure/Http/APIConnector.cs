@@ -49,14 +49,11 @@ namespace ReversoAPI.Web.Shared.Infrastructure.Http
             if (uri == null) throw new ArgumentNullException(nameof(uri));
             if (payload == null) throw new ArgumentNullException(nameof(payload));
 
-            var json = JsonConvert.SerializeObject(payload);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
             var response = await Policy
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponse>(r => _httpStatusCodesWorthRetrying.Contains(r.StatusCode))
                 .WaitAndRetryAsync(RetryAttemptCount, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)))
-                .ExecuteAsync(() => _httpClient.PostAsync(uri, data, cancellationToken))
+                .ExecuteAsync(() => _httpClient.PostAsync(uri, payload, cancellationToken))
                 .ConfigureAwait(false);
 
             return response;

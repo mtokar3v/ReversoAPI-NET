@@ -11,6 +11,7 @@ using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http;
 using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
+using System.Net;
 
 namespace ReversoAPI.Web.Tests.Clients
 {
@@ -22,7 +23,7 @@ namespace ReversoAPI.Web.Tests.Clients
         public SpellingClientTests()
         {
             _apiConnector = new Mock<IAPIConnector>();
-            _client = new SpellingService(_apiConnector.Object);
+            _client = new SpellingService(_apiConnector.Object, null);
         }
 
         [Theory]
@@ -30,7 +31,7 @@ namespace ReversoAPI.Web.Tests.Clients
         public async Task GetAsync_Success(string text, Language language, Locale locale, Stream json, SpellingData expectedResult)
         {
             // Arrange
-            var response = new HttpResponse() { Content = json };
+            var response = new HttpResponse("text/html", json, HttpStatusCode.OK);
             _apiConnector
                 .Setup(c => c.PostAsync(It.IsAny<Uri>(), It.IsAny<SpellingRequest>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(response);

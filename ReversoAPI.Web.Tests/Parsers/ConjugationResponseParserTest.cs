@@ -14,7 +14,7 @@ namespace ReversoAPI.Web.Tests.Parsers
         public void Invoke_Test(ConjugationData expectedResult, Stream html)
         {
             // Arrange
-            var parser = new ConjugationParserService();
+            var parser = new ConjugationParseService(null);
 
             // Act
             var result = parser.Invoke(html);
