@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders;
 using ReversoAPI.Web.Shared.Domain.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
-namespace ReversoAPI.Web.ContextFeature.Domain.Core.Services
+namespace ReversoAPI.Web
 {
     public class ContextParseService : BaseParser<ContextData>
     {

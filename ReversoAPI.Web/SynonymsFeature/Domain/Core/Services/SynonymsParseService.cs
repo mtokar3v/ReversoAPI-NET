@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using ReversoAPI.Web.SynonymsFeature.Domain.Supporting.Builders;
 using ReversoAPI.Web.Shared.Domain.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
-namespace ReversoAPI.Web.SynonymsFeature.Domain.Core.Services
+namespace ReversoAPI.Web
 {
     public class SynonymsParseService : BaseParser<SynonymsData>
     {

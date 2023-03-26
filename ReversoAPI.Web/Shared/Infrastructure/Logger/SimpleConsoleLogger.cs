@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReversoAPI.Web.Shared.Infrastructure.Logger
+namespace ReversoAPI
 {
     public class SimpleConsoleLogger : ILogger
     {

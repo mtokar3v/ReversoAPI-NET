@@ -4,8 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using ReversoAPI.Web.ConjugationFeature.Application.Validators;
 using ReversoAPI.Web.ConjugationFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.ConjugationFeature.Application.Services
 {

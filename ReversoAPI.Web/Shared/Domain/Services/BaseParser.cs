@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 
 namespace ReversoAPI.Web.Shared.Domain.Services
 {

@@ -1,11 +1,6 @@
 ﻿using System;
-using ReversoAPI.Web.ConjugationFeature.Domain.Core.Services;
-using ReversoAPI.Web.ContextFeature.Domain.Core.Services;
-using ReversoAPI.Web.SynonymsFeature.Domain.Core.Services;
-using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
 using ReversoAPI.Web.Shared.Infrastructure.Http;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
-using ReversoAPI.Web.Shared.Infrastructure.Logger;
+using ReversoAPI.Web;
 
 namespace ReversoAPI
 {

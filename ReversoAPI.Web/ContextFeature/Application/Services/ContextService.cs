@@ -2,8 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using ReversoAPI.Web.ContextFeature.Application.Interfaces.Services;
-using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.ContextFeature.Application.Services
 {

@@ -10,8 +10,6 @@ using System.Collections.Generic;
 using ReversoAPI.Web.TranslationFeature.Application.DTOs;
 using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Http;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.Tests.Clients
 {

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces
+namespace ReversoAPI.Web
 {
     public interface IAPIConnector
     {

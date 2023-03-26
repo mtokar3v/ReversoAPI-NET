@@ -5,8 +5,6 @@ using ReversoAPI.Web.GrammarCheckFeature.Application.DTOs;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Validators;
 using ReversoAPI.Web.Shared.Application.Extensions;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
-using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
 namespace ReversoAPI.Web.GrammarCheckFeature.Application.Services
 {

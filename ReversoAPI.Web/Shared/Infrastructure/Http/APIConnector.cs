@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Net;
 using System.Linq;
-using System.Text;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Polly;
-using Newtonsoft.Json;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
-namespace ReversoAPI.Web.Shared.Infrastructure.Http
+namespace ReversoAPI.Web
 {
     public class APIConnector : IAPIConnector
     {

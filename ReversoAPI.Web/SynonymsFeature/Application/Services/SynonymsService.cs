@@ -3,8 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using ReversoAPI.Web.SynonymsFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.Shared.Domain.Extensions;
-using ReversoAPI.Web.Shared.Domain.Interfaces.Services;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.SynonymsFeature.Application.Services
 {

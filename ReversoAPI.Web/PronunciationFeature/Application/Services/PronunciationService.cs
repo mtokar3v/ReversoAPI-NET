@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using ReversoAPI.Web.PronunciationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.Shared.Application.Extensions;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
 
 namespace ReversoAPI.Web.PronunciationFeature.Application.Services
 {

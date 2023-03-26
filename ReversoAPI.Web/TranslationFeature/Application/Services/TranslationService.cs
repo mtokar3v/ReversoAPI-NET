@@ -5,8 +5,6 @@ using ReversoAPI.Web.TranslationFeature.Application.DTOs;
 using ReversoAPI.Web.TranslationFeature.Application.Interfaces.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Validators;
 using ReversoAPI.Web.Shared.Application.Extensions;
-using ReversoAPI.Web.Shared.Infrastructure.Http.Interfaces;
-using ReversoAPI.Web.Shared.Infrastructure.Logger;
 
 namespace ReversoAPI.Web.TranslationFeature.Application.Services
 {

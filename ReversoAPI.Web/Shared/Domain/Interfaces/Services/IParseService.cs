@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ReversoAPI.Web.Shared.Domain.Interfaces.Services
+namespace ReversoAPI.Web
 {
     public interface IParseService<TResult>
     {

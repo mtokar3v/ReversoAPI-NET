@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace ReversoAPI.Web.Shared.Infrastructure.Http
+namespace ReversoAPI.Web
 {
     public class HttpResponse : IDisposable
     {
