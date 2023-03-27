@@ -6,7 +6,7 @@
 
 ## What's this?
 
-This open source C# library for the Reverso Web API offers a comprehensive set of language processing tools, including translation, grammar checking, verb conjugation, context finding, synonym discovery, and text-to-speech pronunciation. By leveraging the Reverso site API and parsing HTML, it provides an easy-to-use interface for .NET-based languages like C# and VisualBasic .NET. Whether you're building an educational application or need to provide language processing capabilities for your users, this library is a valuable resource.
+This is an open source C# client for the [Reverso.net](https://www.reverso.net/), which offers a comprehensive set of language processing tools, including translation, grammar checking, verb conjugation, context finding, synonym discovery, and text-to-speech pronunciation. By leveraging the Reverso site API and parsing HTML, it provides an easy-to-use interface for .NET-based languages like C# and VisualBasic .NET. 
 
 ## Features
 * ✅ Complete Reverso.net functionality:
