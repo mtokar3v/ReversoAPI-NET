@@ -6,7 +6,7 @@
 
 ## What's this?
 
-This is an open source C# client for the [Reverso.net](https://www.reverso.net/), which offers a comprehensive set of language processing tools, including translation, grammar checking, verb conjugation, context finding, synonym discovery, and text-to-speech pronunciation. By leveraging the Reverso site API and parsing HTML, it provides an easy-to-use interface for .NET-based languages like C# and VisualBasic .NET. 
+This is an open source API client for the [Reverso.net](https://www.reverso.net/), which offers a comprehensive set of language processing tools, including translation, grammar checking, verb conjugation, context finding, synonym discovery, and text-to-speech pronunciation. By leveraging the Reverso site API and parsing HTML, it provides an easy-to-use interface for .NET-based languages like C# and VisualBasic .NET. 
 
 ## Features
 * ✅ Complete Reverso.net functionality:
