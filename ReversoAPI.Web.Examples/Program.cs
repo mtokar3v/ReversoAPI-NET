@@ -21,6 +21,8 @@
             await PrintSpellingsAsync(text, source);
 
             await DownloadPronunciationAsync(text, source, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{source}.mp3"));
+
+            _reversoClient.Dispose();
         }
 
         private static async Task PrintSpellingsAsync(string text, Language language)

@@ -10,14 +10,14 @@ namespace ReversoAPI
         private IHttpClient _httpClient;
         public IHttpClient HttpClient 
         { 
-            get => _httpClient ?? new CachedHttpClient();
+            get => _httpClient ?? new SimpleHttpClient();
             private set => _httpClient = value;
         }
 
         private IAPIConnector _apiConnector;
         public IAPIConnector APIConnector 
         {
-            get => _apiConnector ?? new APIConnector(new CachedHttpClient());
+            get => _apiConnector ?? new APIConnector(new SimpleHttpClient());
             private set => _apiConnector = value;
         }
 
@@ -65,7 +65,7 @@ namespace ReversoAPI
 
         public ReversoClientConfig CreateDefault()
         {
-            var httpClient = new CachedHttpClient();
+            var httpClient = new SimpleHttpClient();
 
             return new ReversoClientConfig(
                 httpClient,

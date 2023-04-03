@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -8,15 +9,25 @@ using System.Threading.Tasks;
 
 namespace ReversoAPI.Web.Shared.Infrastructure.Http
 {
-    public class CachedHttpClient : IHttpClient
+    public class SimpleHttpClient : IHttpClient
     {
+        private const string RandomUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36";
+
         private readonly HttpClient _httpClient;
 
-        public CachedHttpClient()
+        public SimpleHttpClient()
         {
-            _httpClient = HttpClientCacheWrapper
-                .GetInstance()
-                .GetHttpClient();
+            _httpClient = new HttpClient()
+            {
+                Timeout = TimeSpan.FromSeconds(15),
+            };
+
+            // User-agent is necessary to send a valid request to Reverso
+            // But this realisation like string with random user-agent seems unsuccessful
+            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(RandomUserAgent);
+            _httpClient.DefaultRequestHeaders.Accept.ParseAdd("*/*");
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         public async Task<HttpResponse> GetAsync(Uri uri, CancellationToken cancellationToken = default)
@@ -54,6 +65,12 @@ namespace ReversoAPI.Web.Shared.Infrastructure.Http
                 contentType: response.Content.Headers.ContentType.MediaType,
                 content: await CopyAsync(content, cancellationToken).ConfigureAwait(false),
                 response.StatusCode);
+        }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         // TODO: Rid of this. HttpResponseMessage disposing leads to close Content stream.

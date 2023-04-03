@@ -2,7 +2,6 @@
 using System.Web;
 using System.Threading;
 using System.Threading.Tasks;
-using ReversoAPI.Web.ConjugationFeature.Application.Validators;
 using ReversoAPI.Web.ConjugationFeature.Application.Interfaces.Services;
 
 namespace ReversoAPI.Web.ConjugationFeature.Application.Services
@@ -24,8 +23,7 @@ namespace ReversoAPI.Web.ConjugationFeature.Application.Services
 
         public async Task<ConjugationData> GetAsync(string text, Language language, CancellationToken cancellationToken = default)
         {
-            var validationResult = new ConjugationRequestValidator(text, language).Validate();
-            if (!validationResult.IsValid) throw validationResult.Exception;
+            if (string.IsNullOrEmpty(text)) return null;
 
             var url = CombineUrl(text, language);
 
