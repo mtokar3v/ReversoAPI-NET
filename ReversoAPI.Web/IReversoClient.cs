@@ -1,6 +1,8 @@
-﻿namespace ReversoAPI
+﻿using System;
+
+namespace ReversoAPI
 {
-    public interface IReversoClient
+    public interface IReversoClient : IDisposable
     {
         IContextClient Context { get; }
         ISynonymsClient Synonyms { get; }

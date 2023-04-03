@@ -1,16 +1,21 @@
-﻿using ReversoAPI.Web.ConjugationFeature.Application.Services;
+﻿using ReversoAPI.Web;
+using ReversoAPI.Web.ConjugationFeature.Application.Services;
 using ReversoAPI.Web.ContextFeature.Application.Services;
 using ReversoAPI.Web.GrammarCheckFeature.Application.Services;
 using ReversoAPI.Web.PronunciationFeature.Application.Services;
 using ReversoAPI.Web.SynonymsFeature.Application.Services;
 using ReversoAPI.Web.TranslationFeature.Application.Services;
+using System;
 
 namespace ReversoAPI
 {
     public class ReversoClient : IReversoClient
     {
+        private IHttpClient _httpClient;
+
         public ReversoClient(ReversoClientConfig config)
         {
+            _httpClient = config.HttpClient;
             var apiConnector = config.APIConnector;
 
             Context = new ContextClient(new ContextService(apiConnector, config.ContextParser));
@@ -32,5 +37,11 @@ namespace ReversoAPI
         public ITranslationClient Translation { get; }
         public IPronunciationClient Pronunciation { get; }
         public IConjugationClient Conjugation { get; }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }
