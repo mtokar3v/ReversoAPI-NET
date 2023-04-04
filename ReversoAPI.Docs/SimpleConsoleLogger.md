@@ -43,6 +43,6 @@ var reverso = new ReversoClient(config);
 ## Log example
 ```
 Friday, October 31, 2023 9:04:32 AM
-ERROR: Reverso translation response in empty.
+ERROR: Reverso translation response is empty.
 Failed to get translation
 ```
