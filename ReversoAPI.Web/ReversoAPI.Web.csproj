@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>disable</Nullable>
     <Title>ReversoAPI-NET</Title>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <Authors>Maxim Tokarev</Authors>
     <Description>A Client for the Reverso Web API, written in C#/.NET
 (Based on Site API and HTML parsing)</Description>
