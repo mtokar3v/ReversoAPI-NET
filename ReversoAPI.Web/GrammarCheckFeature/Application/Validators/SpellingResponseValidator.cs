@@ -29,6 +29,17 @@ namespace ReversoAPI.Web.GrammarCheckFeature.Application.Validators
 
         #region Private Methods
 
+        private IValidationResult ValidateResponse(SpellingResponse response)
+        {
+            if (response == null)
+            {
+                var message = "Reverso spelling response is empty.";
+                return new ValidationResult(false, message);
+            }
+
+            return null;
+        }
+
         private IValidationResult ValidateText(string text)
         {
             if (string.IsNullOrEmpty(text))

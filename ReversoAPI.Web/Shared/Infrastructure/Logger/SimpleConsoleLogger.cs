@@ -1,4 +1,5 @@
 ﻿using System;
+using ReversoAPI.Web;
 
 namespace ReversoAPI
 {

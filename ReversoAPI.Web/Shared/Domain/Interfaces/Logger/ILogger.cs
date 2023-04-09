@@ -1,4 +1,4 @@
-﻿namespace ReversoAPI
+﻿namespace ReversoAPI.Web
 {
     public interface ILogger
     {

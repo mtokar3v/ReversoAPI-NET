@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        private static readonly IReversoClient _reversoClient = new ReversoClient();
+        static IReversoClient _reversoClient = new ReversoClient();
 
         static async Task Main()
         {

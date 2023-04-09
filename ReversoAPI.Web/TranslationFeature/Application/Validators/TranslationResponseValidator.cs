@@ -36,7 +36,7 @@ namespace ReversoAPI.Web.TranslationFeature.Application.Validators
         {
             if (response == null)
             {
-                var message = "Reverso translation response in empty.";
+                var message = "Reverso translation response is empty.";
                 return new ValidationResult(false, message);
             }
 
