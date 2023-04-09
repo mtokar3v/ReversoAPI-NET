@@ -24,7 +24,7 @@ The client is created together with the parent ReversoClient and is also united 
 
 ```csharp
 using var reverso = new ReversoClient();
-var reversoContext = reverso.Synonyms;
+var reversoSynonyms = reverso.Synonyms;
 ```
 
 ## Methods
