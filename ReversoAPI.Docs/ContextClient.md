@@ -11,6 +11,7 @@ public class ContextClient : IContextClient
 Namespace: ReversoAPI
 
 Inheritance: Object -> ContextClient
+
 Implements: IContextClient  
 
 ## Remarks
@@ -74,6 +75,10 @@ The input text is considered invalid if it is null or empty, if its length excee
 `NotSupportedException`
   
 The language input is not supported by Reverso.net.
+  
+`FormatException`
+
+Received data from Reverso is not in HTML format
   
 ## Examples
   
