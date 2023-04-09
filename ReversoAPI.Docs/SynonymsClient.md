@@ -29,7 +29,7 @@ var reversoSynonyms = reverso.Synonyms;
 
 ## Methods
 
-## GetAsync(string text, Language source, Language target, CancellationToken cancellationToken = default) Method
+## GetAsync(string text, Language language, CancellationToken cancellationToken = default) Method
   
 ## Defenition
   
