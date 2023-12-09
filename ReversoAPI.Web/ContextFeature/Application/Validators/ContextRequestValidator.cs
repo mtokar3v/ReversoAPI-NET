@@ -15,8 +15,7 @@ namespace ReversoAPI.Web.ContextFeature.Application.Validators
             Language.Japanese, Language.Korean, Language.Dutch,
             Language.Polish, Language.Portuguese, Language.Romanian,
             Language.Russian, Language.Swedish, Language.Turkish,
-            Language.Ukrainian, Language.Chinese, Language.Swedish,
-            Language.English,
+            Language.Ukrainian, Language.Chinese, Language.English,
         };
 
         public ContextRequestValidator(string text, Language source, Language target)
@@ -37,7 +36,7 @@ namespace ReversoAPI.Web.ContextFeature.Application.Validators
                 () => ValidateText(Text),
                 () => ValidateLanguage(Source),
                 () => ValidateLanguage(Target),
-                () => ValidateLanguageСompatibility(Source, Target),
+                () => ValidateLanguageCompatibility(Source, Target),
             };
 
             return validators;
@@ -73,7 +72,7 @@ namespace ReversoAPI.Web.ContextFeature.Application.Validators
             return null;
         }
 
-        private IValidationResult ValidateLanguageСompatibility(Language source, Language target)
+        private IValidationResult ValidateLanguageCompatibility(Language source, Language target)
         {
             if (source == target)
             {

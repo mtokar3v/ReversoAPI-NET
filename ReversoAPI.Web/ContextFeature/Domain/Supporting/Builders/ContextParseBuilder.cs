@@ -42,8 +42,8 @@ namespace ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders
             try
             {
                 _response.Source = _html.DocumentNode
-                    .SelectSingleNode("//*[@id='src-selector']//span[@class='option front']")
-                    .GetAttributeValue("data-value", string.Empty)
+                    .SelectSingleNode("//*[@id='src-selector']//span[@class='lang-name']")
+                    .InnerHtml
                     .ToLanguageFromShortName();
 
                 if (_response.Source == Language.Unknown) throw new ParsingException();
@@ -56,8 +56,8 @@ namespace ReversoAPI.Web.ContextFeature.Domain.Supporting.Builders
             try
             {
                 _response.Target = _html.DocumentNode
-                    .SelectSingleNode("//*[@id='trg-selector']//span[@class='option front']")
-                    .GetAttributeValue("data-value", string.Empty)
+                    .SelectSingleNode("//*[@id='trg-selector']//span[@class='lang-name']")
+                    .InnerHtml
                     .ToLanguageFromShortName();
 
                 if (_response.Target == Language.Unknown) throw new ParsingException();
