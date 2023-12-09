@@ -151,8 +151,8 @@ namespace ReversoAPI.Web.Tests {
         ///  &lt;head&gt;
         ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
         ///    &lt;title&gt;human - Translation into Arabic - examples English | Reverso Context&lt;/title&gt;
-        ///&lt;meta name=&quot;description&quot; content=&quot;Translations in context of &amp;quot;human&amp;quot; in English-Arabic from Reverso Context: human rights, human beings, human trafficking, human being, human resources&quot; /&gt;
-        ///&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-arab [rest of string was truncated]&quot;;.
+        ///&lt;meta name=&quot;description&quot; content=&quot;Translations in context of &amp;quot;human&amp;quot; in English-Arabic from Reverso Context: human rights, human beings, human being, human right, human race&quot; /&gt;
+        ///&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-arabic/human&quot; /&gt;&lt;link [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Context_Parse_Test_English_Arabic {
             get {
@@ -163,13 +163,11 @@ namespace ReversoAPI.Web.Tests {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
-        ///
-        ///&lt;head&gt;
-        ///	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
-        ///	&lt;title&gt;hello - Translation into Russian - examples English | Reverso Context&lt;/title&gt;
-        ///	&lt;meta name=&quot;description&quot;
-        ///		content=&quot;Translations in context of &amp;quot;hello&amp;quot; in English-Russian from Reverso Context: say hello, hello kitty, to say hello to, saying hello, said hello&quot; /&gt;
-        ///	&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-russian/hell [rest of string was truncated]&quot;;.
+        ///  &lt;head&gt;
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+        ///    &lt;title&gt;hello - Translation into Russian - examples English | Reverso Context&lt;/title&gt;
+        ///&lt;meta name=&quot;description&quot; content=&quot;Translations in context of &amp;quot;hello&amp;quot; in English-Russian from Reverso Context: say hello, to say hello to, said hello, hello everyone, hello world&quot; /&gt;
+        ///&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://context.reverso.net/translation/english-russian/hello&quot; / [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Context_Parse_Test_English_Russian {
             get {
