@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using ReversoAPI.Web.Shared.Application.Interfaces;
+﻿using ReversoAPI.Web.Shared.Application.Interfaces;
 using ReversoAPI.Web.Shared.Application.Validators;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ReversoAPI.Web.SynonymsFeature.Application.Validators
 {
@@ -12,9 +12,9 @@ namespace ReversoAPI.Web.SynonymsFeature.Application.Validators
         {
             Language.Arabic, Language.German, Language.Spanish,
             Language.French, Language.Hebrew, Language.Italian,
-            Language.Japanese, Language.Korean, Language.Dutch,
+            Language.Japanese, Language.Dutch, Language.English,
             Language.Polish, Language.Portuguese, Language.Romanian,
-            Language.Russian, Language.English
+            Language.Russian,
         };
 
         public SynonymsRequestValidator(string text, Language language)
