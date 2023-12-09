@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>disable</Nullable>
     <Title>ReversoAPI-NET</Title>
-    <Version>1.3.0</Version>
+    <Version>2.0.0</Version>
     <Authors>Maxim Tokarev</Authors>
     <Description>A Client for the Reverso Web API, written in C#/.NET
 (Based on Site API and HTML parsing)</Description>
@@ -15,15 +15,15 @@
     <RepositoryUrl>https://github.com/mtokar3v/ReversoAPI-NET</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>text-to-speech, translation, context, synonyms, spelling, conjugation, reverso, api, c#, net, reverso-client</PackageTags>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\LICENSE.txt">
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\..\..\..\Desktop\README.md">
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
