@@ -1,3 +1,4 @@
+> ⚠️ **Notice:** Since 2024, Reverso has started actively blocking scraping and automated access. As a result, this library no longer works. Thank you for your support!
 <img src="https://github.com/mtokar3v/ReversoAPI-NET/blob/master/ReversoAPI.Docs/Static/Images/Title.jpg">
 
 [![License](https://img.shields.io/github/license/JohnnyCrazy/SpotifyAPI-NET?style=flat-square)](./LICENSE)
